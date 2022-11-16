@@ -1,0 +1,18 @@
+#header{
+    background-color: black;
+    height: 3.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 10px 5px 5px red;
+}
+
+.logo{
+    height: 30px;
+    object-fit: cover;
+
+}
+
+.tab{
+
+}
