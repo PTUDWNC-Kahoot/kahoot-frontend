@@ -45,7 +45,10 @@ html {
 }
 
 .form__group {
-
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
 .form__label {
@@ -82,6 +85,7 @@ html {
 }
 
 .btn__submit {
+    width: 100%;
     cursor: pointer;
     display: inline-block;
     border: 0px;
@@ -105,4 +109,47 @@ html {
     line-height: 17px;
     text-align: center;
     padding-top: 24px;
+}
+.form__SocialLoginWrapper{
+    padding: 24px;
+}
+.form__btn {
+    display: flex;    /* Để icon và text theo chiều ngang, ở đây btn là 1 container */
+    align-items: center;     /* Căn nội dung theo chiều dọc */
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    height: auto;
+    font-weight: 500;     /* Điều chỉnh độ dày của chữ */
+    cursor: pointer;
+
+}
+.form__btn:focus{
+    cursor: pointer;
+    border: 2px solid rgb(19, 104, 206);
+}
+.form__socialIcon {
+    min-height: 1.75rem;
+    margin: 0px 8px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    vertical-align: baseline;
+}
+.form__socialText {
+    font-size: 14px;
+    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 36px;
 }

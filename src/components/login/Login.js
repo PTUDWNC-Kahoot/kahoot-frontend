@@ -3,7 +3,7 @@ import React from "react";
 // import { useMutation } from "react-query";
 // import axios from 'axios';
 import "./login.css"
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 function Login() {
     // const navigate = useNavigate();
@@ -49,21 +49,35 @@ function Login() {
         <div className="form__content">
                 <header className="form__header"> Log in</header>
                 <div className="form__body">
-                    <div className="form__group row">
-                        <label htmlFor="username" className="form__label">Username or email</label>
-                        <input id = "username" className="form__input" type = "text" name="Username"  />
+                    <div className="form__UsernameLoginWrapper">
+                        <div className="">
+                            <label htmlFor="username" className="form__label">Username or email</label>
+                            <input id = "username" className="form__input" type = "text" name="Username"  />
+                        </div>
+                        <div className="">
+                            <label htmlFor="password" className="form__label">Password</label>
+                            <input id = "password" className="form__input" type = "password"  name="Password"  />
+                        </div>
+                        <div className="form__forgotPassword">
+                            <p>Forgot your password? <a href="#">Reset your password</a></p>
+                        </div>
+                        <button type="submit" className="btn__submit">Log in</button>
+                        <div className="form__signUp">
+                            <p>Don't have an account?<a href="#">Sign up</a></p>
+                        </div>
                     </div>
-                    <div className="form__group row">
-                        <label htmlFor="password" className="form__label">Password</label>
-                        <input id = "password" className="form__input" type = "password"  name="Password"  />
+                    <div className="form__SocialLoginWrapper">
+                            <button className="form__btn">
+                                <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
+                                <p className="form__socialText">Continue with Google</p>
+                            </button>
+                            <button className="form__btn">
+                                <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
+                                <p className="form__socialText">Continue with Facebook</p>
+                            </button>
+                            
+                       
                     </div>
-                    <div className="form__forgotPassword">
-                        <p>Forgot your password? <a href="#">Reset your password</a></p>
-                    </div>
-                </div>
-                <button type="submit" className="btn__submit">Log in</button>
-                <div className="form__signUp">
-                    <p>Don't have an account? <a href="#">Sign up</a></p>
                 </div>
             </div>
         </div>
