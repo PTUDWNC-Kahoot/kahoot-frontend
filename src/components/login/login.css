@@ -1,0 +1,108 @@
+/* Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family:  Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+
+
+.form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px 0px;
+    color: inherit;
+}
+.form__content {
+
+    justify-content: center;
+    width: calc(100%- 3rem);
+    max-width: 22.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+.form__header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 140%;
+    text-align: center;
+}
+
+.form_body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.form__group {
+
+}
+
+.form__label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    vertical-align: baseline;
+}
+
+.form__input {
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.75rem;
+    font-family: Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 51, 51);
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease 0s;
+    appearance: none;
+    text-overflow: ellipsis;
+    resize: none;
+    overflow: auto;
+    padding: 0px 1rem;
+    white-space: nowrap;
+}
+
+.form__forgotPassword {
+    color: #333;
+    line-height: 17px;
+    margin: 8px 0px 24px;
+}
+
+.btn__submit {
+    cursor: pointer;
+    display: inline-block;
+    border: 0px;
+    vertical-align: bottom;
+    padding: 0px 16px 4px;
+    border-radius: 4px;
+    color: #FFF;    
+    background: rgb(38, 137, 12);
+    box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0px 16px 4px;
+    position: relative;
+}
+.form__signUp {
+    color: #333;
+    line-height: 17px;
+    text-align: center;
+    padding-top: 24px;
+}
