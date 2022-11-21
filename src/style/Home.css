@@ -1,0 +1,21 @@
+.content{
+    background-color: #FAFAFA;
+    height: 1000;
+    flex-direction: row;
+    display: flex;
+    padding: 7em 5em;
+
+}
+
+
+.col1{
+    flex: 1
+}
+
+.col2{
+    flex: 2;
+}
+
+.col3{
+    flex: 1;
+}

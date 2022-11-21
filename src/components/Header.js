@@ -20,7 +20,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 const Header = () => {
-    const [value, setValue] = useState();
+    const [value, setValue] = useState(0);
     const theme = useTheme();
     console.log(theme);
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
