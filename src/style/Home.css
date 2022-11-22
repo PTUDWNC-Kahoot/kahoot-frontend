@@ -1,9 +1,9 @@
 .content{
-    background-color: #FAFAFA;
-    height: 1000;
+    background-color: #F2F2F2;
     flex-direction: row;
     display: flex;
     padding: 7em 5em;
+    height: 1000px;
 
 }
 

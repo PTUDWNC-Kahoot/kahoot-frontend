@@ -1,0 +1,37 @@
+.elementContent {
+    border-width: 1em;
+    border-color: black;
+    background-color: white;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+
+}
+
+.imageBox {
+    flex: 1
+}
+
+.info{
+    flex: 4;
+    width: max-content;
+    flex-direction: column;
+    display: flex;
+}
+
+.titleBox{
+    flex: 4;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.moreInfo{
+    flex: 1;
+    margin-left: 10px;
+    background-color: #F2F2F2;
+    padding: 5px;
+    font-size: small;
+}

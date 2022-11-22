@@ -2,6 +2,9 @@ import '../../style/Home.css'
 import Header from '../../components/Header'
 
 import ProfileCard from '../../components/ProfileCard'
+import AssignmentCard from '../../components/AssignmentCard'
+import KahootCard from '../../components/KahootCard'
+
 import OutlinedCard from '../../components/OutlinedCard'
 
 function Home() {
@@ -10,8 +13,8 @@ function Home() {
             <Header />
             <div className='content'>
                 <div className='col1'>
-                    <ProfileCard className='card'></ProfileCard>
-                    <OutlinedCard className='card'></OutlinedCard>
+                    <ProfileCard/>
+                    <AssignmentCard/>
 
                 </div>
                 <div className='col2'>
@@ -20,7 +23,7 @@ function Home() {
 
                 </div>
                 <div className='col3'>
-                    <OutlinedCard></OutlinedCard>
+                    <KahootCard></KahootCard>
                     <OutlinedCard></OutlinedCard>
 
                 </div>
