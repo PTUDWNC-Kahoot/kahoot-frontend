@@ -7,6 +7,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
+const useStyles = {
+  card: {
+    paddingTop: 10,
+    paddingBottom: 25,
+    paddingLeft: 20,
+    paddingRight: 20,
+    boxShadow: "none",
+  },
+  cardWrapper: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+};
+
 const card = (
   <React.Fragment>
     <CardContent>
@@ -29,8 +46,8 @@ const card = (
 
 export default function OutlinedCard() {
   return (
-    <Box sx={{ minWidth: 275, margin: 2 }}>
-      <Card variant="outlined">{card}</Card>
+    <Box sx={{ minWidth: 275, margin: 2,  boxShadow:2 }}>
+      <Card className={useStyles .card} variant="outlined">{card}</Card>
     </Box>
   );
 }

@@ -1,14 +1,16 @@
 import '../../style/Home.css'
 import Header from '../../components/Header'
 
-import OutlinedCard from '../../components/CardItem'
+import ProfileCard from '../../components/ProfileCard'
+import OutlinedCard from '../../components/OutlinedCard'
+
 function Home() {
     return (
         <div >
             <Header />
             <div className='content'>
                 <div className='col1'>
-                    <OutlinedCard className='card'></OutlinedCard>
+                    <ProfileCard className='card'></ProfileCard>
                     <OutlinedCard className='card'></OutlinedCard>
 
                 </div>
