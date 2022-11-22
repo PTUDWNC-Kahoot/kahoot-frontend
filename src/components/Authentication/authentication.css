@@ -103,7 +103,7 @@ html {
     text-overflow: ellipsis;
     resize: none;
     overflow: auto;
-    padding: 0px 1rem;
+    padding: 0px 40px 0px 16px;
     white-space: nowrap;
 }
 .form__passwordIcon{
@@ -162,12 +162,7 @@ html {
     height: 32px;
 
 }
-.form__passwordEye--shown {
-    background: url(https://img.icons8.com/ios/32/null/eyelashes-2d.png) no-repeat;
-}
-.form__passwordEye--hided{
-    opacity:0;
-}
+
 
 .btn__submit {
     width: 100%;
@@ -197,6 +192,11 @@ html {
     box-shadow: none;
     cursor: not-allowed;
 }
+.errorMsg {
+    max-width: 100%;
+    font-size:0.75rem;
+    color:rgb(248, 106, 106);
+  }
 /* End: Form Username Wrapper */
 
 
