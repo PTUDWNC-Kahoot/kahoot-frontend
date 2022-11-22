@@ -4,6 +4,7 @@ import Header from '../../components/Header'
 import ProfileCard from '../../components/ProfileCard'
 import AssignmentCard from '../../components/AssignmentCard'
 import KahootCard from '../../components/KahootCard'
+import ClassCard from '../../components/ClassCard'
 
 import OutlinedCard from '../../components/OutlinedCard'
 
@@ -18,7 +19,7 @@ function Home() {
 
                 </div>
                 <div className='col2'>
-                    <OutlinedCard></OutlinedCard>
+                    <ClassCard></ClassCard>
                     <OutlinedCard></OutlinedCard>
 
                 </div>
