@@ -85,14 +85,14 @@ function Login() {
                 <section className="form__content">
                     <header className="form__header form__text--center form__text--b"> Log in</header>
                         <div className="form__UsernameWrapper form__display--flex">
-                            <form  className="form__inputWrapper">
+                            <form  className="form__inputWrapper"  onSubmit={handleSubmit(onSubmit)}>
                                 <label htmlFor="username" className="form__text--b form__label">Username or email</label>
                                 <div className="form__usernameInput">
-                                    <input id = "username" className="form__input" type = "text" />
+                                    <input id = "username" className="form__input" type = "text" name="username"  {...register("username")} />
                                 </div>
                                 <label htmlFor="password" className="form__text--b form__label">Password</label>
                                 <div className="form__password">
-                                    <input id = "password" className="form__input form__PasswordInput" type ={showPass.typePass} name="Password"/>
+                                    <input id = "password" className="form__input form__PasswordInput" type ={showPass.typePass} name="password"  {...register("password")}/>
                                     <div className="form__passwordEye">
                                         <button id="form__passwordEyeBtn" type="button" className="form__passwordEyeBtn" onClick={handleShowPass}>
                                              <span className="form__passwordEyeIcon">
@@ -106,7 +106,7 @@ function Login() {
                             <div className="form__forgotPassword">
                                <div className="form__text--14 form__text--grey">Forgot your password? <a href="#">Reset your password</a></div>
                             </div>
-                          <button disabled type="submit" className="form__text--b btn__submit btn__submit--disabled">Log in</button>
+                          <button disabled type="submit" className="form__text--b btn__submit ">Log in</button>
                           </form>
                         </div>
                     <div className="form__CardLineWrapper">
