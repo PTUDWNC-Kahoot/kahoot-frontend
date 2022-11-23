@@ -23,35 +23,35 @@ const statePass = [
   
 ]
 function Register() {
-    // const navigate = useNavigate();  
-    // let user = {};
+    const navigate = useNavigate();  
+    let user = {};
 
     // const { register, handleSubmit } = useForm();
-    // const onSubmit = data => {
-    //     user = data;
-    //     mutate();
-    // };
+    const onSubmit = data => {
+        user = data;
+        mutate();
+    };
 
-    // const { isLoading, isError, error, mutate } = useMutation(
-    //     postData, 
-    //     {
-    //         onSuccess: (res) => {
-    //             navigate("/login");
-    //         },
-    //         onError: (err) => {                   
-    //         },
-    //     }
-    // );
-    // async function postData() {
-    //     return await axios.post(process.env.REACT_APP_API_URL + 'register', user);
-    // }
+    const { isLoading, isError, error, mutate } = useMutation(
+        postData, 
+        {
+            onSuccess: (res) => {
+                navigate("/login");
+            },
+            onError: (err) => {                   
+            },
+        }
+    );
+    async function postData() {
+        return await axios.post(process.env.REACT_APP_API_URL + 'register', user);
+    }
 
-    // if (isLoading) {
-    //     return <div>Loading...</div>
-    // }
-    // if (isError) {
-    //     return <div>Error! {error.message}</div>
-    // }
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
+    if (isError) {
+        return <div>Error! {error.message}</div>
+    }
 
     const [showPass, setShowPass] = useState(statePass[0])
     const handleShowPass = () => {
@@ -72,7 +72,7 @@ function Register() {
     const formik = useFormik ({
         initialValues: {
             email: "",
-            pass: ""
+            password: ""
         },
         validationSchema: Yup.object({
             email: Yup.string().required("Required")
@@ -88,8 +88,8 @@ function Register() {
              ),
         }),
         onSubmit: values => {
-            console.log(values);
-            window.alert("Form submmited");
+           const NewUser = values;
+           console.log(NewUser)
         }
     });
     console.log(formik.errors);
@@ -110,8 +110,8 @@ function Register() {
                                 </div>
                                 <label htmlFor="password" className="form__text--b form__label">Password</label>
                                 <div className="form__password">
-                                    <input id = "password" className="form__input form__PasswordInput"  value={formik.values.password}  onChange={formik.handleChange} type ={showPass.typePass} name="Password"/>
-                                    {formik.errors.password && (    <p className="errorMsg">{formik.errors.password}</p> )}
+                                    <input id = "password" className="form__input form__PasswordInput"  value={formik.values.password}  onChange={formik.handleChange} type ={showPass.typePass} />
+                                    {formik.errors.password && (   <p className="errorMsg">{formik.errors.password}</p> )}
                                     <div className="form__passwordEye">
                                         <button id="form__passwordEyeBtn" type="button" className="form__passwordEyeBtn" onClick={handleShowPass}>
                                              <span className="form__passwordEyeIcon">
