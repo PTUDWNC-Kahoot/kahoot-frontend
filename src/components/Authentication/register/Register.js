@@ -7,6 +7,11 @@ import "../authentication.css"
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import * as Yup from "yup"
+
+
+
+
+// show/hide password
 const statePass = [
     {
         //not show
@@ -23,15 +28,49 @@ const statePass = [
   
 ]
 function Register() {
+   
+
+  
+    const [showPass, setShowPass] = useState(statePass[0])
+    const handleShowPass = () => {
+            const isShow = showPass.state;
+         
+            if(isShow) //neu dang show
+            {
+                //unshow
+                setShowPass(statePass[0])
+            }
+            else { //neu khong show
+                //show
+                setShowPass(statePass[1])
+            }
+     
+    }
+
     const navigate = useNavigate();  
     let user = {};
 
-    // const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        user = data;
-        mutate();
-    };
-
+    const formik = useFormik ({
+        initialValues: {
+            email: "",
+            password: ""
+        },
+        validationSchema: Yup.object({
+            email: Yup.string().required("Required")
+            .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,"Please enter a valid email address"),
+             //Required: Không để field này trống
+            password: Yup.string()
+             .required("Required")
+             .matches(
+               /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{7,19}$/,
+               "Password must be 7-19 characters and contain at least one letter, one number and a special character"
+             ),
+        }),
+        onSubmit: values => {
+           user = values;
+           mutate();
+        }
+    });
     const { isLoading, isError, error, mutate } = useMutation(
         postData, 
         {
@@ -52,48 +91,6 @@ function Register() {
     if (isError) {
         return <div>Error! {error.message}</div>
     }
-
-    const [showPass, setShowPass] = useState(statePass[0])
-    const handleShowPass = () => {
-            const isShow = showPass.state;
-         
-            if(isShow) //neu dang show
-            {
-                //unshow
-                setShowPass(statePass[0])
-            }
-            else { //neu khong show
-                //show
-                setShowPass(statePass[1])
-            }
-     
-    }
-
-    const formik = useFormik ({
-        initialValues: {
-            email: "",
-            password: ""
-        },
-        validationSchema: Yup.object({
-            email: Yup.string().required("Required")
-            .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,"Please enter a valid email address"),
-
-
-             //Required: Không để field này trống
-            password: Yup.string()
-             .required("Required")
-             .matches(
-               /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{7,19}$/,
-               "Password must be 7-19 characters and contain at least one letter, one number and a special character"
-             ),
-        }),
-        onSubmit: values => {
-           const NewUser = values;
-           console.log(NewUser)
-        }
-    });
-    console.log(formik.errors);
-   
     return (
         <div className="page form__display--flex ">
         <div className="navbar"></div>
@@ -142,7 +139,7 @@ function Register() {
                                 <p className="form__socialText">Continue with Facebook</p>
                             </button>
                     </div>
-                    <p className="form__text--center form__text--14 form__text--grey">Already have an account? <a href="#">Log in</a></p>
+                    <p className="form__text--center form__text--14 form__text--grey">Already have an account?  <a href="/login">Log in</a></p>
 
                 
             </section>

@@ -163,7 +163,6 @@ html {
 
 }
 
-
 .btn__submit {
     width: 100%;
     cursor: pointer;
@@ -183,6 +182,7 @@ html {
     position: relative;
     /* To inherit font */
     font-family: inherit; 
+    margin-top: 0.5rem;
 }
 .btn__submit--disabled {
     min-height: 42px;
@@ -193,9 +193,11 @@ html {
     cursor: not-allowed;
 }
 .errorMsg {
-    max-width: 100%;
-    font-size:0.75rem;
-    color:rgb(248, 106, 106);
+    color: rgb(226, 27, 60);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    letter-spacing: 0.2px;
+    left: 0px;
   }
 /* End: Form Username Wrapper */
 
