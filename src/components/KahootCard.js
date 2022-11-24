@@ -7,7 +7,7 @@ import ElementBox from './ElementBox'
 const card = (
   <div className='cardContent'>
     <div className='title'>
-      <text className='titleText'>My kahoots</text>
+      <div className='titleText'>My kahoots</div>
     </div>
     <hr/>
     <div className='contentBox'>

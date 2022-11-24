@@ -1,8 +1,11 @@
 .elementContent {
-    border-width: 1em;
-    border-color: black;
     background-color: white;
+
 }
+
+.elementContent:hover {
+    background-color: #F2F2F2;
+  }
 
 .infoBox {
     display: flex;

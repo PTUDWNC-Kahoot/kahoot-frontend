@@ -8,7 +8,7 @@ import ClassCard from '../../components/ClassCard'
 
 import OutlinedCard from '../../components/OutlinedCard'
 
-function Home() {
+function Group() {
     return (
         <div >
             <Header />
@@ -19,11 +19,14 @@ function Home() {
 
                 </div>
                 <div className='col2'>
-                    <ClassCard></ClassCard>
+                    <ClassCard 
+                    ></ClassCard>
+                    <OutlinedCard></OutlinedCard>
 
                 </div>
                 <div className='col3'>
                     <KahootCard></KahootCard>
+                    <OutlinedCard></OutlinedCard>
 
                 </div>
                
@@ -35,4 +38,4 @@ function Home() {
 
 }
 
-export default Home;
+export default Group;

@@ -6,8 +6,8 @@ import '../style/ProfileCard.css'
 const card = (
   <div className='cardContent'>
     <div className='profileText'>
-      <text className='nameText'>Minh</text>
-      <text className='accountText'>ldminh</text>
+      <div className='nameText'>Minh</div>
+      <div className='accountText'>ldminh</div>
     </div>
     <div className='box'>
       <div></div>

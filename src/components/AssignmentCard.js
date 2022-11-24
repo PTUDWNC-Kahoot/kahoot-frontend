@@ -6,7 +6,7 @@ import ElementBox from './ElementBox'
 const card = (
   <div className='cardContent'>
     <div className='title'>
-      <text className='titleText'>Assignment</text>
+      <div className='titleText'>Assignment</div>
     </div>
     <hr/>
     <div className='contentBox'>
