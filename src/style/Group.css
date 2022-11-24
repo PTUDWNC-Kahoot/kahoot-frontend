@@ -1,0 +1,21 @@
+.content{
+    background-color: #F2F2F2;
+    flex-direction: row;
+    display: flex;
+    padding: 7em 5em;
+    height: max-content;
+
+}
+
+
+.col1{
+    flex: 1
+}
+
+.col2{
+    flex: 2;
+}
+
+.col3{
+    flex: 1;
+}

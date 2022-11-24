@@ -1,32 +1,33 @@
-import '../../style/Home.css'
+import '../../style/Group.css'
 import Header from '../../components/Header'
 
-import ProfileCard from '../../components/ProfileCard'
-import AssignmentCard from '../../components/AssignmentCard'
-import KahootCard from '../../components/KahootCard'
-import ClassCard from '../../components/ClassCard'
+import GroupInforCard from './GroupInforCard'
+import OwnerCard from './OwnerCard'
+import CoOwnerCard from './CoOwnerCard'
+import MemberCard from './MemberCard'
+import { useLocation } from 'react-router-dom';
 
-import OutlinedCard from '../../components/OutlinedCard'
+
 
 function Group() {
+    const {state} = useLocation();
+    const groupName = state;
+    console.log('group', state)
     return (
         <div >
             <Header />
             <div className='content'>
                 <div className='col1'>
-                    <ProfileCard/>
-                    <AssignmentCard/>
+                    <GroupInforCard groupName={groupName}/>
+                    <OwnerCard/>
 
                 </div>
                 <div className='col2'>
-                    <ClassCard 
-                    ></ClassCard>
-                    <OutlinedCard></OutlinedCard>
+                    <MemberCard/>
 
                 </div>
                 <div className='col3'>
-                    <KahootCard></KahootCard>
-                    <OutlinedCard></OutlinedCard>
+                    <CoOwnerCard></CoOwnerCard>
 
                 </div>
                
