@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import {useForm} from "react-hook-form";
 import { useMutation } from "react-query";
 import axios from 'axios';
-import "./register.css"
-import "../authentication.css"
+import '../../style/register.css'
+import '../../style/authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import * as Yup from "yup"

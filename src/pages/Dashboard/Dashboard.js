@@ -13,6 +13,8 @@ function Dashboard() {
             <h1>
             Welcome to your Dashboard
             </h1>
+
+           <a href="/editprofile">Edit Profile </a>
         </div>
     );
 }
