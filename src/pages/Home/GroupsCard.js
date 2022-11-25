@@ -12,7 +12,6 @@ export default function GroupsCard({ listGroup}) {
   const onClick = (groupName) => {
     navigate('/group', { state: {groupName: groupName }})
   }
-  const listGroups = [{ 'name': 'PTUDW' }, { 'name': 'Mobile' }, { 'name': 'Kiến trúc phần mềm' }]
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
       <Card variant="outlined">
@@ -29,6 +28,7 @@ export default function GroupsCard({ listGroup}) {
                   onHandleClick={() => {
                     onClick(group.name)
                   }}
+                  avatar={group.coverImageUrl}
                   title={group.name}
                 ></ElementBox>
               )

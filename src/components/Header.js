@@ -14,17 +14,43 @@ import {
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import Popover from '@mui/material/Popover';
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-const Header = ({state}) => {
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+
+const Header = ({ state }) => {
     const [value, setValue] = useState(0);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [copyState, setCopyState] = useState(false);
+
     const theme = useTheme();
     console.log(theme);
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
     console.log(isMatch);
+
+
+    const handleClickInviteButton = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleCloseButton = () => {
+        setAnchorEl(null);
+    };
+
+    const handleClickCopy = () => {
+        setCopyState(true);
+        navigator.clipboard.writeText('InviteLink');
+      };
+    
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     return (
         <AppBar sx={{ background: '#fff' }}>
@@ -55,14 +81,50 @@ const Header = ({state}) => {
                     </>
                 )}
                 <div className="functionButton">
-                    {state === 'GroupPage'? <Button sx={{ marginLeft: "auto", marginRight: '20px' , flex: 1}} variant="contained">
+                    {state === 'GroupPage' ? <Button sx={{ marginLeft: "auto", marginRight: '20px', flex: 1 }} variant="contained" onClick={handleClickInviteButton}>
                         Invite
-                    </Button>:undefined}
+                    </Button> : undefined}
                     <Button sx={{ marginLeft: "0", flex: 1 }} variant="contained">
                         Create
                     </Button>
                 </div>
 
+                <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleCloseButton}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                >
+                    <div className="shareFrame">
+                        <div className="shareTitle">
+                            Link mời thành viên
+                        </div>
+                        <div className='copyFrame'>
+                            <div className='linkInvited'>
+                                InviteLink
+                            </div>
+                            <ContentCopyIcon sx={{ padding: '2px', "&:hover": { borderRadius: '100px', backgroundColor: "#7F7F7F" } }}
+                                onClick={handleClickCopy}
+                            ></ContentCopyIcon>
+
+                        </div>
+                        <Snackbar
+                            message="Copied to clibboard"
+                            anchorOrigin={{ vertical: "bottom", horizontal: "center    " }}
+                            autoHideDuration={2000}
+                            onClose={() => setCopyState(false)}
+                            open={copyState}
+                        />
+                    </div>
+                </Popover>
                 <PopupState variant="popover" popupId="demo-popup-menu">
                     {(popupState) => (
                         <React.Fragment>
