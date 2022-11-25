@@ -3,13 +3,16 @@
 
 }
 .iconDelete{
-    
+    display: none;
 }
 .elementContent:hover  {
     background-color: #F2F2F2;
    
-  }
+  } 
 
+  .elementContent:hover .iconDelete {
+   display: block;
+  } 
 .infoBox {
     display: flex;
     flex-direction: row;
