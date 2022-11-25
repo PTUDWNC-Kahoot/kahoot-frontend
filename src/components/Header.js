@@ -19,7 +19,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-const Header = () => {
+const Header = ({state}) => {
     const [value, setValue] = useState(0);
     const theme = useTheme();
     console.log(theme);
@@ -54,10 +54,14 @@ const Header = () => {
 
                     </>
                 )}
-                <Button sx={{ marginLeft: "auto" }} variant="contained">
-                    Create
-                </Button>
-
+                <div className="functionButton">
+                    {state === 'GroupPage'? <Button sx={{ marginLeft: "auto", marginRight: '20px' , flex: 1}} variant="contained">
+                        Invite
+                    </Button>:undefined}
+                    <Button sx={{ marginLeft: "0", flex: 1 }} variant="contained">
+                        Create
+                    </Button>
+                </div>
 
                 <PopupState variant="popover" popupId="demo-popup-menu">
                     {(popupState) => (
@@ -69,7 +73,7 @@ const Header = () => {
                                 <MenuItem onClick={popupState.close}>View profile</MenuItem>
                                 <MenuItem onClick={popupState.close}>Profile settings</MenuItem>
                                 <MenuItem onClick={popupState.close}>
-                                    <LogoutIcon sx={{marginRight: '10px'}} />
+                                    <LogoutIcon sx={{ marginRight: '10px' }} />
                                     Sign out
                                 </MenuItem>
                             </Menu>

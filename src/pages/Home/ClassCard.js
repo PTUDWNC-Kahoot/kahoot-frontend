@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function ClassCard({ }) {
   const navigate = useNavigate();
   const onClick = (groupName) => {
-    navigate('/group', { groupName })
+    navigate('/group', { state: {groupName: groupName }})
   }
 
   const listGroup = [{ 'name': 'PTUDW' }, { 'name': 'Mobile' }, { 'name': 'Kiến trúc phần mềm' }]
