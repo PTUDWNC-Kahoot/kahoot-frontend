@@ -2,9 +2,12 @@
     background-color: white;
 
 }
-
-.elementContent:hover {
+.iconDelete{
+    
+}
+.elementContent:hover  {
     background-color: #F2F2F2;
+   
   }
 
 .infoBox {
@@ -29,6 +32,12 @@
     flex: 4;
     font-weight: bold;
     margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title{
+    flex: 4;
 }
 
 .moreInfo{

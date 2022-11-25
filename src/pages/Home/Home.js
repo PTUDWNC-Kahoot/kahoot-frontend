@@ -4,9 +4,17 @@ import Header from '../../components/Header'
 import ProfileCard from '../../components/ProfileCard'
 import AssignmentCard from '../../components/AssignmentCard'
 import KahootCard from '../../components/KahootCard'
-import ClassCard from './ClassCard'
+import GroupsCard from './GroupsCard'
 
-function Home() {
+import {useState, useEffect} from 'react'
+import ListGroups from '../../service/ListGroups'
+
+ function Home() {
+    const[listGroups, setListGroups] = useState([]);
+    useEffect(() => {
+        ListGroups(setListGroups)
+
+    }, []);
     return (
         <div >
             <Header />
@@ -17,7 +25,7 @@ function Home() {
 
                 </div>
                 <div className='col2'>
-                    <ClassCard></ClassCard>
+                    <GroupsCard listGroup={listGroups}></GroupsCard>
 
                 </div>
                 <div className='col3'>
