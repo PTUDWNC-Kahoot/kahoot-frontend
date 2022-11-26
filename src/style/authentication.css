@@ -31,7 +31,7 @@
 }
 
 /* Begin: Form Username Wrapper */
-.form__UsernameWrapper {
+.form__EmailWrapper {
     width: 100%;
     align-content: center;
 }
@@ -77,12 +77,7 @@
 .form__password{
     position: relative;
 }
-.form__PasswordInput{
-    
-    margin-bottom: 0.5rem;
-    font-size: 0.875rem;
 
-}
 .form__passwordEye {
     
     position: absolute;
@@ -157,6 +152,7 @@
     line-height: 1rem;
     letter-spacing: 0.2px;
     left: 0px;
+    padding-top: 2px;
   }
 /* End: Form Username Wrapper */
 
