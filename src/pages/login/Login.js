@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import {useForm} from "react-hook-form";
 import { useMutation } from "react-query";
 import axios from 'axios';
+import '../../style/styles.css'
 import '../../style/login.css'
 import '../../style/authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik, validateYupSchema} from "formik"
 import * as Yup from "yup"
+
 
 
 // show/hide password
@@ -47,25 +49,22 @@ function Login() {
 
     const formik = useFormik({
         initialValues: {
-            username: "",
+            email: "",
             password: ""
         },
         validationSchema: Yup.object({
-            username: Yup.string()
+            email: Yup.string()
             .required("Required"),
             password: Yup.string()
              .required("Required")
-             .matches(
-               /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{7,19}$/,
-               "Password must be 7-19 characters and contain at least one letter, one number and a special character"
-             ),
+             ,
         }),
         onSubmit: values => {
             user = values;
             mutate();
         }
     });
-    // TODO: Wrong username, password => error
+    // TODO: Wrong email, password => error
    
     const { isLoading, isError, error, mutate } = useMutation(          // dùng react-query
         postDataLogin, 
@@ -86,7 +85,7 @@ function Login() {
     );
 
     async function postDataLogin() {
-        return await axios.post(process.env.REACT_APP_API_URL + 'login', user);   //  goi api đến BE kèm data để xử lý
+        return await axios.post("http://localhost:8000/auth/login", user);   //  goi api đến BE kèm data để xử lý
     }
     
     if (isLoading) {
@@ -101,15 +100,15 @@ function Login() {
         <div className="navbar"></div>
             <div  className="form form__display--flex ">
                 <section className="form__content">
-                    <header className="form__header form__text--center form__text--b"> Log in</header>
+                    <header className="form__header text--center text--b"> Log in</header>
                         <div className="form__UsernameWrapper form__display--flex">
                             <form  className="form__inputWrapper" onSubmit={formik.handleSubmit}>
-                                <label htmlFor="username" className="form__text--b form__label">Username or email</label>
-                                <div className="form__usernameInput">
-                                    <input id = "username" className="form__input" type = "text" name="username" value={formik.values.username}    onChange={formik.handleChange} />
-                                    {formik.errors.username && ( <p className="errorMsg">{formik.errors.username}</p> )}
+                                <label htmlFor="email" className="text--b form__label">Username or email</label>
+                                <div className="form__emailInput">
+                                    <input id = "email" className="form__input" type = "text" name="email" value={formik.values.email}    onChange={formik.handleChange} />
+                                    {formik.errors.email && ( <p className="errorMsg">{formik.errors.email}</p> )}
                                 </div>
-                                <label htmlFor="password" className="form__text--b form__label">Password</label>
+                                <label htmlFor="password" className="text--b form__label">Password</label>
                                 <div className="form__password">
                                     <input id = "password" className="form__input form__PasswordInput" type ={showPass.typePass} name="password"   onChange={formik.handleChange}  />
                                     {formik.errors.password && (   <p className="errorMsg">{formik.errors.password}</p> )}
@@ -124,14 +123,14 @@ function Login() {
                                 </div>
                         
                             <div className="form__forgotPassword">
-                               <div className="form__text--14 form__text--grey">Forgot your password? <a href="#">Reset your password</a></div>
+                               <div className="text--14 text--grey">Forgot your password? <a href="#">Reset your password</a></div>
                             </div>
-                          <button type="submit" className="form__text--b btn__submit ">Log in</button>
+                          <button type="submit" className="text--b btn__submit ">Log in</button>
                           </form>
                         </div>
                     <div className="form__CardLineWrapper">
                             <hr className="form__CardLine"></hr>
-                            <p className="form__text--b  form__or">or</p>
+                            <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper form__display--flex">
                             <button className="form__SignOnBtn">
@@ -143,7 +142,7 @@ function Login() {
                                 <p className="form__socialText">Continue with Facebook</p>
                             </button>
                     </div>
-                    <div className="form__text--center form__text--14 form__text--grey">Don't have an account? <a href="/register"> Sign up</a></div>
+                    <div className="text--center text--14 text--grey">Don't have an account? <a href="/register"> Sign up</a></div>
 
                 
             </section>

@@ -1,45 +1,4 @@
-/* Reset CSS */
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    
-}
 
-/* Define for all */
-html {
-    scroll-behavior: smooth;
-    font-family:  Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
-}
-
-/* Form text: size 14 */
-.form__text--14 {
-    font-size: 14;
-}
-
-/* Form text: bold */
-.form__text--b {
-    font-weight: bold;
-}
-.form__text--grey{
-    color: rgb(51, 51, 51);
-}
-
-.form__text--center {
-    text-align: center;
-}
-.form__display--flex {
-    display: flex;
-    flex-direction: column;
-}
-.page {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(215, 205, 205);
-    align-items: center;
-    position: relative;
-}
 .navbar {
     width: 100%;
     background:  rgb(255, 255, 255);

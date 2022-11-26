@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
 import axios from 'axios';
+import '../../style/styles.css'
 import '../../style/register.css'
 import '../../style/authentication.css'
 import { useNavigate } from "react-router-dom";
@@ -95,16 +96,16 @@ function Register() {
         <div className="navbar"></div>
             <div  className="form form__display--flex "  onSubmit={formik.handleSubmit}>
                 <section className="form__content">
-                    <header className="form__header form__text--center form__text--b">Create an account</header>
+                    <header className="form__header text--center text--b">Create an account</header>
                         <div className="form__UsernameWrapper form__display--flex">
                             <h2 className="form__registerTitle">Sign up with your email</h2>
                             <form className="form__inputWrapper">
-                                <label htmlFor="email" className="form__text--b form__label">Email</label>
+                                <label htmlFor="email" className="text--b form__label">Email</label>
                                 <div className="form__usernameInput">
                                     <input id = "email" className="form__input" type = "text"   value={formik.values.email}    onChange={formik.handleChange} />
                                     {formik.errors.email && ( <p className="errorMsg">{formik.errors.email}</p> )}
                                 </div>
-                                <label htmlFor="password" className="form__text--b form__label">Password</label>
+                                <label htmlFor="password" className="text--b form__label">Password</label>
                                 <div className="form__password">
                                     <input id = "password" className="form__input form__PasswordInput"  value={formik.values.password}  onChange={formik.handleChange} type ={showPass.typePass} />
                                     {formik.errors.password && (   <p className="errorMsg">{formik.errors.password}</p> )}
@@ -117,16 +118,16 @@ function Register() {
                                         </button>
                                     </div>
                                     </div>
-                          <button  type="submit" className="form__text--b btn__submit">Sign up</button>
+                          <button  type="submit" className="text--b btn__submit">Sign up</button>
                           </form>
                           <div className="form__recievedInfo ">
                             <input className="form__recievedInfo__checkbox" type="checkbox"></input>
-                            <label htmlFor="form__recievedInfo__checkbox  form__text--grey" className="form__recievedInfo__label" >I wish to receive information, offers, recommendations, and updates from Kahoot!</label>
+                            <label htmlFor="form__recievedInfo__checkbox  text--grey" className="form__recievedInfo__label" >I wish to receive information, offers, recommendations, and updates from Kahoot!</label>
                           </div>
                         </div>
                     <div className="form__CardLineWrapper">
                             <hr className="form__CardLine"></hr>
-                            <p className="form__text--b  form__or">or</p>
+                            <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper form__display--flex">
                             <button className="form__SignOnBtn">
@@ -138,7 +139,7 @@ function Register() {
                                 <p className="form__socialText">Continue with Facebook</p>
                             </button>
                     </div>
-                    <p className="form__text--center form__text--14 form__text--grey">Already have an account?  <a href="/login">Log in</a></p>
+                    <p className="text--center text--14 text--grey">Already have an account?  <a href="/login">Log in</a></p>
 
                 
             </section>
