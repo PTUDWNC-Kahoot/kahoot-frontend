@@ -1,4 +1,4 @@
-.profile__page{
+/* .profile__page{
     display: flex;
     box-sizing: border-box;
     min-width: 0px;
@@ -7,66 +7,88 @@
     max-width: 1280px;
     flex-wrap: wrap;
     height: fit-content;
-    background-color: #333;
-}
+} */
 .profile__content{
     margin: 24px;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
     width: 100%;
 }
-.profile__title {
-    margin: 32px 0px;
-}
+
 .profile__header{
     font-size: 28px;
     color: #333;
+    margin: 16px 16px;
 }
+.card__line{
+    width: 100%;
+    border-top: 1px solid rgb(204, 204, 204);
+}
+
+/* For both User Info Table & Account Detail Table */
 .profile__table{
     display: flex;
     flex-direction: row;
     margin: 16px 0px;
     width: 100%;
-    justify-content: space-between;
-}
-.table__content{
+    justify-content: space-between;}
+.table__wrapper{
     display: flex;
     flex-direction: column;
     background-color: #fff;
     flex-basis: 47%;
     margin: 16px;
+    border: 5px solid rgb(226, 221, 221);
+}
+.table__navbar {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+.navbar__title{
+    font-size: 14;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+}
+.navbar__saveBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    min-height: 36px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 4px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: bold;
+    font-family: inherit;   /* To inherit font */
+}
+
+.navbar__saveBtn:hover{
+    background-color: rgb(158, 158, 158);
+}
+.table__label{
+ 
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.table__Field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 
 /* Begin: Table UserInfo */
 
-
-    /* Begin: Profile table: Navbar */
-    .table__navbar {
-        padding: 12px 16px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between; 
-    }
-
-    .navbar__saveBtn{
-        margin: -5 -5 -5 16;
-        padding: 0 16;
-        width: 96px;
-        min-height: 36px;
-        padding-bottom: 0px;
-        background-color: rgb(204,204,204);
-        box-shadow: none;
-        cursor: not-allowed;
-    }
-    /* End: Profile table: Navbar */
-
 .userInfo__content{
     display: flex;
     flex-direction: row;
 }
-
 .userInfo__image{
     width: 136px;
     height: 136px;
@@ -86,7 +108,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 8px;
+    margin:  8px;
 }
 
 .userInfo__usernameField{
@@ -134,14 +156,8 @@
     
     
 }
-.profile__label{
-    margin: 4px 0 4px;
-}
-.table__Field{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+/* End: Table UserInfo */
+
 
 .profile__Input{
     cursor: default;
@@ -165,4 +181,5 @@
 .accountDetail__content{
     display: flex;
     flex-direction: column;
+    margin:  8px;
 }

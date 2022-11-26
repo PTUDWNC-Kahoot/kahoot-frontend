@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import * as Yup from "yup"
 
-
-
-
 // show/hide password
 const statePass = [
     {
@@ -82,7 +79,7 @@ function Register() {
         }
     );
     async function postData() {
-        return await axios.post(process.env.REACT_APP_API_URL + 'register', user);
+        return await axios.post("http://localhost:8000/auth/register", user);   //  goi api đến BE kèm data để xử lý
     }
 
     if (isLoading) {
@@ -97,17 +94,17 @@ function Register() {
             <div  className="form form__display--flex "  onSubmit={formik.handleSubmit}>
                 <section className="form__content">
                     <header className="form__header text--center text--b">Create an account</header>
-                        <div className="form__UsernameWrapper form__display--flex">
+                        <div className="form__EmailWrapper form__display--flex">
                             <h2 className="form__registerTitle">Sign up with your email</h2>
                             <form className="form__inputWrapper">
                                 <label htmlFor="email" className="text--b form__label">Email</label>
-                                <div className="form__usernameInput">
+                                <div className="form__emailInput">
                                     <input id = "email" className="form__input" type = "text"   value={formik.values.email}    onChange={formik.handleChange} />
                                     {formik.errors.email && ( <p className="errorMsg">{formik.errors.email}</p> )}
                                 </div>
                                 <label htmlFor="password" className="text--b form__label">Password</label>
                                 <div className="form__password">
-                                    <input id = "password" className="form__input form__PasswordInput"  value={formik.values.password}  onChange={formik.handleChange} type ={showPass.typePass} />
+                                    <input id = "password" className="form__input"  value={formik.values.password}  onChange={formik.handleChange} type ={showPass.typePass} />
                                     {formik.errors.password && (   <p className="errorMsg">{formik.errors.password}</p> )}
                                     <div className="form__passwordEye">
                                         <button id="form__passwordEyeBtn" type="button" className="form__passwordEyeBtn" onClick={handleShowPass}>

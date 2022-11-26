@@ -6,7 +6,6 @@ function Dashboard() {
 
     if(authenticated == 'false') {
         return <Navigate replace to ="/login"/>
-
     }
     return (
         <div>

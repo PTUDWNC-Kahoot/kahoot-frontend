@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/editprofile';
 function App() {
- localStorage.setItem("authenticated", true);               // set quyền đăng nhập sang false để không navigate vào dashboard
+ localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
   return (  
       <BrowserRouter>
     <Routes>

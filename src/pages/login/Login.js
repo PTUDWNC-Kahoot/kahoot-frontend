@@ -64,46 +64,38 @@ function Login() {
             mutate();
         }
     });
-    // TODO: Wrong email, password => error
    
-    const { isLoading, isError, error, mutate } = useMutation(          // dùng react-query
-        postDataLogin, 
-        {
-            onSuccess: (res) => {  
-                if (res.data.ReturnCode === 1) {
-                    localStorage.setItem("authenticated", true);              
-                    navigate("/");              // 7
-                } else {
-                    window.alert(res.data.Message);
-                    localStorage.setItem("authenticated", false);
-                }               
-            },
-            onError: (err) => {
-              
-            },
-        }
-    );
-
-    async function postDataLogin() {
-        return await axios.post("http://localhost:8000/auth/login", user);   //  goi api đến BE kèm data để xử lý
+    let _err = false;
+  
+    const { isError, error, mutate } = useMutation(          // dùng react-query
+    postDataLogin,  // 4
+    {
+        onSuccess: (res) => {      // 6
+            if (res.status === 200) {
+                localStorage.setItem("authenticated", true);              
+                navigate("/");    
+            }                   
+        },
+        onError: (err) => {
+             
+        },
     }
-    
-    if (isLoading) {
-        return <div>Loading...</div>
+    );
+    async function postDataLogin() {
+        return await axios.post("http://localhost:8000/auth/login", user);   // 5 goij api đến BE kèm data để xử lý
     }
     if (isError) {
-        return <div>Error! {error.message}</div>
-    }
-
+        _err = true;
+    }  
     return (
         <div className="page form__display--flex ">
         <div className="navbar"></div>
             <div  className="form form__display--flex ">
                 <section className="form__content">
                     <header className="form__header text--center text--b"> Log in</header>
-                        <div className="form__UsernameWrapper form__display--flex">
-                            <form  className="form__inputWrapper" onSubmit={formik.handleSubmit}>
-                                <label htmlFor="email" className="text--b form__label">Username or email</label>
+                        <div className="form__EmailWrapper form__display--flex">
+                            <form  className="form__inputWrapper" onSubmit={formik.handleSubmit}>                    
+                                <label htmlFor="email" className="text--b form__label">Email</label>
                                 <div className="form__emailInput">
                                     <input id = "email" className="form__input" type = "text" name="email" value={formik.values.email}    onChange={formik.handleChange} />
                                     {formik.errors.email && ( <p className="errorMsg">{formik.errors.email}</p> )}
@@ -117,7 +109,6 @@ function Login() {
                                              <span className="form__passwordEyeIcon">
                                                 {<img className="form__passwordEye--show" src={showPass.src}/>}
                                               </span> 
-
                                         </button>
                                     </div>
                                 </div>
@@ -126,6 +117,7 @@ function Login() {
                                <div className="text--14 text--grey">Forgot your password? <a href="#">Reset your password</a></div>
                             </div>
                           <button type="submit" className="text--b btn__submit ">Log in</button>
+                          {_err ? ( <div className="errorMsg">Your email, or password is incorrect.</div>) : null}
                           </form>
                         </div>
                     <div className="form__CardLineWrapper">
