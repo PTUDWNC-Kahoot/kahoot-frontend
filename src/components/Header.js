@@ -118,7 +118,7 @@ const Header = ({ state }) => {
                         </div>
                         <Snackbar
                             message="Copied to clibboard"
-                            anchorOrigin={{ vertical: "bottom", horizontal: "center    " }}
+                            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                             autoHideDuration={2000}
                             onClose={() => setCopyState(false)}
                             open={copyState}
