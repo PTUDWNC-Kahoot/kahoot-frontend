@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function GroupsCard({ listGroup}) {
   const navigate = useNavigate();
-  const onClick = (groupName) => {
-    navigate('/group', { state: {groupName: groupName }})
+  const onClick = (group) => {
+    navigate('/group', { state: {group: group }})
   }
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
@@ -24,9 +24,9 @@ export default function GroupsCard({ listGroup}) {
             {listGroup.map((group) => {
               return (
                 <ElementBox
-                  key={group.name}
+                  key={group.id}
                   onHandleClick={() => {
-                    onClick(group.name)
+                    onClick(group)
                   }}
                   avatar={group.coverImageUrl}
                   title={group.name}

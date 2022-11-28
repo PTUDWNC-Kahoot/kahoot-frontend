@@ -12,8 +12,8 @@ export default async function ListGroups(setListKahoot) {
         method: 'POST',
         url: 'http://localhost:8000/auth/login',
         data: {
-            "email": "user2@gmail.com",
-            "password": "user12345678"
+            "email": "19120580@student.hcmus.edu.vn",
+            "password": "User12345678#"
         }
 
     },).then(function (response) {

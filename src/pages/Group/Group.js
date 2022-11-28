@@ -10,27 +10,34 @@ import { useLocation } from 'react-router-dom';
 
 
 function Group() {
-    const {state} = useLocation();
-    const {groupName} = state;
+    const { state } = useLocation();
+    const { group } = state;
     console.log('group', state)
     return (
         <div >
             <Header state={'GroupPage'} />
             <div className='content'>
                 <div className='col1'>
-                    <GroupInforCard groupName={groupName}/>
-                    <OwnerCard/>
+                    <GroupInforCard group={group} />
+                    <OwnerCard />
 
                 </div>
-                <div className='col2'>
-                    <MemberCard/>
+     
+                <div className='widthMode'>
+                    <div className='col2'>
+                        <MemberCard />
 
+                    </div>
+                    <div className='col3'>
+                        <CoOwnerCard></CoOwnerCard>
+
+                    </div>
                 </div>
-                <div className='col3'>
+                <div className='shortMode'>
+                    <MemberCard />
                     <CoOwnerCard></CoOwnerCard>
 
                 </div>
-               
 
             </div>
         </div>
