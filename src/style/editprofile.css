@@ -21,10 +21,30 @@
     margin: 16px 16px;
     font-weight: bold;
 }
+
 .card__line{
     width: 100%;
     border-top: 1px solid rgb(204, 204, 204);
 }
+.editProfile_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    text-align: center;  
+    border-radius: 4px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: inherit;   /* To inherit font */
+    min-height: 36px;
+    width: 96px;
+    font-size: 0.875rem;
+    box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
+}
+
+
 
 /* For both User Info Table & Account Detail Table */
 .profile__table{
@@ -53,18 +73,8 @@
     color: rgb(51, 51, 51);
 }
 .navbar__saveBtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    min-height: 36px;
     background-color: rgb(204, 204, 204);
-    border-radius: 4px;
-    border: 1px solid rgb(0,0,0);
-    cursor: pointer;
-    box-shadow: none;
-    font-weight: bold;
-    font-family: inherit;   /* To inherit font */
-    width: 96px;
+    
 }
 
 .navbar__saveBtn:hover{
@@ -93,6 +103,11 @@
 .userInfo__image{
     width: 136px;
     height: 136px;
+    display: flex;
+}
+.userInfo__btnWrapper{
+    width: 100%;
+    height: 100%;
     background: rgb(242, 242, 242);
     display: flex;
     flex-direction: column;
@@ -102,9 +117,22 @@
     border-radius: 4px;
     cursor: pointer;
     margin: 8px;
-
 }
-.modal__image{
+.userInfo__btnWrapper.close{
+    display: none;
+}
+.userInfo__imgWrapper{
+    display: none;
+}
+.userInfo__imgWrapper.open{
+    display: flex;
+}
+.userInfo__imgUpload{
+    width: 128px;
+    height: 128px;
+}
+/* Begin: Modal Upload Image */
+.modal__uploadImage{
     position: fixed;
     top: 0;
     right: 0;
@@ -117,8 +145,9 @@
 }
 .modal__container{
     background: #fff;
-    width: 44rem;
-    height: 22rem;
+    width: 50%;
+    height: auto;
+    padding: 16px;
     display: flex;
     flex-direction: column;
     animation: modalFadeIn ease .5s;
@@ -126,7 +155,7 @@
 .modal__header {
     margin-bottom: 16px;
 }
-.modal__image.open
+.modal__uploadImage.open
 {
     display:  flex;
     flex-direction: column;
@@ -156,10 +185,13 @@
     align-items: center; 
 }
 .modal__wrapper--up{
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+}
+.modal__wrapper--up.open{
+    display: flex;
 }
 .modal_img{
     width: 128px;
@@ -171,24 +203,13 @@
 .modal__icon{
     margin: 4px;
 }
-.modal__btn{
+.modal__UploadBtn{
     padding: 0px 16px 4px;
     background-color: #FFF;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
     margin: 8px;
-    border: 0px;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: bottom;
-    box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
     background: rgb(255, 255, 255);
     color: rgb(51, 51, 51);
-    width: 96px;
-    min-height: 36px;
+    
     
 }
 .modal__input{
@@ -197,6 +218,18 @@
 .modal__input.open{
     display: flex;
 }
+.modal__btnWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 24px 0px 0px;
+}
+.modal_btn{
+    margin: 0px 8px;
+    padding: 0px 16px 4px;
+}
+
+/* End: Modal Upload Image */
 .userInfo__detail{
     display: flex;
     flex-direction: column;

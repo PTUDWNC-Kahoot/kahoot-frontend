@@ -2,7 +2,6 @@
 import '../../style/editprofile.css'
 import '../../style/authentication.css'
 import '../../style/styles.css'
-import addProfileImage from './addProfileImage' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faImage, faPencil} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
@@ -47,7 +46,8 @@ function EditProfile()
 
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
-    const [image, setImage] = useState("http://imaging.nikon.com/lineup/coolpix/p/p7000/img/sample/img_02_b.jpg");
+    const [image, setImage] = useState();
+    const [imageUpload, setImageUpload] =  useState("http://imaging.nikon.com/lineup/coolpix/p/p7000/img/sample/img_02_b.jpg")
     const [organization, setOrganization] = useState();
     const [workplace, setWorkplace] = useState("");
 
@@ -60,20 +60,46 @@ function EditProfile()
         e.preventDefault();
         console.log(organization, workplace);
     }
-
   
     const handleAddImage = (e) => {
             e.preventDefault();
-            const modal_page = document.querySelector(".modal__image")
+            // open modal upload Image
+            const modal_page = document.querySelector(".modal__uploadImage")
             modal_page.classList.add("open")
+
     }
     const handleUploadImage = (e) => {
 
         e.preventDefault();
-        // const modal_page = document.querySelector(".modal__input")
-        // modal_page.classList.add("open")
-        const modal__wrapper = document.querySelector(".modal__wrapper--notup")
-        modal__wrapper.classList.add("close")
+        const modal__notup= document.querySelector(".modal__wrapper--notup")
+        const modal__up = document.querySelector(".modal__wrapper--up")
+        modal__notup.classList.add("close")
+        modal__up.classList.add("open")
+    }
+    const handleCancelUpload = (e) => {
+        e.preventDefault();
+        const modal_page = document.querySelector(".modal__uploadImage")
+        const modal__notup= document.querySelector(".modal__wrapper--notup")
+        const modal__up = document.querySelector(".modal__wrapper--up")
+        modal_page.classList.remove("open")
+        modal__notup.classList.remove("close")
+        modal__up.classList.remove("open")
+    }
+    const handleSaveUpload = (e) => {
+        
+        setImage(imageUpload);
+        e.preventDefault();
+        const modal_page = document.querySelector(".modal__uploadImage")
+        const modal__notup= document.querySelector(".modal__wrapper--notup")
+        const modal__up = document.querySelector(".modal__wrapper--up")
+        modal_page.classList.remove("open")
+        modal__notup.classList.remove("close")
+        modal__up.classList.remove("open")
+
+        const modal_btnWrapper = document.querySelector(".userInfo__btnWrapper")
+        modal_btnWrapper.classList.add("close")
+        const modal_imgWrapper = document.querySelector(".userInfo__imgWrapper")
+        modal_imgWrapper.classList.add("open")
     }
     return(
         <div className="profile__content">  
@@ -84,15 +110,19 @@ function EditProfile()
                 <form className="table__wrapper">
                     <div className="table__navbar">
                         <header className="navbar__title">User information</header>
-                        <button className="navbar__saveBtn" onClick={handleSubmitInfo}>Save</button>   
+                        <button className="editProfile_btn navbar__saveBtn" onClick={handleSubmitInfo}>Save</button>   
                     </div>
                     <div className="userInfo__content">
                         <div className="userInfo__image">
-                            <button className="image__btn--add" onClick={handleAddImage}>
-                            {/* <input className="image_input" type="image" alt="Add picture" src={image} ></input> */}
-                                <div className="image__icon"> <FontAwesomeIcon icon={ faImage}  /> </div>
-                                <div className="image__text"> Add picture</div>
-                            </button>
+                            <div className="userInfo__btnWrapper">
+                                <button className="image__btn--add" onClick={handleAddImage}>
+                                    <div className="image__icon"> <FontAwesomeIcon icon={ faImage}  /> </div>
+                                    <div className="image__text"> Add picture</div>
+                                </button>
+                            </div>
+                            <div className="userInfo__imgWrapper">
+                                 <img className='userInfo__imgUpload' src={image} ></img>
+                            </div>
                         </div>
                         <div className="userInfo__detail">
                             <div className="table__Field">
@@ -112,7 +142,7 @@ function EditProfile()
                  <div className="table__wrapper"> 
                     <div className="table__navbar">
                         <header className="navbar__title">Account details</header>
-                        <button className="navbar__saveBtn" onClick={handleSubmitAccountDetail}>Save</button>   
+                        <button className=" editProfile_btn navbar__saveBtn" onClick={handleSubmitAccountDetail}>Save</button>   
                     </div>
                     <div className="accountDetail__content">      
                             <div className="table__Field">
@@ -129,7 +159,7 @@ function EditProfile()
 
             </div>
 
-            <div className="modal__image">
+            <div className="modal__uploadImage">
                 <div className="modal__container">
                     <header className="modal__header profile__header"> Upload image </header>
                     <div className="modal__content">
@@ -137,14 +167,18 @@ function EditProfile()
                             <div className='modal__wrapper--notup'>
                                 <div className="modal__icon"> <FontAwesomeIcon icon={ faImage} size="lg"  /> </div>
                                 <div className="modal__text">Upload an image from your computer</div>
-                                <button className="modal__btn" onClick={handleUploadImage}>Upload</button>
+                                <button className="editProfile_btn modal__UploadBtn" onClick={handleUploadImage}>Upload</button>
                             </div>
                             <div className='modal__wrapper--up'>
-                                <img className='modal_img' src="https://tse4.mm.bing.net/th?id=OIP.Ix6XjMbuCvoq3EQNgJoyEQHaFj&pid=Api&P=0"></img>
+                                <img className='modal_img' src={imageUpload} ></img>
                             </div>  
                         </div>
-                      
+                       
                     </div>
+                    <div className="modal__btnWrapper">
+                            <button className="editProfile_btn modal_btn modal_cancelBtn" onClick={handleCancelUpload}>Cancel</button>
+                            <button className="editProfile_btn modal_btn modale_saveBtn" onClick={handleSaveUpload}>Save</button>
+                        </div>
                </div>
             </div>
         </div>
