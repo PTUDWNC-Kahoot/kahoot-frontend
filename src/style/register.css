@@ -20,3 +20,81 @@
     display: inline;
     margin: 0px;
 }
+
+/* Begin: Modal Vertify */
+.modal__verify{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.modal__verify.open{
+    display: flex;
+}
+.modal__container{
+    background: #fff;
+    width: 50%;
+    height: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    animation: modalFadeIn ease .5s;
+}
+.modal__registerContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   
+}
+.modal__text{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 4px;
+}
+.modal__emailName{
+    padding-left: 4px;
+}
+
+.verify__input{
+    cursor: default;
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    opacity: 1;
+    color: rgb(51, 51, 51);
+    border: 1px solid rgb(178, 178, 178) ;
+    border-radius: 0.25rem;
+    opacity: 1;
+    background-color: rgb(242, 242, 242);
+    font-size: 1rem;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+.verify__wrapperBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+.verify__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    text-align: center;  
+    border-radius: 4px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: inherit;   /* To inherit font */
+    min-height: 36px;
+    width: 96px;
+    font-size: 0.875rem;
+    box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
+}

@@ -7,6 +7,8 @@ import {  faImage, faPencil} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 import { render } from 'react-dom'
+import { useMutation } from 'react-query'
+import axios from 'axios';
 
 
 
@@ -43,6 +45,7 @@ function EditProfile()
 {
 
  
+    let info = {};
 
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
@@ -54,13 +57,16 @@ function EditProfile()
    
     const handleSubmitInfo = (e) => {
         e.preventDefault(); 
-        console.log(username, email);
+        info = {username,email};
+
+       
     }
+  
+   
     const handleSubmitAccountDetail = (e) => {
         e.preventDefault();
         console.log(organization, workplace);
     }
-  
     const handleAddImage = (e) => {
             e.preventDefault();
             // open modal upload Image
@@ -69,12 +75,12 @@ function EditProfile()
 
     }
     const handleUploadImage = (e) => {
-
         e.preventDefault();
         const modal__notup= document.querySelector(".modal__wrapper--notup")
         const modal__up = document.querySelector(".modal__wrapper--up")
         modal__notup.classList.add("close")
         modal__up.classList.add("open")
+        setImageUpload(imageUpload)
     }
     const handleCancelUpload = (e) => {
         e.preventDefault();

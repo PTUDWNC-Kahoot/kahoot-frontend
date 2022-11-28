@@ -65,7 +65,9 @@ function Register() {
         }),
         onSubmit: values => {
            user = values;
-           mutate();
+        //    mutate();
+            const modal_page = document.querySelector(".modal__verify");
+            modal_page.classList.add("open");
         }
     });
     const { isLoading, isError, error, mutate } = useMutation(
@@ -91,9 +93,9 @@ function Register() {
     return (
         <div className="page form__display--flex ">
         <div className="navbar"></div>
-            <div  className="form form__display--flex "  onSubmit={formik.handleSubmit}>
+            <div className="form form__display--flex " onSubmit={formik.handleSubmit}>
                 <section className="form__content">
-                    <header className="form__header text--center text--b">Create an account</header>
+                    <header className="form__header text--center">Create an account</header>
                         <div className="form__EmailWrapper form__display--flex">
                             <h2 className="form__registerTitle">Sign up with your email</h2>
                             <form className="form__inputWrapper">
@@ -140,7 +142,23 @@ function Register() {
 
                 
             </section>
-        </div>
+        
+            </div>
+            <div className="modal__verify">
+                <div className="modal__container">
+                    <header className="modal__header form__header"> Verify </header>
+                    <div className="modal__registerContent">
+                        <div className="modal__text"> We've sent the security code to 
+                            <div className="modal__emailName text--b"> {formik.values.email}</div>
+                        </div>
+                       
+                            <input type="text" className="verify__input" placeholder="Enter the code"/> 
+                        <div className="verify__wrapperBtn">
+                             <button className="verify__btn">Verify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
     </div>
     

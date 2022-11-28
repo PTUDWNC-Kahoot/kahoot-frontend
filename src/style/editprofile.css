@@ -104,6 +104,8 @@
     width: 136px;
     height: 136px;
     display: flex;
+    padding: 4px;
+    border-radius: 4px;
 }
 .userInfo__btnWrapper{
     width: 100%;
@@ -114,7 +116,6 @@
     justify-content: center;/* căn theo chiều ngang */
     align-items: center;/* Căn theo chiều dọc */
     border: 1px dashed rgb(204, 204, 204);
-    border-radius: 4px;
     cursor: pointer;
     margin: 8px;
 }
