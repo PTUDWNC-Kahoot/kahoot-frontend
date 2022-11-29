@@ -5,7 +5,6 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Hidden } from '@mui/material';
 
 export default function ElementBox({ title, info, image, onHandleClick, avatar, deleteFunc }) {
-  if (avatar) console.log(avatar)
   return (
     <Box sx={{ minWidth: 275, boxShadow: 3, marginY: 2 }}>
       <div className='elementContent' onClick={onHandleClick}>

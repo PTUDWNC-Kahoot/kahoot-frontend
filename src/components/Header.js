@@ -24,16 +24,13 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-const Header = ({ state, group}) => {
+const Header = ({ state, group, add}) => {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [copyState, setCopyState] = useState(false);
 
     const theme = useTheme();
-    console.log(theme);
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-    console.log(isMatch);
-
 
     const handleClickInviteButton = (event) => {
         setAnchorEl(event.currentTarget);
@@ -84,7 +81,7 @@ const Header = ({ state, group}) => {
                     {state === 'GroupPage' ? <Button sx={{ marginLeft: "auto", marginRight: '20px', flex: 1 }} variant="contained" onClick={handleClickInviteButton}>
                         Invite
                     </Button> : undefined}
-                    {state === 'GroupPage' ? <Button sx={{ marginLeft: "0", whiteSpace: 'nowrap'}} variant="contained" >
+                    {state === 'GroupPage' ? <Button sx={{ marginLeft: "0", whiteSpace: 'nowrap'}} variant="contained" onClick={()=>add(true)} >
                         Create Group
                     </Button> :
                         <Button sx={{ marginLeft: "0", flex: 1,  }} variant="contained" >
