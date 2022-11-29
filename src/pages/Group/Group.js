@@ -6,17 +6,15 @@ import OwnerCard from './OwnerCard'
 import CoOwnerCard from './CoOwnerCard'
 import MemberCard from './MemberCard'
 import { useLocation } from 'react-router-dom'
-import FormDialog from './CreateGroupForm'
 import { useState } from 'react'
 
 function Group() {
     const { state } = useLocation();
     const { group } = state;
-    const [createButtonClick, setCreateButtonClick] = useState(false);
+    console.log(group)
     return (
         <div >
-            <FormDialog state={createButtonClick} setState={setCreateButtonClick} />
-            <Header state={'GroupPage'} group={group} add={setCreateButtonClick} >  </Header>
+            <Header page={'GroupPage'} group={group}  >  </Header>
             <div className='content'>
                 <div className='col1'>
                     <GroupInforCard group={group} />
