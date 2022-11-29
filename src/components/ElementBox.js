@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Hidden } from '@mui/material';
 
-export default function ElementBox({ title, info, image, onHandleClick, avatar }) {
+export default function ElementBox({ title, info, image, onHandleClick, avatar, deleteFunc }) {
   if (avatar) console.log(avatar)
   return (
     <Box sx={{ minWidth: 275, boxShadow: 3, marginY: 2 }}>
@@ -14,15 +14,15 @@ export default function ElementBox({ title, info, image, onHandleClick, avatar }
           <div className='info'>
             <div className='titleBox'>
 
-              {title ? title : 'unNamed Title'}
+              {title ? title : 'unNamed'}
               <div className='iconDelete'>
                 <DeleteForeverIcon sx={{
                   color: 'red'
-                }}></DeleteForeverIcon>
+                }} onClick={deleteFunc}></DeleteForeverIcon>
               </div>
             </div>
             <div className='moreInfo'>
-              Created by ldminh on May 8, 2022
+              {info?info : 'Create by ldminh for fun'}
 
               
             </div>

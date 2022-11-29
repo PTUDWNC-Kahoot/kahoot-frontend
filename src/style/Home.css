@@ -4,6 +4,7 @@
     display: flex;
     padding: 7em 5em;
     height: max-content;
+    flex-wrap: wrap;
 
 }
 .shortMode{

@@ -12,10 +12,9 @@ import { useLocation } from 'react-router-dom';
 function Group() {
     const { state } = useLocation();
     const { group } = state;
-    console.log('group', state)
     return (
         <div >
-            <Header state={'GroupPage'} />
+            <Header state={'GroupPage'} group={group}/>
             <div className='content'>
                 <div className='col1'>
                     <GroupInforCard group={group} />

@@ -25,6 +25,7 @@ export default function KahootCard() {
                   onHandleClick={() => {
                   }}
                   title={kahoot.name}
+                  info={'Create at Fri Feb 2 2021'}
                 ></ElementBox>
               )
             })}

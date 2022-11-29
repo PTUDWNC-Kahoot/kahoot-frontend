@@ -24,7 +24,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-const Header = ({ state }) => {
+const Header = ({ state, group}) => {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [copyState, setCopyState] = useState(false);
@@ -46,8 +46,8 @@ const Header = ({ state }) => {
     const handleClickCopy = () => {
         setCopyState(true);
         navigator.clipboard.writeText('InviteLink');
-      };
-    
+    };
+
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
@@ -84,67 +84,72 @@ const Header = ({ state }) => {
                     {state === 'GroupPage' ? <Button sx={{ marginLeft: "auto", marginRight: '20px', flex: 1 }} variant="contained" onClick={handleClickInviteButton}>
                         Invite
                     </Button> : undefined}
-                    <Button sx={{ marginLeft: "0", flex: 1 }} variant="contained">
-                        Create
-                    </Button>
-                </div>
+                    {state === 'GroupPage' ? <Button sx={{ marginLeft: "0", whiteSpace: 'nowrap'}} variant="contained" >
+                        Create Group
+                    </Button> :
+                        <Button sx={{ marginLeft: "0", flex: 1,  }} variant="contained" >
+                            Create Kahoot
+                        </Button>}
 
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleCloseButton}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                >
-                    <div className="shareFrame">
-                        <div className="shareTitle">
-                            Link mời thành viên
-                        </div>
-                        <div className='copyFrame'>
-                            <div className='linkInvited'>
-                                InviteLink
-                            </div>
-                            <ContentCopyIcon sx={{ padding: '2px', "&:hover": { borderRadius: '100px', backgroundColor: "#7F7F7F" } }}
-                                onClick={handleClickCopy}
-                            ></ContentCopyIcon>
-
-                        </div>
-                        <Snackbar
-                            message="Copied to clibboard"
-                            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                            autoHideDuration={2000}
-                            onClose={() => setCopyState(false)}
-                            open={copyState}
-                        />
+            </div>
+            {state === 'GroupPage' ? 
+            <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleCloseButton}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+            >
+                <div className="shareFrame">
+                    <div className="shareTitle">
+                        Link mời thành viên
                     </div>
-                </Popover>
-                <PopupState variant="popover" popupId="demo-popup-menu">
-                    {(popupState) => (
-                        <React.Fragment>
-                            <div variant="contained" {...bindTrigger(popupState)}>
-                                <AccountCircleIcon sx={{ marginLeft: "10px", color: '#000' }} color="action" fontSize="large" />
-                            </div>
-                            <Menu {...bindMenu(popupState)}>
-                                <MenuItem onClick={popupState.close}>View profile</MenuItem>
-                                <MenuItem onClick={popupState.close}>Profile settings</MenuItem>
-                                <MenuItem onClick={popupState.close}>
-                                    <LogoutIcon sx={{ marginRight: '10px' }} />
-                                    Sign out
-                                </MenuItem>
-                            </Menu>
-                        </React.Fragment>
-                    )}
-                </PopupState>
+                    <div className='copyFrame'>
+                        <div className='linkInvited'>
+                            {group.invitationLink}
+                        </div>
+                        <ContentCopyIcon sx={{ padding: '2px', "&:hover": { borderRadius: '100px', backgroundColor: "#7F7F7F" } }}
+                            onClick={handleClickCopy}
+                        ></ContentCopyIcon>
 
-            </Toolbar>
-        </AppBar>
+                    </div>
+                    <Snackbar
+                        message="Copied to clibboard"
+                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                        autoHideDuration={2000}
+                        onClose={() => setCopyState(false)}
+                        open={copyState}
+                    />
+                </div>
+            </Popover>
+            : undefined}
+            <PopupState variant="popover" popupId="demo-popup-menu">
+                {(popupState) => (
+                    <React.Fragment>
+                        <div variant="contained" {...bindTrigger(popupState)}>
+                            <AccountCircleIcon sx={{ marginLeft: "10px", color: '#000' }} color="action" fontSize="large" />
+                        </div>
+                        <Menu {...bindMenu(popupState)}>
+                            <MenuItem onClick={popupState.close}>View profile</MenuItem>
+                            <MenuItem onClick={popupState.close}>Profile settings</MenuItem>
+                            <MenuItem onClick={popupState.close}>
+                                <LogoutIcon sx={{ marginRight: '10px' }} />
+                                Sign out
+                            </MenuItem>
+                        </Menu>
+                    </React.Fragment>
+                )}
+            </PopupState>
+
+        </Toolbar>
+        </AppBar >
     );
 };
 

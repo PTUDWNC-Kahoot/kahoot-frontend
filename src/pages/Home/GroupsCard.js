@@ -12,6 +12,7 @@ export default function GroupsCard({ listGroup}) {
   const onClick = (group) => {
     navigate('/group', { state: {group: group }})
   }
+
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
       <Card variant="outlined">
@@ -22,6 +23,7 @@ export default function GroupsCard({ listGroup}) {
           <hr />
           <div className='contentBox'>
             {listGroup.map((group) => {
+              const dateTime = new Date(group.CreatedAt)
               return (
                 <ElementBox
                   key={group.id}
@@ -30,6 +32,7 @@ export default function GroupsCard({ listGroup}) {
                   }}
                   avatar={group.coverImageUrl}
                   title={group.name}
+                  info={'Create at ' +dateTime.toDateString()}
                 ></ElementBox>
               )
             })}
