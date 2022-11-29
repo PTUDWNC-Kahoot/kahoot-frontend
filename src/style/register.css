@@ -54,10 +54,11 @@
 .modal__text{
     display: flex;
     flex-direction: row;
+
     padding-bottom: 4px;
 }
-.modal__emailName{
-    padding-left: 4px;
+.modal__emailName {
+    margin-left: 4px;
 }
 
 .verify__input{

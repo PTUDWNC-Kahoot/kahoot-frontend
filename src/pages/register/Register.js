@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import * as Yup from "yup"
 
+
 // show/hide password
 const statePass = [
     {
@@ -24,10 +25,11 @@ const statePass = [
     }
   
 ]
+
 function Register() {
    
-
-  
+    let user = {};
+    const [code, setCode] = useState();
     const [showPass, setShowPass] = useState(statePass[0])
     const handleShowPass = () => {
             const isShow = showPass.state;
@@ -43,9 +45,9 @@ function Register() {
             }
      
     }
-
+  
     const navigate = useNavigate();  
-    let user = {};
+
 
     const formik = useFormik ({
         initialValues: {
@@ -64,12 +66,21 @@ function Register() {
              ),
         }),
         onSubmit: values => {
-           user = values;
-        //    mutate();
+        //    user = values;
+        // //    mutate();
             const modal_page = document.querySelector(".modal__verify");
             modal_page.classList.add("open");
         }
     });
+
+    const onSubmitCode = (e) => {
+        e.preventDefault();
+        const _email =  formik.values.email;
+        const _password =  formik.values.password;
+        user = {_email, _password, code}
+        console.log(user);
+        mutate();
+    }
     const { isLoading, isError, error, mutate } = useMutation(
         postData, 
         {
@@ -90,6 +101,8 @@ function Register() {
     if (isError) {
         return <div>Error! {error.message}</div>
     }
+
+    
     return (
         <div className="page form__display--flex ">
         <div className="navbar"></div>
@@ -152,9 +165,9 @@ function Register() {
                             <div className="modal__emailName text--b"> {formik.values.email}</div>
                         </div>
                        
-                            <input type="text" className="verify__input" placeholder="Enter the code"/> 
+                            <input type="text" className="verify__input" placeholder="Enter the code" value={code} onChange={e => setCode(e.target.value)}/> 
                         <div className="verify__wrapperBtn">
-                             <button className="verify__btn">Verify</button>
+                             <button className="verify__btn" onClick={onSubmitCode}>Verify</button>
                         </div>
                     </div>
                 </div>
