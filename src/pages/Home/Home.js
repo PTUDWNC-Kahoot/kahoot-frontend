@@ -8,6 +8,7 @@ import AssignmentCard from '../../components/AssignmentCard'
 import KahootCard from '../../components/KahootCard'
 import GroupsCard from './GroupsCard'
 import FormDialog from './CreateGroupForm'
+import AlertDialog from './DeleteGroupForm'
 
 import ListGroups from '../../service/ListGroups'
 import DeleteGroup from '../../service/DeleteGroup'
@@ -18,17 +19,29 @@ function Home() {
     const [createButtonClick, setCreateButtonClick] = useState(false);
     const [newGroup, setNewGroup] = useState();
     const [deleteGroupState, setDeleteGroupState] = useState();
+    const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
+    const [confirmDelete, setConfirmDelete] = useState(false);
+    const [groupDlt, setGroupDlt] = useState();
 
     function deleteGroup(group) {
-        DeleteGroup(group, setDeleteGroupState)
+        setOpenDeleteConfirm(true);
+        setGroupDlt(group)
     }
+
+    useEffect(() => {
+        if (confirmDelete === true)
+            DeleteGroup(groupDlt, setDeleteGroupState);
+    }, [confirmDelete]);
+
     useEffect(() => {
         ListGroups(setListGroups)
+        setConfirmDelete(false)
     }, [newGroup, deleteGroupState]);
 
 
     return (
         <div >
+            <AlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></AlertDialog>
             <FormDialog state={createButtonClick} setState={setCreateButtonClick} createGroup={setNewGroup} />
             <Header page={'HomePage'} add={setCreateButtonClick} />
             <div className='content'>
@@ -57,7 +70,6 @@ function Home() {
                 open={deleteGroupState}
             />
         </div>
-
     )
 
 }

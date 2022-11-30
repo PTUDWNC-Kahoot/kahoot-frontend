@@ -16,7 +16,7 @@ export default function MemberCard({ list }) {
           </div>
           <hr />
           <div className='contentBox'>
-            {list?.length == 0 ?
+            {list?.length === 0 ?
               <EmptyListNotify></EmptyListNotify>
               : list?.map((member) => {
                 return (
