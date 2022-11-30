@@ -20,12 +20,13 @@ function Group() {
         //GetGroupMemberList();
     }, []);
 
+    
     return (
         <div >
             <Header page={'GroupPage'} group={group}  >  </Header>
             <div className='content'>
                 <div className='col1'>
-                    <GroupInforCard group={group} />
+                    <GroupInforCard group={group}/>
                     <OwnerCard list={ownerList}/>
 
                 </div>

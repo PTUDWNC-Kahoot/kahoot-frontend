@@ -4,13 +4,12 @@ import Card from '@mui/material/Card';
 import '../../style/GroupsCard.css'
 import ElementBox from '../../components/ElementBox'
 import { useNavigate } from "react-router-dom";
+import EmptyListNotify from '../../components/EmptyListNotify'
 
-
-
-export default function GroupsCard({ listGroup, dltFunc}) {
+export default function GroupsCard({ listGroup, dltFunc }) {
   const navigate = useNavigate();
   const onClick = (group) => {
-    navigate('/group', { state: {group: group }})
+    navigate('/group', { state: { group: group } })
   }
 
   return (
@@ -22,21 +21,23 @@ export default function GroupsCard({ listGroup, dltFunc}) {
           </div>
           <hr />
           <div className='contentBox'>
-            {listGroup.map((group) => {
-              const dateTime = new Date(group.CreatedAt)
-              return (
-                <ElementBox
-                  key={group.id}
-                  onHandleClick={() => {
-                    onClick(group)
-                  }}
-                  avatar={group.coverImageUrl}
-                  title={group.name}
-                  info={'Create at ' +dateTime.toDateString()}
-                  deleteFunc={()=>dltFunc(group)}
-                ></ElementBox>
-              )
-            })}
+            {listGroup?.length == 0 ?
+              <EmptyListNotify></EmptyListNotify> :
+              listGroup.map((group) => {
+                const dateTime = new Date(group.CreatedAt)
+                return (
+                  <ElementBox
+                    key={group.id}
+                    onHandleClick={() => {
+                      onClick(group)
+                    }}
+                    avatar={group.coverImageUrl}
+                    title={group.name}
+                    info={'Create at ' + dateTime.toDateString()}
+                    deleteFunc={() => dltFunc(group)}
+                  ></ElementBox>
+                )
+              })}
 
           </div>
         </div>
