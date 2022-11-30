@@ -2,7 +2,6 @@ import * as React from 'react';
 import '../style/ElementBox.css'
 import Box from '@mui/material/Box';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { Hidden } from '@mui/material';
 
 export default function ElementBox({ title, info, image, onHandleClick, avatar, deleteFunc }) {
   return (
@@ -14,16 +13,14 @@ export default function ElementBox({ title, info, image, onHandleClick, avatar, 
             <div className='titleBox'>
 
               {title ? title : 'unNamed'}
-              <div className='iconDelete'>
+              <div className='iconDelete'onClick={(event)=>{event.stopPropagation(); deleteFunc()}}>
                 <DeleteForeverIcon sx={{
                   color: 'red'
-                }} onClick={deleteFunc}></DeleteForeverIcon>
+                }} ></DeleteForeverIcon>
               </div>
             </div>
             <div className='moreInfo'>
               {info?info : 'Create by ldminh for fun'}
-
-              
             </div>
           </div>
         </div>

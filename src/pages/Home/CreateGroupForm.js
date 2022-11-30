@@ -61,14 +61,11 @@ export default function FormDialog({ state, setState, createGroup }) {
 
       <Snackbar
             message="Create group successfully"
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
             autoHideDuration={2000}
             open={createState}
             onClose={() => setCreateState(false)}
-
           />
-
-
     </div>
   );
 }

@@ -4,6 +4,7 @@
 }
 .iconDelete{
     display: none;
+    position: relative;
 }
 .elementContent:hover  {
     background-color: #F2F2F2;

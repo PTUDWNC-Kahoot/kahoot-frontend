@@ -1,24 +1,27 @@
 import axios from 'axios';
-import Login from './Login';
+import Login from './Login'
 
-export default async function ListGroups(setListKahoot) {
+export default async function DeleteGroup(group, setDeleteState) {
 
-    var token =await Login();
+    var token = await Login();
 
     await axios({
-        method: 'GET',
-        url: 'http://localhost:8000/groups',
+        method: 'DELETE',
+        url: 'http://localhost:8000/groups/' + group.id,
         headers: {
             'Authorization': 'Bearer ' + token
         },
+       
 
     }).then(function (response) {
         // handle success
-        setListKahoot(response.data)
+        setDeleteState(true);
     })
         .catch(function (error) {
             // handle error
             console.log(error);
+            setDeleteState(false);
+
         })
         .finally(function () {
             // always executed

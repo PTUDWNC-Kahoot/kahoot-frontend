@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function GroupsCard({ listGroup}) {
+export default function GroupsCard({ listGroup, dltFunc}) {
   const navigate = useNavigate();
   const onClick = (group) => {
     navigate('/group', { state: {group: group }})
@@ -33,6 +33,7 @@ export default function GroupsCard({ listGroup}) {
                   avatar={group.coverImageUrl}
                   title={group.name}
                   info={'Create at ' +dateTime.toDateString()}
+                  deleteFunc={()=>dltFunc(group)}
                 ></ElementBox>
               )
             })}

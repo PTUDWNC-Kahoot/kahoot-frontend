@@ -34,7 +34,7 @@ export default function GroupInforCard({ group }) {
           {editState && <CheckBoxRoundedIcon onClick={doneEdit} sx={{ color: 'green' }} color='green'></CheckBoxRoundedIcon>}
           <Snackbar
             message="Edit group name successfully"
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
             autoHideDuration={2000}
             open={doneEditState}
             onClose={() => setDoneEditState(false)}
