@@ -21,7 +21,7 @@ export default function GroupsCard({ listGroup, dltFunc }) {
           </div>
           <hr />
           <div className='contentBox'>
-            {listGroup?.length == 0 ?
+            {listGroup?.length === 0 ?
               <EmptyListNotify></EmptyListNotify> :
               listGroup.map((group) => {
                 const dateTime = new Date(group.CreatedAt)

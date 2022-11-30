@@ -1,12 +1,13 @@
 import axios from 'axios';
 import Login from './Login'
 
-export default async function GetGroupMemberList(group) {
+export default async function GetGroupMemberList(group,setGroupListMember) {
 
-    var token = await Login();
+    var user = await Login();
+    const token = user.token;
 
-    await axios({
-        method: 'POST',
+    return await axios({
+        method: 'GET',
         url: 'http://localhost:8000/groups/' + group.id,
         headers: {
             'Authorization': 'Bearer ' + token
@@ -15,6 +16,8 @@ export default async function GetGroupMemberList(group) {
 
     }).then(function (response) {
         // handle success
+        setGroupListMember(response.data.users)
+        return(response.data.users)
     })
         .catch(function (error) {
             // handle error

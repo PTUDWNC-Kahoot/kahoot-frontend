@@ -21,7 +21,7 @@ export default function CoOwnerCard({list}) {
               : list?.map((member) => {
                 return (
                   <ElementBox
-                    key={member.id}
+                    key={member.userId}
                     avatar={member.coverImageUrl}
                     title={member.name}
                   ></ElementBox>

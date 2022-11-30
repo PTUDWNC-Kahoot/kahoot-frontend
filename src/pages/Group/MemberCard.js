@@ -21,7 +21,7 @@ export default function MemberCard({ list }) {
               : list?.map((member) => {
                 return (
                   <ElementBox
-                    key={member.id}
+                    key={member.userId}
                     avatar={member.coverImageUrl}
                     title={member.name}
                   ></ElementBox>

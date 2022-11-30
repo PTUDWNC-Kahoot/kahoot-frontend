@@ -8,7 +8,7 @@ export default function ElementBox({ title, info, image, onHandleClick, avatar, 
     <Box sx={{ minWidth: 275, boxShadow: 3, marginY: 2 }}>
       <div className='elementContent' onClick={onHandleClick}>
         <div className='infoBox'>
-          <img className='imageBox' src={/*avatar? avatar :*/ require('../assets/img/images.png')} alt="image" width={100} ></img>
+          <img className='imageBox' src={avatar? avatar : require('../assets/img/images.png')} alt="image" width={100} ></img>
           <div className='info'>
             <div className='titleBox'>
 
