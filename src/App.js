@@ -4,6 +4,8 @@ import Register from "./pages/register/Register"
 import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/editprofile';
+import Home from "./pages/Home/Home";
+import Group from "./pages/Group/Group";
 function App() {
  localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
   return (  
@@ -20,4 +22,18 @@ function App() {
   );
 }
 
-export default App;
+export default function App() {
+    
+    return (
+        <BrowserRouter>
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/group" element={<Group />} />
+
+                <Route path="*" element={<Home />} />
+            </Routes>
+        </BrowserRouter>
+    )
+};
+

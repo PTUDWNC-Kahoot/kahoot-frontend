@@ -1,0 +1,50 @@
+#header {
+    background-color: black;
+    height: 3.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 10px 5px 5px red;
+}
+
+.logo {
+    height: 30px;
+    object-fit: cover;
+
+}
+
+.functionButton {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.shareTitle {
+    font-weight: bold;
+    font-size: larger;
+    margin-bottom: 20px;
+    color: #FB2576;
+}
+
+.shareFrame {
+    padding: 30px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+}
+
+.linkInvited {
+    background-color: #F2F2F2;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.copyFrame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}

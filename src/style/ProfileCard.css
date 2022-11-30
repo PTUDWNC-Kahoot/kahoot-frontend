@@ -1,0 +1,25 @@
+.cardContent{
+    padding: 30px;
+}
+
+.profileText{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.nameText{
+    font-weight: bold;
+    color: #FB2576;
+    font-size:larger;
+}
+
+.accountText{
+    font-weight: bold;
+}
+
+.box{
+    background-color: #F2F2F2;
+    width: 100%;
+    height: 2em;
+}

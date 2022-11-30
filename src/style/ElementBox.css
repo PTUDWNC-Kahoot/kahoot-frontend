@@ -1,0 +1,59 @@
+.elementContent {
+    background-color: white;
+
+}
+.iconDelete{
+    display: none;
+    position: relative;
+}
+.elementContent:hover  {
+    background-color: #F2F2F2;
+   
+  } 
+
+  .elementContent:hover .iconDelete {
+   display: block;
+  } 
+.infoBox {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+
+}
+
+.imageBox {
+    flex: 1;
+    aspect-ratio: 3/2;
+}
+
+.info{
+    flex: 4;
+    width: max-content;
+    flex-direction: column;
+    display: flex;
+}
+
+.titleBox{
+    flex: 4;
+    font-weight: bold;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title{
+    flex: 4;
+}
+
+.moreInfo{
+    flex: 1;
+    margin-left: 10px;
+    background-color: #F2F2F2;
+    padding: 5px;
+    font-size: small;
+}
+
+.changeRole{
+    width: fit-content;
+    align-self: flex-end;
+}
