@@ -7,6 +7,7 @@ import '../../style/authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import VerifyEmail  from "./VerifyEmail";
+import LoginWithGoogle from "./loginwithGoogle";
 import * as Yup from "yup"
 
 
@@ -86,7 +87,6 @@ function Register() {
             
         }
     });
-
   
     const { isLoading, isError, isSuccess, error, mutate } = useMutation(
         postData, 
@@ -170,14 +170,16 @@ function Register() {
                             <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper form__display--flex">
-                            <button className="form__SignOnBtn" onClick={handleRegisterGoogle}>
+                            <a  className="form__SignOnBtn" href="http://localhost:8000/google/login">
+                                <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
-                                <div className="form__socialText">Continue with Google</div>
-                            </button>
-                            <button className="form__SignOnBtn">
+                                <div className="form__socialText">Continue with Google</div> 
+                            </a>
+                           
+                            <a className="form__SignOnBtn">
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>
-                            </button>
+                            </a>
                     </div>
                     <p className="text--center text--14 text--grey">Already have an account?  <a href="/login">Log in</a></p>
 
