@@ -6,34 +6,42 @@ import OwnerCard from './OwnerCard'
 import CoOwnerCard from './CoOwnerCard'
 import MemberCard from './MemberCard'
 import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
+import GetGroupMemberList from '../../service/GetGroupMemberList'
 
 function Group() {
     const { state } = useLocation();
     const { group } = state;
-    console.log(group)
+    const [ownerList, setOwnerList] = useState([]);
+    const [coOwnerList, setCoOwnerList] = useState([]);
+    const [memberList, setMemberList] = useState([]);
+
+    useEffect(() => {
+        //GetGroupMemberList();
+    }, []);
+
     return (
         <div >
             <Header page={'GroupPage'} group={group}  >  </Header>
             <div className='content'>
                 <div className='col1'>
                     <GroupInforCard group={group} />
-                    <OwnerCard />
+                    <OwnerCard list={ownerList}/>
 
                 </div>
      
                 <div className='widthMode'>
                     <div className='col2'>
-                        <MemberCard />
+                        <MemberCard list={memberList}/>
 
                     </div>
                     <div className='col3'>
-                        <CoOwnerCard></CoOwnerCard>
+                        <CoOwnerCard list={coOwnerList}/>
 
                     </div>
                 </div>
                 <div className='shortMode'>
-                    <MemberCard />
+                    <MemberCard list={memberList}/>
                     <CoOwnerCard></CoOwnerCard>
 
 

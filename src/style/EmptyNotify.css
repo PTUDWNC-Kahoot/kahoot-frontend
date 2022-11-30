@@ -1,0 +1,18 @@
+.emptyImageBox{
+    flex-direction: column;
+    display: flex;
+    padding: 10%;
+    align-items: center;
+}
+
+.emptyImage{
+    flex: 1;
+    width: 100%;
+}
+
+.emptyText{
+    padding: 20px;
+    font-size: larger;
+    color:#d3d3d3 ;
+    font-weight: bold;
+}

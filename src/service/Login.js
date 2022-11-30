@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export default async function Login(setToken) {
-    await axios({
+export default async function Login() {
+    return await axios({
         method: 'POST',
         url: 'http://localhost:8000/auth/login',
         data: {
@@ -11,8 +11,8 @@ export default async function Login(setToken) {
 
     },).then(function (response) {
         // handle success
-        
-        return(response.data.token)
+        return(response.data)
+
     })
         .catch(function (error) {
             // handle error

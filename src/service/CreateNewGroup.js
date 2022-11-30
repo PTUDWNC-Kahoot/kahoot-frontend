@@ -3,7 +3,8 @@ import Login from './Login'
 
 export default async function CreateNewGroup(newNameGroup, setCreateState, createGroup) {
 
-    var token = await Login();
+    var user = await Login();
+    const token = user.token;
 
     await axios({
         method: 'POST',
@@ -12,7 +13,8 @@ export default async function CreateNewGroup(newNameGroup, setCreateState, creat
             'Authorization': 'Bearer ' + token
         },
         data:{
-            "name": newNameGroup
+            "name": newNameGroup,
+            "adminId": user.id
         }
 
     }).then(function (response) {

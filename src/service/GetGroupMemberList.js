@@ -1,13 +1,12 @@
 import axios from 'axios';
 import Login from './Login'
 
-export default async function DeleteGroup(group, setDeleteState) {
+export default async function GetGroupMemberList(group) {
 
-    var user = await Login();
-    const token = user.token;
+    var token = await Login();
 
     await axios({
-        method: 'DELETE',
+        method: 'POST',
         url: 'http://localhost:8000/groups/' + group.id,
         headers: {
             'Authorization': 'Bearer ' + token
@@ -16,13 +15,10 @@ export default async function DeleteGroup(group, setDeleteState) {
 
     }).then(function (response) {
         // handle success
-        setDeleteState(true);
     })
         .catch(function (error) {
             // handle error
             console.log(error);
-            setDeleteState(false);
-
         })
         .finally(function () {
             // always executed
