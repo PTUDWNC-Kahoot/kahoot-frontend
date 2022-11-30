@@ -1,0 +1,234 @@
+.navbar {
+    width: 100%;
+    background:  rgb(255, 255, 255);
+    height: 3.5rem;     /* 56px */
+    margin-bottom: 14px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px 0px; 
+    align-items: center;
+    position: relative;
+}
+
+/* Form */
+.form {
+    width: 416px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 4px 0px;
+}
+
+.form__content {
+    justify-content: center;
+    max-width: 22.5rem;
+    padding: 1.5rem;
+    width: calc(100% - 3rem);
+}
+.form__header {
+    font-size: 24px;
+    line-height: 140%; 
+    color: #333;
+    font-weight: bold;
+}
+
+/* Begin: Form Username Wrapper */
+.form__EmailWrapper {
+    width: 100%;
+    align-content: center;
+}
+.form__inputWrapper{
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.form__label {
+  
+    color: #333;
+    vertical-align: baseline;
+}
+
+.form__input {
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.75rem;
+    border: 1px solid rgb(178, 178, 178);
+    border-radius: 0.25rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 51, 51);
+    font-size: 1rem;      /* 16px */
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease 0s;
+    appearance: none;
+    text-overflow: ellipsis;
+    resize: none;
+    overflow: auto;
+    padding: 0px 40px 0px 16px;
+    white-space: nowrap;
+}
+.form__passwordIcon{
+    min-height: 1.75rem;
+    margin: 0px 8px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+
+}
+.form__password{
+    position: relative;
+}
+
+.form__passwordEye {
+    
+    position: absolute;
+    right: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+}
+.form__passwordEyeBtn{
+    border: none;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    outline: none;
+    color: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    appearance: none;
+    position: absolute;
+    right: 0px;
+    margin: 6px 2px;
+    padding: 0px;
+   
+}
+.form__passwordEyeIcon{
+    display: inline-block; 
+    vertical-align: middle;
+    width: 32px; 
+    height: 32px;
+
+}
+
+.btn__submit {
+    width: 100%;
+    cursor: pointer;
+    display: inline-block;
+    border: 0px;
+    vertical-align: bottom;
+    padding: 0px 16px 4px;
+    border-radius: 4px;
+    color: #FFF;    
+    background: rgb(38, 137, 12);
+    box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
+    text-align: center;
+    text-decoration: none;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0px 16px 4px;
+    position: relative;
+    /* To inherit font */
+    font-family: inherit; 
+    margin-top: 0.5rem;
+}
+.btn__submit--disabled {
+    min-height: 42px;
+    padding-bottom: 0px;
+    background-color: rgb(204, 204, 204);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+.errorMsg {
+    color: rgb(226, 27, 60);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    letter-spacing: 0.2px;
+    left: 0px;
+    padding-top: 2px;
+  }
+/* End: Form Username Wrapper */
+
+
+/* Begin: Form Cardline Wrapper */
+.form__CardLineWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+.form__CardLine{
+   
+    width: 100%;
+    border-top: 1px solid rgb(204, 204, 204);
+}
+.form__or{
+    position: absolute;
+    padding: 0px 0.5rem;
+    background: rgb(255, 255, 255);
+    margin-top: -0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* End: Form Cardline Wrapper */
+
+
+/* Begin: Form Social Login Wrapper */
+.form__SocialLoginWrapper{
+    width: 100%;
+    padding: 24px 0px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+.form__SignOnBtn {
+    display: flex;    /* Để icon và text theo chiều ngang, ở đây btn là 1 container */
+    align-items: center;     /* Căn nội dung theo chiều dọc */
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    height: auto;
+    cursor: pointer;
+    /* To inherit font */
+    font-family: inherit; 
+    text-decoration: none;
+    
+}
+.form__SignOnBtn:focus{
+    cursor: pointer;
+    border: 2px solid rgb(19, 104, 206);
+}
+
+.form__socialIcon {
+    min-height: 1.75rem;
+    margin: 0px 8px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+}
+.form__socialText {
+   
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 36px;
+
+}
+/* End: Form Social Login Wrapper */

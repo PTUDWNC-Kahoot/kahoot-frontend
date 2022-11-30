@@ -1,0 +1,29 @@
+.form__registerTitle{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1rem auto;
+    text-align: center;
+}
+.form__recievedInfo {
+    display: flex;
+    margin: 0px 0.5rem 1.5rem 0px;
+    font-size: 0.8rem;
+}
+.form__recievedInfo__checkbox{
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+.form__recievedInfo__label{
+    display: inline;
+    margin: 0px;
+}
+
+.modal__verify{
+    display: none;
+}
+.modal__verify.open{
+    display: flex;
+}
