@@ -8,6 +8,8 @@ import MemberCard from './MemberCard'
 import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import GetGroupMemberList from '../../service/GetGroupMemberList'
+import ChangeRole from '../../service/ChangeRole'
+import { Snackbar } from '@mui/material'
 
 function Group() {
     const { state } = useLocation();
@@ -16,10 +18,13 @@ function Group() {
     const [ownerList, setOwnerList] = useState([]);
     const [coOwnerList, setCoOwnerList] = useState([]);
     const [memberList, setMemberList] = useState([]);
+    const [changeRoleState, setChangeRoleState] = useState();
 
     useEffect(() => {
         GetGroupMemberList(group, setGroupListMember);
     }, []);
+
+
 
     useEffect(() => {
         var listOfOwner = [];
@@ -38,6 +43,11 @@ function Group() {
         setCoOwnerList(listOfCoOwner)
         setMemberList(listOfMember)
     }, [groupListMember]);
+    
+    const changeRoleHandle=(userId, newRole)=>{
+        ChangeRole(group, userId, newRole, setChangeRoleState)
+      }
+
 
     return (
         <div >
@@ -45,28 +55,42 @@ function Group() {
             <div className='content'>
                 <div className='col1'>
                     <GroupInforCard group={group} />
-                    <OwnerCard list={ownerList} />
+                    <OwnerCard list={ownerList} changeRoleHandle={changeRoleHandle}/>
 
                 </div>
 
                 <div className='widthMode'>
                     <div className='col2'>
-                        <MemberCard list={memberList} />
+                        <MemberCard list={memberList} changeRoleHandle={changeRoleHandle}/>
 
                     </div>
                     <div className='col3'>
-                        <CoOwnerCard list={coOwnerList} />
+                        <CoOwnerCard list={coOwnerList}  changeRoleHandle={changeRoleHandle}/>
 
                     </div>
                 </div>
                 <div className='shortMode'>
-                    <MemberCard list={memberList} />
-                    <CoOwnerCard list={coOwnerList}></CoOwnerCard>
+                    <MemberCard list={memberList} changeRoleHandle={changeRoleHandle}/>
+                    <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle}></CoOwnerCard>
 
 
                 </div>
 
             </div>
+            <Snackbar
+                message="You don't have permission"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                autoHideDuration={2000}
+                onClose={() => setChangeRoleState(undefined)}
+                open={changeRoleState !== undefined && changeRoleState !== true}
+            />
+            <Snackbar
+                message="Change role successfully"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                autoHideDuration={2000}
+                onClose={() => setChangeRoleState(undefined)}
+                open={changeRoleState !== undefined && changeRoleState !== false}
+            />
         </div>
 
     )

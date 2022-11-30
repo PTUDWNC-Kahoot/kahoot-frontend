@@ -6,7 +6,7 @@ import ElementBox from '../../components/ElementBox'
 import EmptyListNotify from '../../components/EmptyListNotify'
 
 
-export default function CoOwnerCard({list}) {
+export default function CoOwnerCard({list, changeRoleHandle}) {
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
       <Card variant="outlined">
@@ -24,6 +24,10 @@ export default function CoOwnerCard({list}) {
                     key={member.userId}
                     avatar={member.coverImageUrl}
                     title={member.name}
+                    type={'user'}
+                    userRole={member.role}
+                    changeRoleHandle={changeRoleHandle}
+                    id={member.userId}
                   ></ElementBox>
                 )
               })}

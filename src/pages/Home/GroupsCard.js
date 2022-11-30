@@ -11,7 +11,7 @@ export default function GroupsCard({ listGroup, dltFunc }) {
   const onClick = (group) => {
     navigate('/group', { state: { group: group } })
   }
-
+  
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
       <Card variant="outlined">
