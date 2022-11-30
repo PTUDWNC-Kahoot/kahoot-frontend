@@ -11,29 +11,15 @@ function App() {
   return (  
       <BrowserRouter>
     <Routes>
-        <Route index path= "" element={<Dashboard/>}/>
         <Route path="login"  element={<Login/>} />
         <Route path="register"  element={<Register/>} />
         <Route path="editprofile" element={<EditProfile/>}/>
-      
+        <Route path="/" element={<Home />} />
+                <Route path="/group" element={<Group />} />
+                <Route path="*" element={<Home />} />
     </Routes>
     </BrowserRouter>
   
   );
 }
-
-export default function App() {
-    
-    return (
-        <BrowserRouter>
-
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/group" element={<Group />} />
-
-                <Route path="*" element={<Home />} />
-            </Routes>
-        </BrowserRouter>
-    )
-};
 
