@@ -7,19 +7,21 @@ import EditProfile from './pages/Profile/editprofile';
 import Home from "./pages/Home/Home";
 import Group from "./pages/Group/Group";
 function App() {
- localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
+//  localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
   return (  
       <BrowserRouter>
     <Routes>
-        <Route path="login"  element={<Login/>} />
+        <Route path="/"  element={<Login/>} />
         <Route path="register"  element={<Register/>} />
         <Route path="editprofile" element={<EditProfile/>}/>
-        <Route path="/" element={<Home />} />
-                <Route path="/group" element={<Group />} />
-                <Route path="*" element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="/group" element={<Group />} />
+        <Route path="*" element={<Home />} />
     </Routes>
     </BrowserRouter>
   
   );
 }
 
+
+export default App;

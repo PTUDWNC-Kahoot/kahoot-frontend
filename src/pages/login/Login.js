@@ -79,7 +79,7 @@ function Login() {
                // localStorage.setItem("token", res.data.User.token);    
                 localStorage.setItem("authenticated", true);    
                 //window.location.reload();            
-                navigate("/");    
+                navigate("/home");    
             }                   
         },
         onError: (err) => {
