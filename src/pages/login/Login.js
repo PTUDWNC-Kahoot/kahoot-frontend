@@ -67,6 +67,10 @@ function Login() {
    
     let _err = false;
   
+    const signOnGoogle = (e) => {
+        const url ="http://localhost:8000/google/login"
+        
+    }
     const { isError, error, mutate } = useMutation(          // dùng react-query
     postDataLogin,  // 4
     {
@@ -83,6 +87,7 @@ function Login() {
         },
     }
     );
+
     async function postDataLogin() {
         return await axios.post("http://localhost:8000/auth/login", user);   // 5 goij api đến BE kèm data để xử lý
     }
@@ -127,14 +132,16 @@ function Login() {
                             <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper form__display--flex">
-                            <button className="form__SignOnBtn">
+                             <button className="form__SignOnBtn" onClick={signOnGoogle} >
+                                <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
-                                <div className="form__socialText">Continue with Google</div>
+                                <div className="form__socialText">Continue with Google</div> 
                             </button>
-                            <button className="form__SignOnBtn">
+                           
+                            <a className="form__SignOnBtn" >
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>
-                            </button>
+                            </a>
                     </div>
                     <div className="text--center text--14 text--grey">Don't have an account? <a href="/register"> Sign up</a></div>
 

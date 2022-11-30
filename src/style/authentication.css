@@ -206,6 +206,8 @@
     cursor: pointer;
     /* To inherit font */
     font-family: inherit; 
+    text-decoration: none;
+    
 }
 .form__SignOnBtn:focus{
     cursor: pointer;
