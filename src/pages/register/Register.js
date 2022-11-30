@@ -6,6 +6,7 @@ import '../../style/register.css'
 import '../../style/authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
+import VerifyEmail  from "./VerifyEmail";
 import * as Yup from "yup"
 
 
@@ -29,8 +30,11 @@ const statePass = [
 function Register() {
    
     let user = {};
+    let _user = {};
     const [code, setCode] = useState();
+    //const [user, setUser] = useState("");
     const [showPass, setShowPass] = useState(statePass[0])
+    const navigate = useNavigate();  
     const handleShowPass = () => {
             const isShow = showPass.state;
          
@@ -45,10 +49,6 @@ function Register() {
             }
      
     }
-  
-    const navigate = useNavigate();  
-
-
     const formik = useFormik ({
         initialValues: {
             email: "",
@@ -57,7 +57,6 @@ function Register() {
         validationSchema: Yup.object({
             email: Yup.string().required("Required")
             .matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,"Please enter a valid email address"),
-             //Required: Không để field này trống
             password: Yup.string()
              .required("Required")
              .matches(
@@ -66,42 +65,71 @@ function Register() {
              ),
         }),
         onSubmit: values => {
-        //    user = values;
-        // //    mutate();
-            const modal_page = document.querySelector(".modal__verify");
-            modal_page.classList.add("open");
+         //  setUser(values);
+            user = values;
+            mutate();
+          //  console.log(user)           
+            // //xu ly chuoi code, focus tung o
+            // const codes = document.querySelectorAll('.verify__code')
+            // var _prevCode="";
+            // codes[0].focus()
+            // codes.forEach((code, idx) => {
+            //     code.addEventListener('keydown', (e) => {
+            //         if(e.key >= 0 && e.key <=9) {
+            //             codes[idx].value = ''
+            //             setTimeout(() => codes[idx + 1].focus(), 10)
+            //         } else if(e.key === 'Backspace') {
+            //             setTimeout(() => codes[idx - 1].focus(), 10)
+            //         }
+            //     })
+            // })
+            
         }
     });
 
-    const onSubmitCode = (e) => {
-        e.preventDefault();
-        const _email =  formik.values.email;
-        const _password =  formik.values.password;
-        user = {_email, _password, code}
-        console.log(user);
-        mutate();
-    }
-    const { isLoading, isError, error, mutate } = useMutation(
+  
+    const { isLoading, isError, isSuccess, error, mutate } = useMutation(
         postData, 
         {
             onSuccess: (res) => {
-                navigate("/login");
+            
+                // const modal_page = document.querySelector(".modal__verify");
+                // modal_page.classList.add("open");
             },
             onError: (err) => {                   
             },
         }
     );
+    // const {  mutate} = useMutation(
+    //     postVerify, 
+    //     {
+    //         onSuccess: (res) => {
+    //             navigate("/login");
+    //             console.log("Success");
+    //         },
+    //         onError: (err) => {                   
+    //         },
+    //     }
+    // );
     async function postData() {
-        return await axios.post("http://localhost:8000/auth/register", user);   //  goi api đến BE kèm data để xử lý
+        return await axios.post("http://localhost:8000/auth/register", user);  
     }
-
+ 
     if (isLoading) {
         return <div>Loading...</div>
     }
     if (isError) {
         return <div>Error! {error.message}</div>
     }
+    if (isSuccess) { 
 
+        const email =  formik.values.email;
+        const password =  formik.values.password;   
+        const verifyCode = 0;
+        user = {email, password, verifyCode};
+      //  console.log(user);
+        return   <VerifyEmail  className="modal__verify"  user = {user} > </VerifyEmail>
+    }
     
     return (
         <div className="page form__display--flex ">
@@ -142,7 +170,7 @@ function Register() {
                             <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper form__display--flex">
-                            <button className="form__SignOnBtn">
+                            <button className="form__SignOnBtn" onClick={handleRegisterGoogle}>
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div>
                             </button>
@@ -157,24 +185,31 @@ function Register() {
             </section>
         
             </div>
-            <div className="modal__verify">
+            {/* <div className="modal__verify">
                 <div className="modal__container">
                     <header className="modal__header form__header"> Verify </header>
                     <div className="modal__registerContent">
-                        <div className="modal__text"> We've sent the security code to 
-                            <div className="modal__emailName text--b"> {formik.values.email}</div>
-                        </div>
-                       
-                            <input type="text" className="verify__input" placeholder="Enter the code" value={code} onChange={e => setCode(e.target.value)}/> 
+                        <div className="modal__text"> We've sent the 6-digit code to 
+                            <div className="modal__emailName text--b"> {formik.values.email} </div>
+                             Enter the code below to confirm your email address.
+                        </div>                 
+                        {/* <div className="modal__inputContainer">
+                            <input type="number" class="verify__code" min="0" max="9" value={_codes[0]} onChange = {e=> setCodes(e.target.value.at(0))} required/>
+                            <input type="number" class="verify__code" min="0" max="9" value={_codes[1]} onChange = {e=> setCodes(e.target.value)} required/>
+                            <input type="number" class="verify__code" min="0" max="9" value={_codes[2]} onChange = {e=> setCodes(e.target.value)} required/>
+                            <input type="number" class="verify__code" min="0" max="9" value={_codes[3]} onChange = {e=> setCodes(e.target.value)} required/>
+                            <input type="number" class="verify__code" min="0" max="9" value={_codes[4]} onChange = {e=> setCodes(e.target.value)} required/>
+                            <input type="number" class="verify__code" min="0" max="9"value={_codes[5]}  onChange = {e=> setCodes(e.target.value)} required/>
+
+                        </div> 
+                            <input type="number" className="verify__input" placeholder="Enter the code" value={code} onChange={e => setCode(e.target.value)}/> 
                         <div className="verify__wrapperBtn">
                              <button className="verify__btn" onClick={onSubmitCode}>Verify</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        
-    </div>
-    
+            </div> */}
+        </div>
     )
 }
 export default Register;

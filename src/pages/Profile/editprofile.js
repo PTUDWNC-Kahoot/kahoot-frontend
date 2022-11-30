@@ -54,26 +54,29 @@ function EditProfile()
     const [organization, setOrganization] = useState();
     const [workplace, setWorkplace] = useState("");
 
+    
    
+    // Table User Infomation
     const handleSubmitInfo = (e) => {
         e.preventDefault(); 
-        info = {username,email};
-
-       
+        info = {username,email};  
     }
-  
-   
+
+    //Table Account Detail
     const handleSubmitAccountDetail = (e) => {
         e.preventDefault();
         console.log(organization, workplace);
     }
+
+    // Button add Image
     const handleAddImage = (e) => {
             e.preventDefault();
             // open modal upload Image
             const modal_page = document.querySelector(".modal__uploadImage")
             modal_page.classList.add("open")
-
     }
+
+    // Upload image
     const handleUploadImage = (e) => {
         e.preventDefault();
         const modal__notup= document.querySelector(".modal__wrapper--notup")
@@ -82,6 +85,7 @@ function EditProfile()
         modal__up.classList.add("open")
         setImageUpload(imageUpload)
     }
+    // Cancel button (in upload image)
     const handleCancelUpload = (e) => {
         e.preventDefault();
         const modal_page = document.querySelector(".modal__uploadImage")
@@ -91,8 +95,8 @@ function EditProfile()
         modal__notup.classList.remove("close")
         modal__up.classList.remove("open")
     }
+    // Save button (in upload image)
     const handleSaveUpload = (e) => {
-        
         setImage(imageUpload);
         e.preventDefault();
         const modal_page = document.querySelector(".modal__uploadImage")
@@ -101,7 +105,6 @@ function EditProfile()
         modal_page.classList.remove("open")
         modal__notup.classList.remove("close")
         modal__up.classList.remove("open")
-
         const modal_btnWrapper = document.querySelector(".userInfo__btnWrapper")
         modal_btnWrapper.classList.add("close")
         const modal_imgWrapper = document.querySelector(".userInfo__imgWrapper")

@@ -72,7 +72,9 @@ function Login() {
     {
         onSuccess: (res) => {      // 6
             if (res.status === 200) {
-                localStorage.setItem("authenticated", true);              
+               // localStorage.setItem("token", res.data.User.token);    
+                localStorage.setItem("authenticated", true);    
+                //window.location.reload();            
                 navigate("/");    
             }                   
         },
