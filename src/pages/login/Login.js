@@ -64,9 +64,9 @@ function Login() {
         }
     });
    
-    // const handleSignOnGoogle = (e) => {
-    //      setSignOnGoogleState(true);
-    // }
+    const handleSignOnGoogle = (e) => {
+         setSignOnGoogleState(true);
+    }
    
     const { isError, error, mutate } = useMutation(          // dùng react-query
     postDataLogin,  // 4
