@@ -3,7 +3,7 @@ import { useMutation } from "react-query";
 import axios from 'axios';
 import '../../style/styles.css'
 import '../../style/register.css'
-import '../../style/authentication.css'
+import '../../style/Authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import VerifyEmail  from "./VerifyEmail";
@@ -132,12 +132,12 @@ function Register() {
     }
     
     return (
-        <div className="page form__display--flex ">
+        <div className="page display--col ">
         <div className="navbar"></div>
-            <div className="form form__display--flex " onSubmit={formik.handleSubmit}>
+            <div className="form display--col " onSubmit={formik.handleSubmit}>
                 <section className="form__content">
-                    <header className="form__header text--center">Create an account</header>
-                        <div className="form__EmailWrapper form__display--flex">
+                    <header className="form__title text--center">Create an account</header>
+                        <div className="form__EmailWrapper display--col">
                             <h2 className="form__registerTitle">Sign up with your email</h2>
                             <form className="form__inputWrapper">
                                 <label htmlFor="email" className="text--b form__label">Email</label>
@@ -169,7 +169,7 @@ function Register() {
                             <hr className="form__CardLine"></hr>
                             <p className="text--b  form__or">or</p>
                     </div>
-                    <div className="form__SocialLoginWrapper form__display--flex">
+                    <div className="form__SocialLoginWrapper display--col">
                             <a  className="form__SignOnBtn" href="http://localhost:8000/google/login">
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../../style/styles.css'
 import '../../style/register.css'
 import '../../style/verify.css'
-import '../../style/authentication.css'
+import '../../style/Authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import * as Yup from "yup"

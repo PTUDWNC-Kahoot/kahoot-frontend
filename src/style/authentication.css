@@ -11,6 +11,7 @@
 /* Form */
 .form {
     width: 416px;
+    height: 100%;
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255);
@@ -19,19 +20,20 @@
 }
 
 .form__content {
+    margin-top: 64px;
+    height: 100%;
     justify-content: center;
+    width: calc(100% - 3rem);
     max-width: 22.5rem;
     padding: 1.5rem;
-    width: calc(100% - 3rem);
 }
-.form__header {
+.form__title {
     font-size: 24px;
     line-height: 140%; 
     color: #333;
-    font-weight: bold;
 }
 
-/* Begin: Form Username Wrapper */
+/* Begin: Form Email Wrapper */
 .form__EmailWrapper {
     width: 100%;
     align-content: center;
@@ -41,7 +43,6 @@
     margin-bottom: 24px;
 }
 .form__label {
-  
     color: #333;
     vertical-align: baseline;
 }
@@ -73,7 +74,6 @@
     height: 36px;
     align-items: center;
     justify-content: center;
-
 }
 .form__password{
     position: relative;
@@ -117,7 +117,6 @@
     height: 32px;
 
 }
-
 .btn__submit {
     width: 100%;
     cursor: pointer;
@@ -139,14 +138,14 @@
     font-family: inherit; 
     margin-top: 0.5rem;
 }
-.btn__submit--disabled {
+/* .btn__submit--disabled {
     min-height: 42px;
     padding-bottom: 0px;
     background-color: rgb(204, 204, 204);
     color: rgb(255, 255, 255);
     box-shadow: none;
     cursor: not-allowed;
-}
+} */
 .errorMsg {
     color: rgb(226, 27, 60);
     font-size: 0.75rem;
@@ -155,8 +154,7 @@
     left: 0px;
     padding-top: 2px;
   }
-/* End: Form Username Wrapper */
-
+/* End: Form Email Wrapper */
 
 /* Begin: Form Cardline Wrapper */
 .form__CardLineWrapper {
@@ -167,7 +165,6 @@
     justify-content: center;
 }
 .form__CardLine{
-   
     width: 100%;
     border-top: 1px solid rgb(204, 204, 204);
 }
@@ -223,12 +220,16 @@
     justify-content: center;
 }
 .form__socialText {
-   
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-right: 36px;
-
 }
 /* End: Form Social Login Wrapper */
+
+.page__policy{
+    padding: 8px;
+    font-size: 0.8rem;
+    color: rgb(110, 110, 110);
+}

@@ -3,19 +3,17 @@
     margin: 0px;
     padding: 0px;
     border: 0px;
-    
 }
 
 /* Define for all */
 html {
     scroll-behavior: smooth;
     font-family:  Montserrat, "Noto Sans Arabic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
 }
 
 /* Form text: size 14 */
 .text--14 {
-    font-size: 14;
+    font-size: 14px;
 }
 
 /*text: bold */
@@ -29,14 +27,12 @@ html {
 .text--center {
     text-align: center;
 }
-.form__display--flex {
+.display--col {
     display: flex;
     flex-direction: column;
 }
-.page {
-    height: 100%;
-    width: 100%;
+.page {    
     background-color: rgb(215, 205, 205);
     align-items: center;
-    position: relative;
+    padding: 1.5rem;
 }

@@ -1,6 +1,6 @@
 
 import '../../style/editprofile.css'
-import '../../style/authentication.css'
+import '../../style/Authentication.css'
 import '../../style/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faImage, faPencil} from '@fortawesome/free-solid-svg-icons'
