@@ -1,6 +1,6 @@
 import './App.css';
 import Login from "./pages/Login/Login"
-import Register from "./pages/register/Register"
+import Register from "./pages/Register/Register"
 import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/editprofile';

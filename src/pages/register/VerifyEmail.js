@@ -3,15 +3,16 @@ import { useMutation } from "react-query";
 import axios from 'axios';
 import '../../style/styles.css'
 import '../../style/register.css'
-import '../../style/verify.css'
+import '../../style/Verify.css'
 import '../../style/Authentication.css'
+import '../../style/Responsive.css'
 import { useNavigate } from "react-router-dom";
 
 export default function VerifyEmail ({user})
  {
 
     const [verifyCode, setCode] = useState(user.verifyCode);
-    const [isVerify, setIsVerify ] = useState(false)
+    const [_error, setError] = useState(0);
     //codes: code object  get from input
     const [codes, setCodes] = useState({
         firstcode: "",
@@ -23,16 +24,23 @@ export default function VerifyEmail ({user})
     });
     
     let arrCode =[""]; //A code's value array 
-    const navigate = useNavigate();  
-
- 
+    const navigate = useNavigate();     
     const handleChangeCode = (e) => {
+       
         const value = e.target.value; //value of code get from input
         const name = e.target.name;
-        setCodes({
-            ...codes,
-            [name]: value,  
-        });       
+        if (value >= 0 && value <= 9)
+        {
+            setCodes({
+                ...codes,
+                [name]: value,  
+            }); 
+            setError(0); //valid input
+
+        }
+        else{
+            setError(2); //invalid input
+        }
     }
 
     //Because setCodes() is usually asynchronous. 
@@ -49,13 +57,24 @@ export default function VerifyEmail ({user})
         }
         setCode(strCode); 
         // console.log(strCode);
- 
+     
     }, [codes])
 
     const onSubmitCode = (e) => {
         e.preventDefault(); //prevent load page
-        user.verifyCode = parseInt(verifyCode);     
-        mutate();
+        if(verifyCode.length == 6)
+        {
+          
+            user.verifyCode = parseInt(verifyCode);  
+            setError(0);
+            mutate();
+        }
+        else{
+            setError(1); //lack of code digit
+        }
+      
+      
+     
     }  
     const { isLoading, isError, error, mutate } = useMutation(
         postData, 
@@ -82,27 +101,31 @@ export default function VerifyEmail ({user})
 
             <div className="modal__verify">
                 <div className="modal__container">
-                    <header className="modal__header form__header"> Verify </header>
-                    <div className="modal__registerContent">
+                    <header className="form__title text--b"> Verify </header>
+                    <form className="modal__registerContent">
                         <div className="modal__text"> We've sent the 6-digit code to 
                             <div className="modal__emailName text--b"> {user.email} </div>
                              Enter the code below to confirm your email address.
                         </div>                 
                        
-                             <div className="modal__inputContainer">
+                             <div className="modal__inputWithError">
+                                <div className="modal__inputContainer" >
                             <input type="number" className="verify__code" min="0" max="9" name="firstcode" value={codes.firstcode} onChange = {handleChangeCode} required/>
                             <input type="number" className="verify__code" min="0" max="9" name="secondcode" value={codes.secondcode} onChange = {handleChangeCode} required/>
                             <input type="number" className="verify__code" min="0" max="9" name="thirdcode" value={codes.thirdcode} onChange = {handleChangeCode} required/>
                             <input type="number" className="verify__code" min="0" max="9" name= "fourthcode" value={codes.fourthcode} onChange = {handleChangeCode} required/>
                             <input type="number" className="verify__code" min="0" max="9" name="fifthcode" value={codes.fifthcode} onChange = {handleChangeCode} required/>
                             <input type="number" className="verify__code" min="0" max="9" name= "sixcode" value={codes.sixcode}  onChange = {handleChangeCode} required/>
-                            </div>
-                
-                            {/* <input type="number" className="verify__input" placeholder="Enter the code" value={verifyCode} onChange={ e => setCode(e.target.value)}/>  */}
+                              </div>
+                                {_error == 2 && ( <p className="errorMsg">This field accepts only numbers from 0-9 </p> )}
+                                {_error == 1 && ( <p className="errorMsg">Required 6-digit</p> )}
+                                </div>
+                             {/* <input type="number" className="verify__input" placeholder="Enter the code" value={verifyCode} onChange={ e => setCode(e.target.value)}/>  */}
                         <div className="verify__wrapperBtn">
-                             <button className="verify__btn" onClick={onSubmitCode}>Verify</button>
+                             <button  type="submit" className="verify__btn" onClick={onSubmitCode}>Verify</button>
                         </div>
-                    </div>
+                     
+                    </form>
                 </div>
             </div>
         

@@ -92,25 +92,11 @@ function Register() {
         postData, 
         {
             onSuccess: (res) => {
-            
-                // const modal_page = document.querySelector(".modal__verify");
-                // modal_page.classList.add("open");
             },
             onError: (err) => {                   
             },
         }
     );
-    // const {  mutate} = useMutation(
-    //     postVerify, 
-    //     {
-    //         onSuccess: (res) => {
-    //             navigate("/login");
-    //             console.log("Success");
-    //         },
-    //         onError: (err) => {                   
-    //         },
-    //     }
-    // );
     async function postData() {
         return await axios.post("http://localhost:8000/auth/register", user);  
     }
@@ -189,30 +175,6 @@ function Register() {
                 </p>
             </div>
 
-            {/* <div className="modal__verify">
-                <div className="modal__container">
-                    <header className="modal__header form__header"> Verify </header>
-                    <div className="modal__registerContent">
-                        <div className="modal__text"> We've sent the 6-digit code to 
-                            <div className="modal__emailName text--b"> {formik.values.email} </div>
-                             Enter the code below to confirm your email address.
-                        </div>                 
-                        {/* <div className="modal__inputContainer">
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[0]} onChange = {e=> setCodes(e.target.value.at(0))} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[1]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[2]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[3]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[4]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9"value={_codes[5]}  onChange = {e=> setCodes(e.target.value)} required/>
-
-                        </div> 
-                            <input type="number" className="verify__input" placeholder="Enter the code" value={code} onChange={e => setCode(e.target.value)}/> 
-                        <div className="verify__wrapperBtn">
-                             <button className="verify__btn" onClick={onSubmitCode}>Verify</button>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }

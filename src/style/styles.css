@@ -36,3 +36,11 @@ html {
     align-items: center;
     padding: 1.5rem;
 }
+
+/* remove Arrows (spinner) from Number Input */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}

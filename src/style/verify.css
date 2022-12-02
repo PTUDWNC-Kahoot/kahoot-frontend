@@ -38,12 +38,19 @@
 .modal__emailName {
     margin-left: 4px;
 }
+.modal__inputWithError{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
 .modal__inputContainer{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 40px 0;
+ 
 }
 .verify__code{
     border-radius: 5px;
@@ -53,14 +60,14 @@
     border: 1px solid #eee;
     outline-width: thin;
     outline-color: #ddd;
-    margin: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
     text-align: center;
     justify-content: center;
     font-weight: 30;
-    -moz-appearance: textfield;
-    margin-left: 10px;
-   
-
+}
+.verify__code:invalid{
+    border-color: rgb(226, 27, 60);
 }
 .verify__code:valid{
     border-color: #1DBF73;
