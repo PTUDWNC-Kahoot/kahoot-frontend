@@ -6,28 +6,46 @@ import '../../style/register.css'
 import '../../style/verify.css'
 import '../../style/Authentication.css'
 import { useNavigate } from "react-router-dom";
-import {useFormik } from "formik"
-import * as Yup from "yup"
-
 
 export default function VerifyEmail ({user})
  {
 
-    // console.log(user);
-    // let user = {}
-    //const [user, setUser] = useState();
     const [verifyCode, setCode] = useState(user.verifyCode);
+    const [isVerify, setIsVerify ] = useState(false)
+    //codes: code object  get from input
+    const [codes, setCodes] = useState({
+        firstcode: "",
+        secondcode: "",
+        thirdcode: "",
+        fourthcode: "",
+        fifthcode: "",
+        sixcode: ""
+    });
+    
+    let arrCode =[""]; //A code's value array 
     const navigate = useNavigate();  
 
-    // const setChangeCode = (e) => {
-    //     e.preventDefault();
-    //     console.log(verifyCode);
-    // }
+    const handleChangeCode = (e) => {
+        const value = e.target.value; //value of code get from input
+        setCodes({
+            ...codes,
+            [e.target.name]: value,  
+        });
+
+        arrCode = Object.values(codes); 
+        let strCode=""; //A temp variable to save the verify code at string type
+        for(var i = 0; i< arrCode.length; i++)
+        {
+           strCode += arrCode.at(i).toString();
+        }
+        setCode(strCode); 
+        
+    }
     const onSubmitCode = (e) => {
-        e.preventDefault();
+        e.preventDefault(); //prevent load page
         user.verifyCode = parseInt(verifyCode);
-        console.log(user);      
-        mutate();
+        console.log(user);        
+       // mutate();
     }  
     const { isLoading, isError, error, mutate } = useMutation(
         postData, 
@@ -60,17 +78,17 @@ export default function VerifyEmail ({user})
                             <div className="modal__emailName text--b"> {user.email} </div>
                              Enter the code below to confirm your email address.
                         </div>                 
-                        {/* <div className="modal__inputContainer">
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[0]} onChange = {e=> setCodes(e.target.value.at(0))} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[1]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[2]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[3]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9" value={_codes[4]} onChange = {e=> setCodes(e.target.value)} required/>
-                            <input type="number" class="verify__code" min="0" max="9"value={_codes[5]}  onChange = {e=> setCodes(e.target.value)} required/>
-                            e => setCode(e.target.value)
-
-                        </div> */}
-                            <input type="number" className="verify__input" placeholder="Enter the code" value={verifyCode} onChange={ e => setCode(e.target.value)}/> 
+                       
+                             <div className="modal__inputContainer">
+                            <input type="number" className="verify__code" min="0" max="9" name="firstcode" value={codes.firstcode} onChange = {handleChangeCode} required/>
+                            <input type="number" className="verify__code" min="0" max="9" name="secondcode" value={codes.secondcode} onChange = {handleChangeCode} required/>
+                            <input type="number" className="verify__code" min="0" max="9" name="thirdcode" value={codes.thirdcode} onChange = {handleChangeCode} required/>
+                            <input type="number" className="verify__code" min="0" max="9" name= "fourthcode" value={codes.fourthcode} onChange = {handleChangeCode} required/>
+                            <input type="number" className="verify__code" min="0" max="9" name="fifthcode" value={codes.fifthcode} onChange = {handleChangeCode} required/>
+                            <input type="number" className="verify__code" min="0" max="9" name= "sixcode" value={codes.sixcode}  onChange = {handleChangeCode} required/>
+                            </div>
+                
+                            {/* <input type="number" className="verify__input" placeholder="Enter the code" value={verifyCode} onChange={ e => setCode(e.target.value)}/>  */}
                         <div className="verify__wrapperBtn">
                              <button className="verify__btn" onClick={onSubmitCode}>Verify</button>
                         </div>

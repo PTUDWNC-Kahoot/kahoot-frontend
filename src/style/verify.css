@@ -45,7 +45,7 @@
     justify-content: center;
     margin: 40px 0;
 }
-/* .verify__code{
+.verify__code{
     border-radius: 5px;
     font-size: 24px;
     height: 60px;
@@ -66,7 +66,7 @@
     border-color: #1DBF73;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     
-} */
+}
 .verify__input{
     cursor: default;
     box-sizing: border-box;

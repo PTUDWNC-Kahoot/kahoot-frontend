@@ -7,7 +7,7 @@ import '../../style/Authentication.css'
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import VerifyEmail  from "./VerifyEmail";
-import LoginWithGoogle from "./loginwithGoogle";
+import Navbar from "../../components/Navbar";
 import * as Yup from "yup"
 
 
@@ -125,18 +125,17 @@ function Register() {
 
         const email =  formik.values.email;
         const password =  formik.values.password;   
-        const verifyCode = 0;
+        const verifyCode = "";
         user = {email, password, verifyCode};
-      //  console.log(user);
         return   <VerifyEmail  className="modal__verify"  user = {user} > </VerifyEmail>
     }
     
     return (
         <div className="page display--col ">
-        <div className="navbar"></div>
+          <Navbar> </Navbar>
             <div className="form display--col " onSubmit={formik.handleSubmit}>
                 <section className="form__content">
-                    <header className="form__title text--center">Create an account</header>
+                    <header className="form__title text--center text--b">Create an account</header>
                         <div className="form__EmailWrapper display--col">
                             <h2 className="form__registerTitle">Sign up with your email</h2>
                             <form className="form__inputWrapper">
@@ -170,23 +169,26 @@ function Register() {
                             <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper display--col">
-                            <a  className="form__SignOnBtn" href="http://localhost:8000/google/login">
+                            <button  className="form__SignOnBtn" href="http://localhost:8000/google/login">
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
-                            </a>
+                            </button>
                            
-                            <a className="form__SignOnBtn">
+                            <button className="form__SignOnBtn">
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>
-                            </a>
+                            </button>
                     </div>
-                    <p className="text--center text--14 text--grey">Already have an account?  <a href="/login">Log in</a></p>
-
-                
+                    <p className="text--center text--14 text--grey">Already have an account?  <a href="/login">Log in</a></p>                
             </section>
-        
             </div>
+            <div className="page__policy">
+                <p>
+                By signing up, you accept our Terms and Conditions. Please read our Privacy Policy and Children’s Privacy Policy.
+                </p>
+            </div>
+
             {/* <div className="modal__verify">
                 <div className="modal__container">
                     <header className="modal__header form__header"> Verify </header>

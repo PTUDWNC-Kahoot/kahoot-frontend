@@ -67,15 +67,12 @@ function Login() {
     const handleSignOnGoogle = (e) => {
          setSignOnGoogleState(true);
     }
-   
     const { isError, error, mutate } = useMutation(          // dùng react-query
     postDataLogin,  // 4
     {
         onSuccess: (res) => {      // 6
             if (res.status === 200) {
-               // localStorage.setItem("token", res.data.User.token);    
-                localStorage.setItem("authenticated", true);    
-                //window.location.reload();            
+                localStorage.setItem("authenticated", true);           
                 navigate("/home");    
             }                   
         },
