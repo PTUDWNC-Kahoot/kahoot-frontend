@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "react-query";
 import axios from 'axios';
 import '../../style/styles.css'
@@ -25,13 +25,22 @@ export default function VerifyEmail ({user})
     let arrCode =[""]; //A code's value array 
     const navigate = useNavigate();  
 
+ 
     const handleChangeCode = (e) => {
         const value = e.target.value; //value of code get from input
+        const name = e.target.name;
         setCodes({
             ...codes,
-            [e.target.name]: value,  
-        });
+            [name]: value,  
+        });       
+    }
 
+    //Because setCodes() is usually asynchronous. 
+    //At the time we change code value, it's not updated yet
+    //Solve by useEffect()
+    //useEffect runs on every re-render, and if the items passed into the array are state variable sand changed. 
+    //So when the code changed and component re-renders, that useEffect will run. 
+    useEffect(() => {
         arrCode = Object.values(codes); 
         let strCode=""; //A temp variable to save the verify code at string type
         for(var i = 0; i< arrCode.length; i++)
@@ -39,13 +48,14 @@ export default function VerifyEmail ({user})
            strCode += arrCode.at(i).toString();
         }
         setCode(strCode); 
-        
-    }
+        // console.log(strCode);
+ 
+    }, [codes])
+
     const onSubmitCode = (e) => {
         e.preventDefault(); //prevent load page
-        user.verifyCode = parseInt(verifyCode);
-        console.log(user);        
-       // mutate();
+        user.verifyCode = parseInt(verifyCode);     
+        mutate();
     }  
     const { isLoading, isError, error, mutate } = useMutation(
         postData, 
