@@ -55,7 +55,7 @@ function EditProfile()
     const [workplace, setWorkplace] = useState("");
 
     
-   
+
     // Table User Infomation
     const handleSubmitInfo = (e) => {
         e.preventDefault(); 

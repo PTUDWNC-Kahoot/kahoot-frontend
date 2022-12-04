@@ -14,6 +14,7 @@ import {
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import { useNavigate  } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
@@ -28,6 +29,7 @@ const Header = ({ page, group, add }) => {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [copyState, setCopyState] = useState(false);
+    const navigate = useNavigate();  
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -44,6 +46,9 @@ const Header = ({ page, group, add }) => {
         setCopyState(true);
         navigator.clipboard.writeText('InviteLink');
     };
+    const handleClickViewProfile = () => {
+        navigate("/editprofile");  
+    }
 
 
     const open = Boolean(anchorEl);
@@ -137,7 +142,7 @@ const Header = ({ page, group, add }) => {
                                 <AccountCircleIcon sx={{ marginLeft: "10px", color: '#000' }} color="action" fontSize="large" />
                             </div>
                             <Menu {...bindMenu(popupState)}>
-                                <MenuItem onClick={popupState.close}>View profile</MenuItem>
+                                <MenuItem  onClick={handleClickViewProfile}>View profile</MenuItem>
                                 <MenuItem onClick={popupState.close}>Profile settings</MenuItem>
                                 <MenuItem onClick={popupState.close}>
                                     <LogoutIcon sx={{ marginRight: '10px' }} />
