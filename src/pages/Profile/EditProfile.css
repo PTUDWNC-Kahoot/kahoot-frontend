@@ -9,7 +9,7 @@
     height: fit-content;
 } */
 .profile__content{
-    margin: 24px;
+    margin-top: 84px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -52,7 +52,8 @@
     flex-direction: row;
     margin: 16px 0px;
     width: 100%;
-    justify-content: space-between;}
+    justify-content: space-between;
+}
 .table__wrapper{
     display: flex;
     flex-direction: column;
@@ -104,7 +105,7 @@
     width: 136px;
     height: 136px;
     display: flex;
-    padding: 4px;
+    padding: 8px;
     border-radius: 4px;
 }
 .userInfo__btnWrapper{
@@ -175,7 +176,7 @@
     border-radius: 4px;
     border: 2px dashed rgb(204, 204, 204);
     height: 14rem;
-    width: 32rem;
+    width: 100%;
     justify-content: center;
     align-items: center; 
 }
@@ -184,6 +185,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+    align-content: center;
 }
 .modal__wrapper--up{
     display: none;
@@ -231,6 +233,13 @@
 }
 
 /* End: Modal Upload Image */
+.modal__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4px;
+}
 .userInfo__detail{
     display: flex;
     flex-direction: column;

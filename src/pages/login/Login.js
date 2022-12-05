@@ -32,6 +32,7 @@ function Login() {
     let user = {};
     const [showPass, setShowPass] = useState(statePass[0]);
     const [signOnGoogleState, setSignOnGoogleState] = useState(false); 
+    const navigate = useNavigate();
     let _err = false;
     
     const handleShowPass = () => {
@@ -45,7 +46,7 @@ function Login() {
                 //show
                 setShowPass(statePass[1])
             }}
-    const navigate = useNavigate();                             // dùng react-router-dom  
+                                 // dùng react-router-dom  
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -70,20 +71,26 @@ function Login() {
     const { isError, error, mutate } = useMutation(          // dùng react-query
     postDataLogin,  // 4
     {
+       
         onSuccess: (res) => {      // 6
+            console.log(res);
             if (res.status === 200) {
-                localStorage.setItem("authenticated", true);           
+                // localStorage.setItem("authenticated", true);    
+                // localStorage.setItem("token", res.data.User.token);    
+                // localStorage.setItem("provider", res.data.User.provider); 
+                // window.location.reload();
+                // console.log(res.data.User.token);                         
                 navigate("/home");    
             }                   
         },
         onError: (err) => {
-             
+            
         },
     }
     );
 
     async function postDataLogin() {
-        return await axios.post("http://localhost:8000/auth/login", user);   // 5 goij api đến BE kèm data để xử lý
+        return await axios.post("http://localhost:8000/auth/login", user);   
     }
     if (isError) {
         _err = true;

@@ -1,0 +1,48 @@
+/* PC */
+/* @media (min-width : 1024px) */
+@media (min-width : 64px)
+{
+
+}
+
+
+/* Tablet & mobile */
+/* @media (max-width : 1023px) */
+@media (max-width : 63.9375em)
+{
+
+}
+
+/* Mobile */
+/* @media (max-width : 739px) */
+@media (max-width : 46.1875em)
+{
+    .profile__table{
+        display: flex;
+        flex-direction: column;
+    }
+    .modal__header {
+       font-size: 18px;
+    }
+    .modal__uploadImage{
+        width: 100%;
+        height: 100%;
+    }
+    .modal__container{
+        width: 100%;
+        height: 100%;   
+       
+    }
+    .modal__wrapper{
+        margin: 48px;  
+    }
+    .modal__wrapper--notup{
+        min-width: 50%;
+    }
+   .modal__text{
+    font-size: 12px;
+    justify-content: space-between;
+    width: fit-content;
+   }
+   
+}
