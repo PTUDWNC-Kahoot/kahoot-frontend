@@ -3,7 +3,7 @@ import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register"
 import {BrowserRouter, Route, Routes, } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
-import EditProfile from './pages/Profile/Editprofile';
+import EditProfile from './pages/Profile/EditProfile';
 import Home from "./pages/Home/Home";
 import Group from "./pages/Group/Group";
 function App() {
