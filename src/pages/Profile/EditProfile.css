@@ -39,7 +39,8 @@
     text-decoration: none;
     font-family: inherit;   /* To inherit font */
     min-height: 36px;
-    width: 96px;
+    width: fit-content;
+    padding: 8px;
     font-size: 0.875rem;
     box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
 }
@@ -101,46 +102,37 @@
     display: flex;
     flex-direction: row;
 }
+
+/* Begin: Avatar Image */
 .userInfo__image{
-    width: 136px;
-    height: 136px;
-    display: flex;
-    margin: 8px;
-    border-radius: 4px;
-}
-.userInfo__btnWrapper{
-    width: 100%;
-    height: 100%;
-    background: rgb(242, 242, 242);
     display: flex;
     flex-direction: column;
-    justify-content: center;/* căn theo chiều ngang */
-    align-items: center;/* Căn theo chiều dọc */
+    justify-content: center;
+    align-items: center; 
+}
+.userInfo__imgWrapper{
+    width: 128px;
+    height: 128px;
+    margin: 8px;
+    border-radius: 4px;
+    background: rgb(242, 242, 242);
     border: 1px dashed rgb(204, 204, 204);
     cursor: pointer;
+    display: flex;
+}
+.userInfo__imgUpload{
+    width: 100%;
+    height: 100%;
 }
 .image__btn--add{
-    background-color: inherit;
-    cursor: pointer;
-
+   margin-bottom: 8px;
 }
+
 .userInfo__btnWrapper:hover{
     background: rgb(19, 104, 206);
 }
 
-.userInfo__btnWrapper.close{
-    display: none;
-}
-.userInfo__imgWrapper{
-    display: none;
-}
-.userInfo__imgWrapper.open{
-    display: flex;
-}
-.userInfo__imgUpload{
-    width: 128px;
-    height: 128px;
-}
+
 /* Begin: Modal Upload Image */
 .modal__uploadImage{
     position: fixed;
@@ -171,6 +163,7 @@
     flex-direction: column;
   
 }
+
 .modal__content{
     display: flex;
     flex-direction: column;
@@ -207,6 +200,8 @@
 .modal_img{
     width: 128px;
     height: 128px;
+    border-radius: 50%;
+
 }
 .modal__wrapper--notup.close{
     display: none;
@@ -215,13 +210,14 @@
     margin: 4px;
 }
 .modal__UploadBtn{
-    padding: 0px 16px 4px;
+    padding: 4px 16px 4px;
     background-color: #FFF;
     margin: 8px;
     background: rgb(255, 255, 255);
     color: rgb(51, 51, 51);
-    
-    
+}
+.input__imageUploads{
+    display: none;
 }
 .modal__input{
     display: none;

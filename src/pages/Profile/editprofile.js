@@ -14,6 +14,7 @@ import axios from 'axios';
 
 
 
+
 // const workplaceList = [
 //     {
 //         key: 1,
@@ -46,13 +47,16 @@ import axios from 'axios';
 function EditProfile()
 {
 
- 
+   
     let info = {};
 
+    
+   
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
-    const [image, setImage] = useState();
-    const [imageUpload, setImageUpload] =  useState("http://imaging.nikon.com/lineup/coolpix/p/p7000/img/sample/img_02_b.jpg")
+    // TODO: Change image link to local
+    const [image, setImage] = useState("https://www.seekpng.com/png/detail/72-729606_png-file-windows-10-person-icon.png");
+    const [imageUpload, setImageUpload] =  useState()
     const [organization, setOrganization] = useState();
     const [workplace, setWorkplace] = useState("");
     const [createButtonClick, setCreateButtonClick] = useState(false);
@@ -79,15 +83,15 @@ function EditProfile()
             modal_page.classList.add("open")
     }
 
-    // Upload image
-    const handleUploadImage = (e) => {
-        e.preventDefault();
+    const handleChange = (e) => {
+        // console.log(e.target.files);
         const modal__notup= document.querySelector(".modal__wrapper--notup")
         const modal__up = document.querySelector(".modal__wrapper--up")
         modal__notup.classList.add("close")
         modal__up.classList.add("open")
-        setImageUpload(imageUpload)
+        setImageUpload(URL.createObjectURL(e.target.files[0]));
     }
+
     // Cancel button (in upload image)
     const handleCancelUpload = (e) => {
         e.preventDefault();
@@ -98,20 +102,28 @@ function EditProfile()
         modal__notup.classList.remove("close")
         modal__up.classList.remove("open")
     }
+
+
     // Save button (in upload image)
     const handleSaveUpload = (e) => {
         setImage(imageUpload);
         e.preventDefault();
-        const modal_page = document.querySelector(".modal__uploadImage")
-        const modal__notup= document.querySelector(".modal__wrapper--notup")
-        const modal__up = document.querySelector(".modal__wrapper--up")
-        modal_page.classList.remove("open")
-        modal__notup.classList.remove("close")
-        modal__up.classList.remove("open")
-        const modal_btnWrapper = document.querySelector(".userInfo__btnWrapper")
-        modal_btnWrapper.classList.add("close")
-        const modal_imgWrapper = document.querySelector(".userInfo__imgWrapper")
-        modal_imgWrapper.classList.add("open")
+
+        //Close modal upload image
+        const modal_page = document.querySelector(".modal__uploadImage");
+        modal_page.classList.remove("open");
+
+        //
+        // const modal__notup= document.querySelector(".modal__wrapper--notup");
+        // const modal__up = document.querySelector(".modal__wrapper--up");
+       
+        // modal__notup.classList.remove("close");
+        // modal__up.classList.remove("open");
+        
+        // const modal_btnWrapper = document.querySelector(".userInfo__btnWrapper");
+        // modal_btnWrapper.classList.add("close");
+        // const modal_imgWrapper = document.querySelector(".userInfo__imgWrapper");
+        // modal_imgWrapper.classList.add("open");
     }
     return(
         <div> 
@@ -128,15 +140,12 @@ function EditProfile()
                         </div>
                         <div className="userInfo__content">
                             <div className="userInfo__image">
-                                <div className="userInfo__btnWrapper">
-                                    <button className="image__btn--add" onClick={handleAddImage}>
-                                        <div className="image__icon"> <FontAwesomeIcon icon={ faImage}  /> </div>
-                                        <div className="image__text"> Add picture</div>
-                                    </button>
-                                </div>
                                 <div className="userInfo__imgWrapper">
-                                    <img className='userInfo__imgUpload' src={image} ></img>
+                                       <img className='userInfo__imgUpload' src={image} ></img>
                                 </div>
+                                <button className="editProfile_btn image__btn--add" onClick={handleAddImage}>
+                                    <div className="image__text"> Change picture</div>
+                                </button>
                             </div>
                             <div className="userInfo__detail">
                                 <div className="table__Field">
@@ -179,11 +188,15 @@ function EditProfile()
                                 <div className='modal__wrapper--notup'>
                                     <div className="modal__icon"> <FontAwesomeIcon icon={ faImage} size="lg"  /> </div>
                                     <div className="modal__text">  Upload an image from your computer</div>
-                                    <button className="editProfile_btn modal__UploadBtn" onClick={handleUploadImage}>Upload</button>
+                                    {/* <button className="editProfile_btn modal__UploadBtn" onClick={handleUploadImage}>Upload</button> */}
                                 </div>
                                 <div className='modal__wrapper--up'>
-                                    <img className='modal_img' src={imageUpload} ></img>
+                                    <img className='modal_img' src={imageUpload} />
                                 </div>  
+                                <label className="editProfile_btn modal__UploadBtn">
+                                    <input type="file" className="input__imageUploads" accept=".jpg, .jpeg, .png"  onChange={handleChange} />
+                                          Upload
+                                </label>
                             </div>
                         
                         </div>
