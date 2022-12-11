@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/EditProfile';
 import Home from "./pages/Home/Home";
 import Group from "./pages/Group/Group";
+import Presentation from './pages/Presentations/Presentations';
 function App() {
 //  localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
   return (  
@@ -17,6 +18,7 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="/group" element={<Group />} />
         <Route path="*" element={<Home />} />
+        <Route path='/presentation' element={<Presentation/>}/>
     </Routes>
     </BrowserRouter>
   
