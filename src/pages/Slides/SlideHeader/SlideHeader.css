@@ -1,0 +1,55 @@
+.headerContent{
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 2px 2px #e4e4e4;
+
+}
+
+.leftFunc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.backButton{
+    padding: 20px;
+}
+
+.slideNameText{
+    font-weight: bold;
+    font-size:medium;
+}
+
+.slideInfo{
+    padding: 10px;
+}
+
+.sildeOwnerText{
+    font-size: small;
+}
+
+
+.rightFunc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+}
+.checkSave{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 20px
+
+}
+
+.checkSaveText{
+    padding: 10px;
+}
+
+.helpOut{
+    padding: 10px;
+    margin: 0px 20px
+}
