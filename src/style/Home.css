@@ -1,6 +1,6 @@
 .content {
     background-color: #F2F2F2;
-    flex-direction: row;
+    flex-direction: column;
     display: flex;
     padding: 7em 5em;
     height: max-content;

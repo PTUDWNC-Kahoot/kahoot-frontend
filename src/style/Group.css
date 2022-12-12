@@ -3,7 +3,7 @@
     flex-direction: row;
     display: flex;
     padding: 7em 5em;
-    height: 500px;
+    height: max-content;
 
 }
 
