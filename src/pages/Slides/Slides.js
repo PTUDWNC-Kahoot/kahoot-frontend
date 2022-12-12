@@ -2,6 +2,7 @@ import './Slides.css'
 import SlideHeader from './SlideHeader/SlideHeader';
 import SlideSettingBar from './SlideSettingBar/SlideSettingBar';
 import SlideListBar from './SlideListBar/SlideListBar';
+import SlideContent from './SlideContent/SlideContent';
 
 function Slides() {
 
@@ -16,7 +17,7 @@ function Slides() {
                     <SlideListBar />
                 </div>
                 <div className='slideContentFrame'>
-                    ddddddddd
+                    <SlideContent/>
                 </div>
                 <div className='slideEditFrame'>
                     aaaaaa

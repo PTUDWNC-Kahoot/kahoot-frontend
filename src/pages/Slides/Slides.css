@@ -1,7 +1,6 @@
 .slideContent{
     display: flex;
     flex-direction: row;
-
 }
 
 .slideListFrame{
@@ -9,8 +8,7 @@
 }
 
 .slideContentFrame{
-    flex: 6;
-    background-color: aquamarine;
+    flex: 5;
 }
 
 .slideEditFrame{

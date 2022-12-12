@@ -1,0 +1,16 @@
+.slideMainContent {
+    height: max-content;
+    background-color: #E7E8EB;
+    border: 1px solid #F2F2F2;
+
+}
+
+.slideMainContentFrame {
+    height: 600px;
+    margin: 30px;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    padding-top: 30px;
+}
