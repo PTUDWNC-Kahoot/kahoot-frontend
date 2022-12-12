@@ -1,0 +1,61 @@
+.slideEdit {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.slideTypeTitle {
+    font-weight: bold;
+}
+
+.slideType {
+    margin-bottom: 10px;
+}
+
+.slideTypeDropbox {
+    margin: 20px 0px;
+}
+
+.typeChoice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.questionBox {
+    margin: 10px 0px;
+}
+
+.slideTypeTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.optionQuestion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.addOptionText{
+    font-weight: bold;
+    margin: 0px 10px
+}
+.optionBoxTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+}
+
+.resultLayout{
+    margin: 10px 0px;
+}
+
+.resultLayoutTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+}

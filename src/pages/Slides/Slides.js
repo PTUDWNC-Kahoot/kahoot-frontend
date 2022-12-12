@@ -3,6 +3,7 @@ import SlideHeader from './SlideHeader/SlideHeader';
 import SlideSettingBar from './SlideSettingBar/SlideSettingBar';
 import SlideListBar from './SlideListBar/SlideListBar';
 import SlideContent from './SlideContent/SlideContent';
+import SlideEdit from './SlideEdit/SlideEdit';
 
 function Slides() {
 
@@ -20,7 +21,7 @@ function Slides() {
                     <SlideContent/>
                 </div>
                 <div className='slideEditFrame'>
-                    aaaaaa
+                    <SlideEdit></SlideEdit>
                 </div>
             </div>
         </div>
