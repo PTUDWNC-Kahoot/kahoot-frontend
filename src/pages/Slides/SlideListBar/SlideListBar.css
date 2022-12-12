@@ -1,0 +1,21 @@
+.slideListBarContent{
+    display: flex;
+    flex-direction: column;
+}
+.slideOverview{
+    display: flex;
+    flex-direction: row;
+}
+.slideOverviewOption{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slideOverviewOptionTop{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

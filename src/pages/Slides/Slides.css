@@ -1,0 +1,18 @@
+.slideContent{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.slideListFrame{
+    flex: 1
+}
+
+.slideContentFrame{
+    flex: 6;
+    background-color: aquamarine;
+}
+
+.slideEditFrame{
+    flex: 2
+}
