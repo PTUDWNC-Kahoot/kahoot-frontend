@@ -21,7 +21,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import {Tooltip, IconButton } from '@mui/material';
+import { Tooltip, IconButton } from '@mui/material';
 
 function SlideHeader() {
     const navigate = useNavigate();
@@ -58,10 +58,11 @@ function SlideHeader() {
             <Helper state={videoHelper} setState={setvideoHelper}></Helper>
             <div className="headerContent">
                 <div className="leftFunc">
-                    <div className="backButton">
+                    <IconButton  className="backButton" onClick={() => navigate('/presentation')}>
                         <ArrowBackIcon>
                         </ArrowBackIcon>
-                    </div>
+                    </IconButton>
+                  
                     <div className="slideInfo">
                         <div className='slideName'>
                             <div className='slideNameText'>

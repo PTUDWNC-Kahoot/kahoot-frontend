@@ -22,7 +22,6 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path='/presentation' element={<Presentation/>}/>
         <Route path='/slides' element={<Slides/>}/>
-
     </Routes>
     </BrowserRouter>
   

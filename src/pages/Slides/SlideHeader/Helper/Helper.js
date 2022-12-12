@@ -2,8 +2,9 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useEffect, useRef, useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import { IconButton } from '@mui/material';
 
 export default function Helper({ state, setState }) {
     const [open, setOpen] = useState(state);
@@ -14,24 +15,18 @@ export default function Helper({ state, setState }) {
         else didMount.current = true;
     }, [state]);
 
-
-
     const handleClose = () => {
         setOpen(false);
         setState(false)
     };
 
-    const handleSubmit = () => {
-        setOpen(false);
-        setState(false);
-    };
-
     return (
         <div>
-
             <Dialog open={open} onClose={handleClose} maxWidth="xl" >
                 <DialogActions>
-                    <Button onClick={handleClose}>X</Button>
+                    <IconButton onClick={handleClose}>
+                        <CloseIcon fontSize='large'></CloseIcon>
+                    </IconButton>
                 </DialogActions>
                 <iframe
                     id="video"
