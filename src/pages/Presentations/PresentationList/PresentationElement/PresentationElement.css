@@ -1,0 +1,54 @@
+.PresentationElement{
+    display: flex;
+    flex-direction: row; 
+    height: 64px;  
+
+    align-items: center;
+}
+.PresentationElement:hover{
+    background-color: rgba(231, 232, 235, 0.6);
+}
+.element__checkbox{
+    padding: 0px 8px;
+}
+.input__checkbox{
+    width: 16px;
+    height: 16px;
+}
+.element__Wrapper{
+    display: flex;
+    flex-direction: row;
+}
+.element__text{
+    color: rgba(16, 24, 52, 0.75);
+    line-height: 1.4;
+    font-size: 16px;
+    word-wrap: break-word;
+    font-weight: 600;
+    font-family: inherit;
+    max-width: 100%;
+    padding-right: 4px;
+
+}
+.element__nameWrapper{
+    padding: 0px 8px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 25%;
+}
+
+.element__OwnerWrapper{
+    width: 20%;
+}
+
+.element__modifiedWrapper{
+    width: 20%;
+}
+
+.element__createdWrapper{
+    width: 20%;
+}
+
+.element__extraWrapper{
+    width: 50px;
+}

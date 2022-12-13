@@ -118,6 +118,7 @@
     vertical-align: baseline;
     border: 0px solid;
     outline:none;
+    font-size: 16px;
 }
 
 ::-webkit-input-placeholder {
