@@ -6,7 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import EditProfile from './pages/Profile/EditProfile';
 import Home from "./pages/Home/Home";
 import Group from "./pages/Group/Group";
-import Presentation from './pages/Presentations/Presentations';
+import Presentation from './pages/Presentations/Presentation';
 function App() {
 //  localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
   return (  
