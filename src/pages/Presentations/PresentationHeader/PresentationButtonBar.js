@@ -1,12 +1,22 @@
 import './PresentationButtonBar.css'
+import CreatePresentation from '../CreatePresentation/CreatePresentation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 function PresentationButtonBar ()
 {
+    const [createPresentClick, setCreatePresentClick] = useState(false);
+    const [newPresent, setNewPresent] = useState();
+  
+    const handleCreatePresent = () => {
+        setCreatePresentClick(true);
+    }
+   
     return (
         <div className="present__buttonBar">
             <div className='present__buttonWrapper'>
-                <button className="present__btn btn__newPresent" >
+                <CreatePresentation state = {createPresentClick} setState = {setCreatePresentClick} createPresent = {setNewPresent}/>
+                <button className="present__btn btn__newPresent" onClick={handleCreatePresent} >
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                     <div> New Presentation</div> 
                 </button>

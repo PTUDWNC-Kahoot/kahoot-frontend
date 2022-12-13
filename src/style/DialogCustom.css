@@ -1,0 +1,49 @@
+.dialog__tilte{
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: rgb(16, 24, 52);
+    line-height: 1.2;
+    font-family: inherit;
+    font-weight: 600;
+}
+.dialog__textField{
+    border-width: 2px;
+    border-color: rgb(183, 186, 194);
+}
+.dialog__Btn{
+    display: flex;
+    flex-direction: row;
+
+    height: 32px;
+    padding: 0px 12px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    
+
+    border-width: 2px;
+ 
+    
+}
+.dialog__cancelBtn{
+    margin-right: 8px;
+    color: rgb(16, 24, 52);
+    opacity: 1;
+    background-color: transparent;
+    border-color: transparent;
+   
+}
+
+.dialog__SubmitBtn{
+    background-color: rgb(25, 108, 255);
+    border-color: rgb(25, 108, 255);
+    color: #ffffff;
+    border-radius: 3px;
+    border-style: solid;
+}

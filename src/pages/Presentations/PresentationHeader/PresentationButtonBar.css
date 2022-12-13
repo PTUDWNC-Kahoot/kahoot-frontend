@@ -57,12 +57,14 @@
     
 }
 .btn__newPresent{
-
-   
     margin:  0px 8px 0px 0px;
     background-color: rgb(25, 108, 255);
     border-color: rgb(25, 108, 255);
     color: #FFF;
+}
+.btn__newPresent:hover{
+    background-color: rgb(20, 86, 204);
+    border-color: transparent;
 }
 .icon__add{
     margin-right: 4px;
