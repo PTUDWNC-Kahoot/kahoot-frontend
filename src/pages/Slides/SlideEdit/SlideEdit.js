@@ -1,5 +1,6 @@
 import './SlideEdit.css'
-import { Box, FormControl, Select, InputLabel, Menu, MenuItem, Tab, Tabs, TextField, Button } from '@mui/material';
+import SlideExtras from './SlideExtras/SlideExtras';
+import { Box, FormControl, Select, InputLabel, Menu, MenuItem, Tab, Tabs, TextField, Button, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
@@ -8,11 +9,17 @@ import Divider from '@mui/material/Divider';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddIcon from '@mui/icons-material/Add';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import DonutSmallIcon from '@mui/icons-material/DonutSmall';
+import PieChartIcon from '@mui/icons-material/PieChart';
+import WorkspacesIcon from '@mui/icons-material/Workspaces';
+
 
 function SlideEdit() {
     const [type, setType] = useState('');
     const [value, setValue] = useState(0);
     const [questionLength, setQuestionLength] = useState(150);
+    const [resultLayoutChoice, setResultLayoutChoice] = useState(0);
 
     const handleChange = (event) => {
         setType(event.target.value);
@@ -72,7 +79,9 @@ function SlideEdit() {
                 <div className='questionBox'>
                     <div className='slideTypeTitle'>
                         Your question
-                        <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                        <Tooltip title="Enter the question you'd like to ask your audience">
+                            <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                        </Tooltip>
                     </div>
                     <TextField id="outlined-basic" label="Question  " variant="outlined" inputProps={{ maxLength: 150 }}
                         fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))} InputProps={{
@@ -83,7 +92,9 @@ function SlideEdit() {
                 <div className='optionBox'>
                     <div className='optionBoxTitle'>
                         Options
-                        <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                        <Tooltip title="Enter the options you want your audience to vote on">
+                            <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                        </Tooltip>
                     </div>
                     <div className='optionQuestion'>
                         <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 1" variant="outlined" inputProps={{ maxLength: 150 }}
@@ -103,7 +114,7 @@ function SlideEdit() {
                         </TextField>
                         <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
                     </div>
-                    <Button variant="contained" disableElevation fullWidth sx={{marginTop: '10px'}}>
+                    <Button variant="contained" disableElevation fullWidth sx={{ marginTop: '10px' }}>
                         <AddIcon></AddIcon>
                         <div className='addOptionText'>
                             Add option
@@ -115,10 +126,51 @@ function SlideEdit() {
                 <div className='resultLayout'>
                     <div className='resultLayoutTitle'>
                         Result layout
-                        <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                        <Tooltip title="Choose how to display the results">
+                            <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                        </Tooltip>
                     </div>
-                   
+                    <div className='resultLayoutList'>
+                        <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(0)} style={resultLayoutChoice === 0 ? { backgroundColor: '#176FCB' } : undefined}>
+                            <div className='resultLayoutSymbol'>
+                                <LeaderboardIcon></LeaderboardIcon>
+                            </div>
+                            <div className='resultLayoutChoiceText'>
+                                Bars
+                            </div>
+                        </div>
+
+                        <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(1)} style={resultLayoutChoice === 1 ? { backgroundColor: '#176FCB' } : undefined}>
+                            <div className='resultLayoutSymbol'>
+                                <DonutSmallIcon></DonutSmallIcon>
+                            </div>
+                            <div className='resultLayoutChoiceText'>
+                                Donuts
+                            </div>
+                        </div>
+
+                        <div className='resultLayoutChoice ' onClick={() => setResultLayoutChoice(2)} style={resultLayoutChoice === 2 ? { backgroundColor: '#176FCB' } : undefined}>
+                            <div className='resultLayoutSymbol'>
+                                <PieChartIcon></PieChartIcon>
+                            </div>
+                            <div className='resultLayoutChoiceText'>
+                                Pie
+                            </div>
+                        </div>
+
+                        <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(3)} style={resultLayoutChoice === 3 ? { backgroundColor: '#176FCB' } : undefined}>
+                            <div className='resultLayoutSymbol'>
+                                <WorkspacesIcon></WorkspacesIcon>
+                            </div>
+                            <div className='resultLayoutChoiceText'>
+                                Dots
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <SlideExtras/>
+
             </div>
         </div>
 

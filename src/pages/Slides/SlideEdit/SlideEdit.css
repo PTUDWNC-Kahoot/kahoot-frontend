@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
+    border: 1px solid #F2F2F2;
+    overflow-y: scroll;
+    max-height: 75vh;
 }
 
 .slideTypeTitle {
@@ -38,24 +41,54 @@
     flex-direction: row;
     align-items: center;
 }
-.addOptionText{
+
+.addOptionText {
     font-weight: bold;
     margin: 0px 10px
 }
-.optionBoxTitle{
+
+.optionBoxTitle {
     display: flex;
     flex-direction: row;
     align-items: center;
     font-weight: bold;
 }
 
-.resultLayout{
+.resultLayout {
     margin: 10px 0px;
 }
 
-.resultLayoutTitle{
+.resultLayoutTitle {
     display: flex;
     flex-direction: row;
     align-items: center;
     font-weight: bold;
+}
+
+.questionLen {
+    font-size: small;
+    opacity: 0.7;
+}
+
+.resultLayoutList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.resultLayoutChoice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #6e6e6e;
+    border-radius: 3px;
+    padding: 20px 40px;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 40px;
+}
+
+.resultLayoutChoice:hover {
+    opacity: 0.7;
 }

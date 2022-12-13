@@ -1,0 +1,20 @@
+.extrasSettingTitle{
+    font-weight: bold;
+}
+.extrasOptions{
+    display: flex;
+    flex-direction: column;
+}
+
+.extrasOption{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.extrasOptionContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
