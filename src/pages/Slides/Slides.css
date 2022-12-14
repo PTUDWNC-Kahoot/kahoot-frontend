@@ -3,7 +3,7 @@
     flex-direction: row;
     height: 80%;
     box-sizing: border-box;
-
+    
 }
 
 .slideListFrame {
@@ -24,7 +24,9 @@
 
 .main {
     height: 100vh;
-    overflow-y: hidden;
     overflow-wrap: normal;
+    display: flex;
+    flex-direction: column;
+    max-height: 98vh;
 }
 

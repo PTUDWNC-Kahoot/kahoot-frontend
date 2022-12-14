@@ -8,6 +8,8 @@ import Home from "./pages/Home/Home";
 import Group from "./pages/Group/Group";
 import Presentation from './pages/Presentations/Presentations';
 import Slides from './pages/Slides/Slides';
+import KahootLogin from './pages/MemberView/KahootLogin/KahootLogin';
+import KahootView from './pages/MemberView/Kahoot/KahootView';
 
 function App() {
   //  localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
@@ -22,6 +24,9 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path='/presentation' element={<Presentation />} />
         <Route path='/slides' element={<Slides />} />
+        <Route path='/kahootLogin' element={<KahootLogin />} />
+        <Route path='/kahoot' element={<KahootView />} />
+
       </Routes>
     </BrowserRouter>
 
