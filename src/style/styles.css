@@ -3,6 +3,10 @@
     margin: 0px;
     padding: 0px;
     border: 0px;
+    text-decoration: none;
+    /* Remove dot before ul, li */
+    list-style: none; 
+
 }
 
 /* Define for all */

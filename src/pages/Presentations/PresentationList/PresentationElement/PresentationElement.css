@@ -20,7 +20,7 @@
     flex-direction: row;
 }
 .element__text{
-    color: rgba(16, 24, 52, 0.75);
+   
     line-height: 1.4;
     font-size: 16px;
     word-wrap: break-word;
@@ -35,20 +35,35 @@
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: 25%;
+    color: rgba(16, 24, 52, 0.75);
 }
 
 .element__OwnerWrapper{
     width: 20%;
+    color: rgba(16, 24, 52, 0.5);
 }
 
 .element__modifiedWrapper{
     width: 20%;
+    color: rgba(16, 24, 52, 0.5);
 }
 
 .element__createdWrapper{
     width: 20%;
+    color: rgba(16, 24, 52, 0.5);
 }
 
 .element__extraWrapper{
-    width: 50px;
+    background-color: transparent;
+}
+.popup__icon{
+    margin-right: 7px;
+}
+
+.popup__item{
+    font-family: inherit;
+    font-weight: 600;
+}
+.popup__delete{
+    color: red;
 }

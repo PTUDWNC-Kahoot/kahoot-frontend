@@ -1,17 +1,23 @@
 import './PresentationButtonBar.css'
 import CreatePresentation from '../CreatePresentation/CreatePresentation'
+import CreateFolder from '../CreateFolder/CreateFolder'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 function PresentationButtonBar ()
 {
     const [createPresentClick, setCreatePresentClick] = useState(false);
+    const [createFolderClick, setCreateFolderClick] = useState(false);
     const [newPresent, setNewPresent] = useState();
+    const [newFoder, setNewFolder] = useState();
   
     const handleCreatePresent = () => {
         setCreatePresentClick(true);
     }
-   
+    const handleCreateFolder = () => {
+        setCreateFolderClick(true);
+    }
+
     return (
         <div className="present__buttonBar">
             <div className='present__buttonWrapper'>
@@ -20,7 +26,8 @@ function PresentationButtonBar ()
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                     <div> New Presentation</div> 
                 </button>
-                <button className='present__btn btn__newFolder'> 
+                <CreateFolder state={createFolderClick} setState = {setCreateFolderClick} createFolder = {setNewFolder}/>
+                <button className='present__btn btn__newFolder' onClick={handleCreateFolder}> 
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                    <div> New Folder </div>
                 </button>
