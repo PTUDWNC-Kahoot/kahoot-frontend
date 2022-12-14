@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './PresentationElement.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEllipsis, faFolder, faRecycle, faPencil, faTrash} from '@fortawesome/free-solid-svg-icons'
+import { faEllipsis, faFolder, faRecycle, faPencil, faTrash, faPlay, faPlayCircle} from '@fortawesome/free-solid-svg-icons'
 import EmptyListNotify from '../../../../components/EmptyListNotify'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import Popover from '@mui/material/Popover';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
+import { useNavigate } from "react-router-dom";
+import ViewPresentationHost from "../../ViewPresentationHost/ViewPresentationHost";
+import { Button } from 'semantic-ui-react';
 
 
 export default function PresentationElement ({list})
@@ -17,7 +19,16 @@ export default function PresentationElement ({list})
     // const [modifiedDay, setModifiedDay] = useState(_modifiedDay);
     // const [createdDay, setCreatedDay] = useState(_createdDay);
 
+    const [startPresentClick, setStartPresentClick] = useState(false);
+    const [present, setPresent] = useState();
+    const [isPresent, setIsPresent] = useState(false);
+    const navigate = useNavigate()
+   
+    const handleStartPresent = () => {
+            // navigate("/")
+            setIsPresent(true);
 
+    }
     return (
             <div className='contentBox'>
               {list?.length === 0 ?
@@ -29,6 +40,9 @@ export default function PresentationElement ({list})
                         <input className="input__checkbox"  type="checkbox"></input>
                     </div>
                     <div className="element__Wrapper element__nameWrapper">
+                            <Button className="startPresent__Btn" onClick={handleStartPresent}>
+                                  <FontAwesomeIcon className='icon__play' icon={faPlayCircle} size="lg"  /> 
+                            </Button>
                             <div className="element__text">{present.name}</div>
                    </div>
                    <div className="element__Wrapper element__OwnerWrapper">

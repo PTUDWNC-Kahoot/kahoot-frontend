@@ -37,7 +37,10 @@
     flex-basis: 25%;
     color: rgba(16, 24, 52, 0.75);
 }
-
+.startPresent__Btn{
+    margin-right: 8px;
+    cursor: pointer;
+}
 .element__OwnerWrapper{
     width: 20%;
     color: rgba(16, 24, 52, 0.5);
