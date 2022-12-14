@@ -1,0 +1,37 @@
+.slideListBarContent{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F2F2F2;
+    height: 100%;
+    overflow-y: auto ;
+
+}
+.slideOverview{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.slideOverview:hover{
+   opacity: 0.5
+}
+
+.slideOverviewOption{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slideOverviewOptionTop{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slideOverviewScreen{
+    flex: 5;
+    border: 1px solid black;
+}

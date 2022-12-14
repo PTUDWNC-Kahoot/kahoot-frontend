@@ -1,0 +1,32 @@
+.slideContent {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    box-sizing: border-box;
+    
+}
+
+.slideListFrame {
+    flex: 1;
+    height: 100%;
+}
+
+.slideContentFrame {
+    flex: 5;
+    height: 100%;
+
+}
+
+.slideEditFrame {
+    flex: 2;
+    height: 100%;
+}
+
+.main {
+    height: 100vh;
+    overflow-wrap: normal;
+    display: flex;
+    flex-direction: column;
+    max-height: 98vh;
+}
+

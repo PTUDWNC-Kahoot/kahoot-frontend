@@ -1,0 +1,35 @@
+.KahootLogo{
+    width: 20%;
+}
+.kahootViewContent{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+.kahootViewQA{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.kahootQuestion{
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+
+
+.buttonOuttro{
+    border: 1px solid #a8a8a8;
+    width: 100%;
+    margin: 20px 5px;
+    border-radius: 5px;
+
+}

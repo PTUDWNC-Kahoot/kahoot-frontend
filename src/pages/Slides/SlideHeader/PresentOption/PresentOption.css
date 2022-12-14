@@ -1,0 +1,20 @@
+.presentOption{
+    display: flex;
+    flex-direction: row;
+
+}
+.presentOptionIcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.presentOptionContent{
+    padding: 10px;
+}
+
+.presentOptionTitle{
+    font-weight: bold;
+}
+.presentOptionText{
+}

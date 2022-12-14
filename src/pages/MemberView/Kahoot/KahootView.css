@@ -1,0 +1,48 @@
+.KahootLogo{
+    width: 20%;
+}
+.kahootViewContent{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: center
+}
+
+
+.kahootViewQA{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.kahootQuestion{
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+
+.kahootOptions{
+    width: 100%;
+}
+.kahootOption{
+    border: 1px solid #a8a8a8;
+    width: 100%;
+    margin: 20px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.kahootOption:hover{
+    border: 1px solid #2d68c0;
+}
+
+.buttonKahootViewSubmit{
+    width: 100%;
+    height: 3em;
+    font-weight: bold;
+}
