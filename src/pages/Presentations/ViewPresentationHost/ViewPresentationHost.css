@@ -32,6 +32,13 @@
     font-weight: 600;
     text-align: inherit;
     font-size: 56px;
-    margin-bottom: 32px;
+        margin-bottom: 32px;
 }
 
+.bar {
+    fill: red; /* changes the background */
+    height: 21px;
+    transition: fill .3s ease;
+    cursor: pointer;
+    font-family: Helvetica, sans-serif;
+  }
