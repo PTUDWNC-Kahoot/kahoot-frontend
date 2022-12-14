@@ -54,9 +54,7 @@ function SlideHeader() {
     }
 
     return (
-        <>
-            <Helper state={videoHelper} setState={setvideoHelper}></Helper>
-            <div className="headerContent">
+            <div className="headerContent" >
                 <div className="leftFunc">
                     <IconButton  className="backButton" onClick={() => navigate('/presentation')}>
                         <ArrowBackIcon>
@@ -77,6 +75,7 @@ function SlideHeader() {
                     </div>
 
                 </div>
+                <Helper state={videoHelper} setState={setvideoHelper}></Helper>
 
                 <div className="rightFunc">
                     <div className='checkSave'>
@@ -148,7 +147,6 @@ function SlideHeader() {
                     </PopupState>
                 </div>
             </div >
-        </>
     )
 }
 

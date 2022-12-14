@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
-    border: 1px solid #F2F2F2;
-    overflow-y: scroll;
-    max-height: 75vh;
+    border: 1px solid #f2f2f2;
+    overflow-y: auto;
+    height: 100%;
 }
 
 .slideTypeTitle {

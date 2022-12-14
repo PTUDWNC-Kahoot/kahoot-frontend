@@ -1,16 +1,30 @@
-.slideContent{
+.slideContent {
     display: flex;
     flex-direction: row;
+    height: 80%;
+    box-sizing: border-box;
+
 }
 
-.slideListFrame{
-    flex: 1
+.slideListFrame {
+    flex: 1;
+    height: 100%;
 }
 
-.slideContentFrame{
+.slideContentFrame {
     flex: 5;
+    height: 100%;
+
 }
 
-.slideEditFrame{
-    flex: 2
+.slideEditFrame {
+    flex: 2;
+    height: 100%;
 }
+
+.main {
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-wrap: normal;
+}
+

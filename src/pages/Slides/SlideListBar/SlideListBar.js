@@ -60,6 +60,7 @@ function SlideListBar() {
                     <img src={Img} width={200} ></img>
                 </div>
             </div>
+           
         </div>
 
     )

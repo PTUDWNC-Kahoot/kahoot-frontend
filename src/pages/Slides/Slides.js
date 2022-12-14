@@ -6,20 +6,19 @@ import SlideContent from './SlideContent/SlideContent';
 import SlideEdit from './SlideEdit/SlideEdit';
 
 function Slides() {
-
-
-
     return (
-        <div >
+        <div className='main'>
             <SlideHeader />
             <SlideSettingBar />
+         
             <div className='slideContent'>
                 <div className='slideListFrame'>
                     <SlideListBar />
                 </div>
                 <div className='slideContentFrame'>
-                    <SlideContent/>
+                    <SlideContent />
                 </div>
+
                 <div className='slideEditFrame'>
                     <SlideEdit></SlideEdit>
                 </div>

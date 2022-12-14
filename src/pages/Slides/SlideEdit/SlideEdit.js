@@ -10,7 +10,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddIcon from '@mui/icons-material/Add';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
-import DonutSmallIcon from '@mui/icons-material/DonutSmall';
+import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 
@@ -26,7 +26,6 @@ function SlideEdit() {
     };
     return (
         <div className='slideEdit'>
-
             <div className='slideType'>
                 <div className='slideTypeTitle'>
                     Slide type
@@ -63,115 +62,116 @@ function SlideEdit() {
                         </FormControl>
                     </Box>
                 </div>
-                <Divider orientation="horizontal" flexItem />
-                <Tabs
-                    TabIndicatorProps={{ style: { background: 'blue', color: 'blue' } }}
-                    sx={{ display: 'flex', flexDirection: 'row' }}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    value={value}
-                    onChange={(value) => setValue(value)}
-                >
-                    <Tab label="Content" className='tab' style={{ flex: 1, fontWeight: "bold", color: value === 0 ? 'blue' : '' }} />
-                    <Tab label="Customize" className='tab' style={{ flex: 1, fontWeight: "bold", color: value === 1 ? 'blue' : '' }} />
-                </Tabs>
+            </div>
+            <Divider orientation="horizontal" flexItem />
+            <Tabs
+                TabIndicatorProps={{ style: { background: 'blue', color: 'blue' } }}
+                sx={{ display: 'flex', flexDirection: 'row' }}
+                indicatorColor="primary"
+                textColor="primary"
+                value={value}
+                onChange={(value) => setValue(value)}
+            >
+                <Tab label="Content" className='tab' style={{ flex: 1, fontWeight: "bold", color: value === 0 ? 'blue' : '' }} />
+                <Tab label="Customize" className='tab' style={{ flex: 1, fontWeight: "bold", color: value === 1 ? 'blue' : '' }} />
+            </Tabs>
 
-                <div className='questionBox'>
-                    <div className='slideTypeTitle'>
-                        Your question
-                        <Tooltip title="Enter the question you'd like to ask your audience">
-                            <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
-                        </Tooltip>
-                    </div>
-                    <TextField id="outlined-basic" label="Question  " variant="outlined" inputProps={{ maxLength: 150 }}
-                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))} InputProps={{
-                            endAdornment: <div className='questionLen'>{questionLength}</div>
-                        }}>
+            <div className='questionBox'>
+                <div className='slideTypeTitle'>
+                    Your question
+                    <Tooltip title="Enter the question you'd like to ask your audience">
+                        <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                    </Tooltip>
+                </div>
+                <TextField id="outlined-basic" label="Question  " variant="outlined" inputProps={{ maxLength: 150 }}
+                    fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))} InputProps={{
+                        endAdornment: <div className='questionLen'>{questionLength}</div>
+                    }}>
+                </TextField>
+            </div>
+            <div className='optionBox'>
+                <div className='optionBoxTitle'>
+                    Options
+                    <Tooltip title="Enter the options you want your audience to vote on">
+                        <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                    </Tooltip>
+                </div>
+                <div className='optionQuestion'>
+                    <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 1" variant="outlined" inputProps={{ maxLength: 150 }}
+                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
                     </TextField>
+                    <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
                 </div>
-                <div className='optionBox'>
-                    <div className='optionBoxTitle'>
-                        Options
-                        <Tooltip title="Enter the options you want your audience to vote on">
-                            <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
-                        </Tooltip>
-                    </div>
-                    <div className='optionQuestion'>
-                        <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 1" variant="outlined" inputProps={{ maxLength: 150 }}
-                            fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
-                        </TextField>
-                        <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
-                    </div>
-                    <div className='optionQuestion'>
-                        <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 2" variant="outlined" inputProps={{ maxLength: 150 }}
-                            fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
-                        </TextField>
-                        <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
-                    </div>
-                    <div className='optionQuestion'>
-                        <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 3" variant="outlined" inputProps={{ maxLength: 150 }}
-                            fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
-                        </TextField>
-                        <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
-                    </div>
-                    <Button variant="contained" disableElevation fullWidth sx={{ marginTop: '10px' }}>
-                        <AddIcon></AddIcon>
-                        <div className='addOptionText'>
-                            Add option
-                        </div>
-                    </Button>
-
+                <div className='optionQuestion'>
+                    <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 2" variant="outlined" inputProps={{ maxLength: 150 }}
+                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
+                    </TextField>
+                    <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
                 </div>
-
-                <div className='resultLayout'>
-                    <div className='resultLayoutTitle'>
-                        Result layout
-                        <Tooltip title="Choose how to display the results">
-                            <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
-                        </Tooltip>
-                    </div>
-                    <div className='resultLayoutList'>
-                        <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(0)} style={resultLayoutChoice === 0 ? { backgroundColor: '#176FCB' } : undefined}>
-                            <div className='resultLayoutSymbol'>
-                                <LeaderboardIcon></LeaderboardIcon>
-                            </div>
-                            <div className='resultLayoutChoiceText'>
-                                Bars
-                            </div>
-                        </div>
-
-                        <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(1)} style={resultLayoutChoice === 1 ? { backgroundColor: '#176FCB' } : undefined}>
-                            <div className='resultLayoutSymbol'>
-                                <DonutSmallIcon></DonutSmallIcon>
-                            </div>
-                            <div className='resultLayoutChoiceText'>
-                                Donuts
-                            </div>
-                        </div>
-
-                        <div className='resultLayoutChoice ' onClick={() => setResultLayoutChoice(2)} style={resultLayoutChoice === 2 ? { backgroundColor: '#176FCB' } : undefined}>
-                            <div className='resultLayoutSymbol'>
-                                <PieChartIcon></PieChartIcon>
-                            </div>
-                            <div className='resultLayoutChoiceText'>
-                                Pie
-                            </div>
-                        </div>
-
-                        <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(3)} style={resultLayoutChoice === 3 ? { backgroundColor: '#176FCB' } : undefined}>
-                            <div className='resultLayoutSymbol'>
-                                <WorkspacesIcon></WorkspacesIcon>
-                            </div>
-                            <div className='resultLayoutChoiceText'>
-                                Dots
-                            </div>
-                        </div>
-                    </div>
+                <div className='optionQuestion'>
+                    <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 3" variant="outlined" inputProps={{ maxLength: 150 }}
+                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
+                    </TextField>
+                    <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
                 </div>
-
-                <SlideExtras/>
+                <Button variant="contained" disableElevation fullWidth sx={{ marginTop: '10px' }}>
+                    <AddIcon></AddIcon>
+                    <div className='addOptionText'>
+                        Add option
+                    </div>
+                </Button>
 
             </div>
+
+            <div className='resultLayout'>
+                <div className='resultLayoutTitle'>
+                    Result layout
+                    <Tooltip title="Choose how to display the results">
+                        <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
+                    </Tooltip>
+                </div>
+                <div className='resultLayoutList'>
+                    <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(0)} style={resultLayoutChoice === 0 ? { backgroundColor: '#176FCB' } : undefined}>
+                        <div className='resultLayoutSymbol'>
+                            <LeaderboardIcon></LeaderboardIcon>
+                        </div>
+                        <div className='resultLayoutChoiceText'>
+                            Bars
+                        </div>
+                    </div>
+
+                    <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(1)} style={resultLayoutChoice === 1 ? { backgroundColor: '#176FCB' } : undefined}>
+                        <div className='resultLayoutSymbol'>
+                            <DonutLargeIcon></DonutLargeIcon>
+                        </div>
+                        <div className='resultLayoutChoiceText'>
+                            Donuts
+                        </div>
+                    </div>
+
+                    <div className='resultLayoutChoice ' onClick={() => setResultLayoutChoice(2)} style={resultLayoutChoice === 2 ? { backgroundColor: '#176FCB' } : undefined}>
+                        <div className='resultLayoutSymbol'>
+                            <PieChartIcon></PieChartIcon>
+                        </div>
+                        <div className='resultLayoutChoiceText'>
+                            Pie
+                        </div>
+                    </div>
+
+                    <div className='resultLayoutChoice' onClick={() => setResultLayoutChoice(3)} style={resultLayoutChoice === 3 ? { backgroundColor: '#176FCB' } : undefined}>
+                        <div className='resultLayoutSymbol'>
+                            <WorkspacesIcon></WorkspacesIcon>
+                        </div>
+                        <div className='resultLayoutChoiceText'>
+                            Dots
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <SlideExtras />
+
         </div>
 
     )

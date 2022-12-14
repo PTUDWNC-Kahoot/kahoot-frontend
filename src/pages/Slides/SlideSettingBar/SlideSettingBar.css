@@ -1,10 +1,10 @@
 .settingBar{
-    height: max-content;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0px 1px 1px #e4e4e4;
     padding: 10px;
+    position: relative;
 }
 
 .settingBarLeftFunc{
