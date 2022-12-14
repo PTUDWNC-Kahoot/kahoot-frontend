@@ -1,50 +1,52 @@
 import './KahootView.css'
-import { TextField, Button } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { useRadioGroup } from '@mui/material/RadioGroup';
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-
+import KahootOuttro from './KahootOuttro/KahootOuttro';
+import { Button } from '@mui/material';
 
 function KahootView() {
     const [value, setValue] = useState(1);
+    const [doneState, setDoneState] = useState(false);
 
     const handleChange = (event) => {
         setValue(event.target.value);
     };
     const handleSubmit = (event) => {
+        setDoneState(true)
+
     };
     return (
         <div className='kahootViewContent'>
             <img src={require('../../../assets/img/logo.png')} className='KahootLogo' alt='logo'></img>
 
-            <div className='kahootViewQA'>
-                <div className='kahootQuestion'>
-                    question here
-                </div>
-                <FormControl className='kahootOptions'>
-                    <RadioGroup
-                        aria-labelledby="demo-controlled-radio-buttons-group"
-                        name="controlled-radio-buttons-group"
-                        value={value}
-                        onChange={handleChange}
-                    >
-                        <FormControlLabel className='kahootOption' value={1} control={<Radio size='large' />} label="Option 1" />
-                        <FormControlLabel className='kahootOption' value={2} control={<Radio size='large' />} label="Option 2" />
-                        <FormControlLabel className='kahootOption' value={3} control={<Radio size='large' />} label="Option 3" />
+            {doneState === false?
+                <div className='kahootViewQA'>
+                    <div className='kahootQuestion'>
+                        question here
+                    </div>
+                    <FormControl className='kahootOptions'>
+                        <RadioGroup
+                            aria-labelledby="demo-controlled-radio-buttons-group"
+                            name="controlled-radio-buttons-group"
+                            value={value}
+                            onChange={handleChange}
+                        >
+                            <FormControlLabel className='kahootOption' value={1} control={<Radio size='large' />} label="Option 1" />
+                            <FormControlLabel className='kahootOption' value={2} control={<Radio size='large' />} label="Option 2" />
+                            <FormControlLabel className='kahootOption' value={3} control={<Radio size='large' />} label="Option 3" />
+                        </RadioGroup>
+                        <Button sx={{margin: '0px'}} variant="contained" className='buttonKahootViewSubmit' onClick={handleSubmit}>Submit </Button>
 
-                    </RadioGroup>
-                    <Button variant="contained" className='buttonKahootSubmit' onClick={handleSubmit}>Submit </Button>
+                    </FormControl>
+                </div> 
+                : <KahootOuttro></KahootOuttro>}
 
-                </FormControl>
-
-            </div>
         </div>
+
     )
 
 }
