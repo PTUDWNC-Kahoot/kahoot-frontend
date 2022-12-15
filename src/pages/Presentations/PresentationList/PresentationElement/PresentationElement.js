@@ -12,6 +12,8 @@ import ViewPresentationHost from "../../ViewPresentationHost/ViewPresentationHos
 import { Button } from 'semantic-ui-react';
 
 
+
+
 export default function PresentationElement ({list})
 {
     // const [name, setName] = useState(_name);
@@ -19,16 +21,17 @@ export default function PresentationElement ({list})
     // const [modifiedDay, setModifiedDay] = useState(_modifiedDay);
     // const [createdDay, setCreatedDay] = useState(_createdDay);
 
-    const [startPresentClick, setStartPresentClick] = useState(false);
-    const [present, setPresent] = useState();
-    const [isPresent, setIsPresent] = useState(false);
-    const navigate = useNavigate()
-   
-    const handleStartPresent = () => {
-            // navigate("/")
-            setIsPresent(true);
+        const [startPresentClick, setStartPresentClick] = useState(false);
+        const [thisPresent, setThisPresent] = useState("");
+    //    const [isPresent, setIsPresent] = useState(false);
+         const navigate = useNavigate()   
+        function handleStartPresent (present) {
+        navigate('/viewpresentationhost', {state: present});
+        }
+        function handleEditPresent (present){
+          navigate('/slides', {state:present})
+        }
 
-    }
     return (
             <div className='contentBox'>
               {list?.length === 0 ?
@@ -39,11 +42,11 @@ export default function PresentationElement ({list})
                     <div className="element__checkbox">
                         <input className="input__checkbox"  type="checkbox"></input>
                     </div>
-                    <div className="element__Wrapper element__nameWrapper">
-                            <Button className="startPresent__Btn" onClick={handleStartPresent}>
+                    <div className="element__Wrapper element__nameWrapper" >
+                            <Button className="startPresent__Btn" onClick={() => handleStartPresent(present)}>
                                   <FontAwesomeIcon className='icon__play' icon={faPlayCircle} size="lg"  /> 
                             </Button>
-                            <div className="element__text">{present.name}</div>
+                            <Button className="present__name element__text"onClick={() => handleEditPresent(present)}>{present.name}</Button>
                    </div>
                    <div className="element__Wrapper element__OwnerWrapper">
                         <div className="element__text">{present.owner}</div>

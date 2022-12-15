@@ -37,9 +37,13 @@
     flex-basis: 25%;
     color: rgba(16, 24, 52, 0.75);
 }
+.present__name{
+    background-color: transparent;
+}
 .startPresent__Btn{
     margin-right: 8px;
     cursor: pointer;
+    background-color: transparent;
 }
 .element__OwnerWrapper{
     width: 20%;
