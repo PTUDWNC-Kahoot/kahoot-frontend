@@ -5,6 +5,7 @@ import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-i
 
 function PresentationListBar ()
 {
+    
     return (
         <div className="PresentationListBar">
             <div className="list__nav">

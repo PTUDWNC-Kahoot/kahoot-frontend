@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import VerifyEmail  from "./VerifyEmail";
 import Navbar from "../../components/Navbar";
+import SignOn from "../SignOn/SignOn";
 import * as Yup from "yup"
 
 
@@ -49,6 +50,9 @@ function Register() {
                 setShowPass(statePass[1])
             }
      
+    }
+    const handleSignOn = () => {
+       navigate('/signOn');
     }
     const formik = useFormik ({
         initialValues: {
@@ -101,6 +105,7 @@ function Register() {
         return await axios.post("http://localhost:8000/auth/register", user);  
     }
  
+   
     if (isLoading) {
         return <div>Loading...</div>
     }
@@ -155,16 +160,16 @@ function Register() {
                             <p className="text--b  form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper display--col">
-                            <button  className="form__SignOnBtn" href="http://localhost:8000/google/login">
+                            <button  className="form__SignOnBtn" onClick={handleSignOn} >
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
                             </button>
                            
-                            <button className="form__SignOnBtn">
+                            {/* <button className="form__SignOnBtn">
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>
-                            </button>
+                            </button> */}
                     </div>
                     <p className="text--center text--14 text--grey">Already have an account?  <a href="/login">Log in</a></p>                
             </section>

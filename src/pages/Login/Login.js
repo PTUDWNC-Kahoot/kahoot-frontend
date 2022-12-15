@@ -31,7 +31,6 @@ const statePass = [
 function Login() {
     let user = {};
     const [showPass, setShowPass] = useState(statePass[0]);
-    const [signOnGoogleState, setSignOnGoogleState] = useState(false); 
     const navigate = useNavigate();
     
     let _err = false;
@@ -66,8 +65,8 @@ function Login() {
         }
     });
    
-    const handleSignOnGoogle = (e) => {
-         setSignOnGoogleState(true);
+    const handleSignOn = () => {
+       navigate("/signOn");
     }
     const { isError, error, mutate } = useMutation(          // dùng react-query
     postDataLogin,  // 4
@@ -96,10 +95,6 @@ function Login() {
     if (isError) {
         _err = true;
     }  
-    if (signOnGoogleState)
-    {
-        return <SignOnGoogle></SignOnGoogle>
-    }
     return (
         <div className="page display--col ">
             
@@ -138,16 +133,16 @@ function Login() {
                             <p className="text--b form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper display--col">
-                             <button className="form__SignOnBtn" onClick={handleSignOnGoogle} >
+                             <button className="form__SignOnBtn" onClick={handleSignOn} >
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
                             </button>
                            
-                            <button className="form__SignOnBtn" >
+                            {/* <button className="form__SignOnBtn" >
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>
-                            </button>
+                            </button> */}
                     </div>
                     <div className="text--center text--14 text--grey">Don't have an account? <a href="/register"> Sign up</a></div>                
             </section>

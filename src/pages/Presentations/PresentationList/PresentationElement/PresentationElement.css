@@ -39,6 +39,7 @@
 }
 .present__name{
     background-color: transparent;
+    cursor: pointer;
 }
 .startPresent__Btn{
     margin-right: 8px;
