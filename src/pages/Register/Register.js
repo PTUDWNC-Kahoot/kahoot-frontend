@@ -3,13 +3,15 @@ import { useMutation } from "react-query";
 import axios from 'axios';
 import '../../style/styles.css'
 import './Register.css'
-import '../../style/Authentication.css'
+
 import { useNavigate } from "react-router-dom";
 import {useFormik } from "formik"
 import VerifyEmail  from "./VerifyEmail";
 import Navbar from "../../components/Navbar";
 import SignOn from "../SignOn/SignOn";
 import * as Yup from "yup"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
 
 // show/hide password
@@ -17,16 +19,15 @@ const statePass = [
     {
         //not show
         state: false,
-        src: 'https://img.icons8.com/ios/32/null/visible.png',
+        icon: faEyeSlash,
         typePass: 'password'
     },
     {
         // show
         state: true, 
-        src: 'https://img.icons8.com/ios/32/null/eyelashes-2d.png',
+        icon: faEye,
         typePass: 'text'
     }
-  
 ]
 
 function Register() {
@@ -140,11 +141,8 @@ function Register() {
                                     <input id = "password" className="form__input"  value={formik.values.password}  onChange={formik.handleChange} type ={showPass.typePass} />
                                     {formik.errors.password && (   <p className="errorMsg">{formik.errors.password}</p> )}
                                     <div className="form__passwordEye">
-                                        <button id="form__passwordEyeBtn" type="button" className="form__passwordEyeBtn" onClick={handleShowPass}>
-                                             <span className="form__passwordEyeIcon">
-                                                {<img className="form__passwordEye--show" src={showPass.src}/>}
-                                              </span> 
-
+                                        <button id="form__passwordEyeBtn" type="button" className="form__passwordEyeBtn" onClick={handleShowPass}>                                          
+                                                <FontAwesomeIcon className='form__passwordEyeIcon' icon={showPass.icon} size="lg"  /> 
                                         </button>
                                     </div>
                                     </div>

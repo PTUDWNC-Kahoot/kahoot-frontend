@@ -10,6 +10,8 @@ import {useFormik, validateYupSchema} from "formik"
 import * as Yup from "yup"
 import Navbar from "../../components/Navbar";
 import SignOnGoogle from '../../service/SignOnGoogle'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
 
 // show/hide password
@@ -17,16 +19,15 @@ const statePass = [
     {
         //not show
         state: false,
-        src: 'https://img.icons8.com/ios/32/null/visible.png',
+        icon: faEyeSlash,
         typePass: 'password'
     },
     {
         // show
         state: true, 
-        src: 'https://img.icons8.com/ios/32/null/eyelashes-2d.png',
+        icon: faEye,
         typePass: 'text'
     }
-  
 ]
 function Login() {
     let user = {};
@@ -115,14 +116,12 @@ function Login() {
                                     {formik.errors.password && (   <p className="errorMsg">{formik.errors.password}</p> )}
                                     <div className="form__passwordEye">
                                         <button id="form__passwordEyeBtn" type="button" className="form__passwordEyeBtn" onClick={handleShowPass}>
-                                             <span className="form__passwordEyeIcon">
-                                                {<img className="form__passwordEye--show" src={showPass.src}/>}
-                                              </span> 
+                                            <FontAwesomeIcon className='form__passwordEyeIcon' icon={showPass.icon} size="lg"  /> 
                                         </button>
                                     </div>
                                 </div>
                             <div className="form__forgotPassword text--14 text--grey">
-                               <div className="">Forgot your password? <a href="#">Reset your password</a></div>
+                               <div className="">Forgot your password? <a href="/forgotpassword">Reset your password</a></div>
                             </div>
                           <button type="submit" className="text--b btn__submit ">Log in</button>
                           {_err ? ( <div className="errorMsg">Your email, or password is incorrect.</div>) : null}

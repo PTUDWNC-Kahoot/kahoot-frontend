@@ -12,6 +12,7 @@ import Slides from './pages/Slides/Slides';
 import KahootLogin from './pages/MemberView/KahootLogin/KahootLogin';
 import KahootView from './pages/MemberView/Kahoot/KahootView';
 import SignOn from './pages/SignOn/SignOn';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 function App() {
   //  localStorage.setItem("authenticated", false);               // set quyền đăng nhập sang false để không navigate vào dashboard
   return (
@@ -29,6 +30,8 @@ function App() {
         <Route path='/kahootLogin' element={<KahootLogin />} />
         <Route path='/kahoot' element={<KahootView />} />
         <Route path='/signOn' element = {<SignOn/>} />
+        <Route path= '/forgotpassword' element = {<ForgotPassword/>} />
+
     </Routes>
     </BrowserRouter>
 
