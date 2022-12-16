@@ -49,13 +49,11 @@ function EditProfile()
 
    
     let info = {};
-
-    
-   
+    let _image = '../../assets/img/person-icon.png';
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     // TODO: Change image link to local
-    const [image, setImage] = useState("https://www.seekpng.com/png/detail/72-729606_png-file-windows-10-person-icon.png");
+    const [image, setImage] = useState(_image);
     const [imageUpload, setImageUpload] =  useState()
     const [organization, setOrganization] = useState();
     const [workplace, setWorkplace] = useState("");

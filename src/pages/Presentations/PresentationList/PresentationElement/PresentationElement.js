@@ -8,7 +8,7 @@ import Popover from '@mui/material/Popover';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
-import ViewPresentationHost from "../../ViewPresentationHost/ViewPresentationHost";
+import ViewPresentationHost from "../../../ViewPresentationHost/ViewPresentationHost";
 import { Button } from 'semantic-ui-react';
 
 

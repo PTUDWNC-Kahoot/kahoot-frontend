@@ -7,7 +7,7 @@ import EditProfile from './pages/Profile/EditProfile';
 import Home from "./pages/Home/Home";
 import Group from "./pages/Group/Group";
 import Presentation from './pages/Presentations/Presentation';
-import ViewPresentationHost from './pages/Presentations/ViewPresentationHost/ViewPresentationHost';
+import ViewPresentationHost from './pages/ViewPresentationHost/ViewPresentationHost';
 import Slides from './pages/Slides/Slides';
 import KahootLogin from './pages/MemberView/KahootLogin/KahootLogin';
 import KahootView from './pages/MemberView/Kahoot/KahootView';

@@ -42,3 +42,25 @@
     cursor: pointer;
     font-family: Helvetica, sans-serif;
   }
+
+.chart__lineWrapper{
+    transform: translate(24, 54);
+    cursor: pointer;
+}
+
+.chart__axis{
+transform: translate(0, 395.7);
+fill: none;
+font-size: 10px;
+text-anchor: middle;
+}
+
+.chart__domain{
+    stroke: rgb(37, 43, 54);
+    stroke-width: 3;
+}
+
+.chart__tick{
+    opacity: 1;
+    transform: translate(208.5, 0);
+}
