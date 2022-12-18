@@ -2,6 +2,9 @@ import { useState } from "react"
 import './ViewPresentationHost.css'
 import { useEffect, useRef} from 'react';
 import {useLocation} from 'react-router-dom';
+import CanvasJS from "canvasjs";
+import { CanvasJSChart } from "canvasjs-react-charts";
+var CanvasJSChart = CanvasJS.Chart
 export default function ViewPresentationHost () 
 {
     const location = useLocation();
