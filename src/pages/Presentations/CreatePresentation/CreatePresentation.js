@@ -7,9 +7,14 @@ import '../../../style/DialogCustom.css'
 export default function CreatePresentation ({state, setState, setNewPresent}) {
   
     const [isOpen, setIsOpen] = useState (state);
-    const [newPresentName, setNewPresentName] = useState('');
+    const [newPresentName, setNewPresentName] = useState("");
     const [createState, setCreateState] = useState(false);
     const [errorMess, setErrorMess] = useState("");
+    const [myPresentID, setMyPresentID] = useState("");
+    const [myPresentName, setMyPresentName] = useState ("");
+    const [myPresentOwner, setMyPresentOwner] = useState("");
+    const [myPresentModifiedDay, setMyPresentModifiedDay] = useState("");
+    const [myPresentCreatedDay, setMyPresentCreatedDay] = useState("");
 
     const didMount = useRef(false);
 
@@ -33,11 +38,15 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
     };
 
     const handleSubmit = () => {
-
-       
+     
         setIsOpen(false);
         setState(false);
-        
+        setMyPresentID("12");
+        setMyPresentName(newPresentName);
+        setMyPresentOwner("asc");
+        setMyPresentModifiedDay("12/12/2002");
+        setMyPresentCreatedDay("20/12/2021");
+        setNewPresent({myPresentID,myPresentName,myPresentOwner,myPresentCreatedDay,myPresentModifiedDay});
     }
 
     return (
@@ -51,7 +60,7 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
                             
                             autoFocus
                             margin='dense'
-                            id="name"
+                            id="myname"
                             label="Presentation name"
                             fullWidth
                             variant='standard'

@@ -2,13 +2,27 @@ import { useState } from "react"
 import './ViewPresentationHost.css'
 import { useEffect, useRef} from 'react';
 import {useLocation} from 'react-router-dom';
-import CanvasJS from "canvasjs";
 import { CanvasJSChart } from "canvasjs-react-charts";
-var CanvasJSChart = CanvasJS.Chart
+import { set } from "react-hook-form";
 export default function ViewPresentationHost () 
 {
     const location = useLocation();
     const present = location.state;
+    const options = {
+        data: [
+        {
+            // Change type to "doughnut", "line", "splineArea", etc.
+            type: "column",
+            dataPoints: [
+                { label: "Apple",  y: 10  },
+                { label: "Orange", y: 15  },
+                { label: "Banana", y: 25  },
+                { label: "Mango",  y: 30  },
+                { label: "Grape",  y: 28  }
+            ]
+        }
+        ]
+    }
     // const [isOpen, setIsOpen] = useState (state);
     // const didMount = useRef(false);
     // useEffect (() => {
@@ -23,7 +37,7 @@ export default function ViewPresentationHost ()
         <div className="slideshow__page" >
              <div className="slideshow__content">
                 <div className="slideshow__header">
-                    <p> Go to www.menti.com and use the code  </p>
+                    <p> Go to www.menti.com and use the code {slidecode}  </p> 
                     
                 </div>
                 <div className="slideshow__wrapper">
@@ -31,8 +45,12 @@ export default function ViewPresentationHost ()
                            {present.name}
                     </div>
 
-                    <div className="slideshow__graph">
-                        <svg className="chart" width="100%" height="100%" aria-labelledby="title desc" role="img">
+                  <div className="slideshow__graph">
+                        <CanvasJSChart options = {options}
+                        // onRef = {ref => this.chart = ref}
+                        />
+
+                        {/* <svg className="chart" width="100%" height="100%" aria-labelledby="title desc" role="img">
                             <g id="chart__lineWrapper" >
                                 <g className="chart__axis">
                                     <path className="chart__domain"></path>
@@ -51,7 +69,7 @@ export default function ViewPresentationHost ()
                                     </g>
                                 </g>
                             </g>
-                        </svg>
+                        </svg> */}
                     </div>
                 </div>
                

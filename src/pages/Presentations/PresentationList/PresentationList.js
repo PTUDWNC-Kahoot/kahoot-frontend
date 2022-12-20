@@ -2,6 +2,7 @@
 import './PresentationList.css'
 import PresentationListBar from './PresentationListBar/PresentationListBar'
 import PresentationElement from './PresentationElement/PresentationElement'
+import PresentationButtonBar from '../PresentationHeader/PresentationButtonBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
@@ -59,8 +60,10 @@ function PresentationList ()
     }, []);
    
     return (
+        
         <div>
-            <PresentationListBar/>
+             <PresentationButtonBar list={presentList} setPresentList={setPresentList}/> 
+            <PresentationListBar />
             <PresentationElement list={presentList}/>
       </div>
     )

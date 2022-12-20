@@ -1,7 +1,6 @@
 import Header from "../../components/Header";
 import '../../style/styles.css'
 import './Presentation.css'
-import PresentationButtonBar from "./PresentationHeader/PresentationButtonBar";
 import PresentationList from "./PresentationList/PresentationList";
 
 function Presentation ( )
@@ -13,7 +12,6 @@ function Presentation ( )
          <Header page={'HomePage'}  /> 
              <div className="present__content">
               <header className="present__header">My presentation</header>
-              <PresentationButtonBar/> 
               <PresentationList/>
            
             </div>
