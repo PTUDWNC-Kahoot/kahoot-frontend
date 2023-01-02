@@ -12,11 +12,12 @@ function PresentationButtonBar ({list, setPresentList})
     const [newFoder, setNewFolder] = useState();
   
     useEffect(() => {
+        console.log("NOW");
+        
         console.log(newPresent);
-         
-      
-    });
+    },[newPresent]);
 
+ 
     // setPresentList(prevList => {
     //     const newList = [...prevList, newPresent];
        

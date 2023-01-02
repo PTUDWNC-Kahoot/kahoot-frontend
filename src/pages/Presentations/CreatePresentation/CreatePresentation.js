@@ -17,6 +17,7 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
     const [myPresentCreatedDay, setMyPresentCreatedDay] = useState("");
 
     const didMount = useRef(false);
+    const isCreated = useRef(false);
 
     useEffect (()=> {
         if (newPresentName.length == 0 && errorMess) {
@@ -32,6 +33,7 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
             didMount.current = true;
     }, [state]);
 
+ 
     const handleCancel = () => {
         setIsOpen(false);
         setState(false);
@@ -39,14 +41,17 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
 
     const handleSubmit = () => {
      
-        setIsOpen(false);
-        setState(false);
+       
         setMyPresentID("12");
         setMyPresentName(newPresentName);
         setMyPresentOwner("asc");
         setMyPresentModifiedDay("12/12/2002");
         setMyPresentCreatedDay("20/12/2021");
         setNewPresent({myPresentID,myPresentName,myPresentOwner,myPresentCreatedDay,myPresentModifiedDay});
+        
+        setIsOpen(false);
+        setState(false);
+
     }
 
     return (
