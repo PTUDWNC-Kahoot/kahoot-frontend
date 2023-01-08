@@ -10,11 +10,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import ViewPresentationHost from "../../ViewPresentationHost/ViewPresentationHost";
 import { Button } from 'semantic-ui-react';
+import { array } from "yup";
 
 
 
 
-export default function PresentationElement ({list})
+export default function PresentationElement ({list, setList})
 {
     // const [name, setName] = useState(_name);
     // const [owner, setOwner] = useState(_owner);
@@ -31,6 +32,27 @@ export default function PresentationElement ({list})
         function handleEditPresent (present){
           navigate('/slides', {state:present})
         }
+        function handleDeletePresentation (id) {
+            // console.log("ee");
+            // var filtered = array.filter(function(value, index, arr){
+            //     return value !== present;
+            // // });
+            // arrayRemove(list, id);
+            list = list.filter(function(value) {
+                return value.id !== id;
+            });
+            setList(list);
+            // console.log(list);
+            // console.log(id);
+            
+        }
+        // function arrayRemove(list, id) {
+        //     return list.filter(function(ele) {
+        //         return ele == id; 
+        //     })
+            
+        // }
+       
 
     return (
             <div className='contentBox'>
@@ -51,14 +73,17 @@ export default function PresentationElement ({list})
                    <div className="element__Wrapper element__OwnerWrapper">
                         <div className="element__text">{present.owner}</div>
                    </div>
-                   <div className="element__Wrapper element__modifiedWrapper">
+                   {/* <div className="element__Wrapper element__modifiedWrapper">
                         <div className="element__text">{present.modifiedDay}</div>
-                   </div>
+                   </div> */}
                    <div className="element__Wrapper element__createdWrapper">
                         <div className="element__text">{present.createdDay}</div>
                    </div>
+                   <button className="deleteBtn" onClick={()=> handleDeletePresentation(present.id)}>
+                   <FontAwesomeIcon className='popup__icon icon__delete' icon={faTrash} size="lg" color="red"  /> 
+                   </button>
                  
-                   <PopupState variant="popover" popupId="demo-popup-menu">
+                   {/* <PopupState variant="popover" popupId="demo-popup-menu">
                         {(popupState) => (
                             <React.Fragment>
                                 <div variant="contained" {...bindTrigger(popupState)}>
@@ -80,7 +105,7 @@ export default function PresentationElement ({list})
                                 </Menu>
                             </React.Fragment>
                         )}
-                   </PopupState>
+                   </PopupState> */}
             </div>
                 )
             })}

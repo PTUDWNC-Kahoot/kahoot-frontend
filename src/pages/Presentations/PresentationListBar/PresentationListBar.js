@@ -20,10 +20,10 @@ function PresentationListBar ()
                     <div className="nav__title">Owner</div>
                     <FontAwesomeIcon className='icon__arrow' icon={faArrowDown} size="lg"  /> 
                </div>
-               <div className="nav__Wrapper nav__modifiedWrapper">
+               {/* <div className="nav__Wrapper nav__modifiedWrapper">
                     <div className="nav__title">Modified</div>
                     <FontAwesomeIcon className='icon__arrow' icon={faArrowDown} size="lg"  /> 
-               </div>
+               </div> */}
                <div className="nav__Wrapper nav__createdWrapper">
                     <div className="nav__title">Created</div>
                     <FontAwesomeIcon className='icon__arrow' icon={faArrowDown} size="lg"  /> 

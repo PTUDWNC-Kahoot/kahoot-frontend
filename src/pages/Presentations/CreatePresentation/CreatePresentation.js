@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState} from 'react';
-import { Dialog, DialogActions, DialogContent, Snackbar, TextField } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, TextField } from "@mui/material";
 import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from 'semantic-ui-react';
 import '../../../style/DialogCustom.css'
@@ -13,9 +13,20 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
     const [myPresentID, setMyPresentID] = useState("");
     const [myPresentName, setMyPresentName] = useState ("");
     const [myPresentOwner, setMyPresentOwner] = useState("");
-    const [myPresentModifiedDay, setMyPresentModifiedDay] = useState("");
-    const [myPresentCreatedDay, setMyPresentCreatedDay] = useState("");
+    // const [myPresentModifiedDay, setMyPresentModifiedDay] = useState("");
+    // const [myPresentCreatedDay, setMyPresentCreatedDay] = useState("");
 
+    const date = new Date();
+    const currentYear  = `${date.getFullYear()}`; 
+    const currentMonth= `${date.getMonth() + 1 }`;
+    const currentDay = `${date.getDate()}`;
+    const currentHour = `${date.getHours()}`;
+    const currentMinute = `${date.getMinutes()}`;
+    const currentSecond = `${date.getSeconds()}`;
+    const currentDate =    `${currentYear}/${currentMonth}/${currentDay} ${currentHour}:${currentMinute}:${currentSecond}`
+
+
+    console.log(currentDate);
     const didMount = useRef(false);
     const isCreated = useRef(false);
 
@@ -42,13 +53,26 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
        
         setMyPresentID("12");
         setMyPresentName(newPresentName);
-        setMyPresentOwner("asc");
-        setMyPresentModifiedDay("12/12/2002");
-        setMyPresentCreatedDay("20/12/2021");
-        setNewPresent({myPresentID,myPresentName,myPresentOwner,myPresentCreatedDay,myPresentModifiedDay});
+        // setMyPresentOwner("asc");
+        // setMyPresentModifiedDay("12/12/2002");
+        // setMyPresentCreatedDay(currentDate);
+        setNewPresent({myPresentID,myPresentName,myPresentOwner, currentDate});
         
         setIsOpen(false);
         setState(false);
+
+        // const token = localStorage.getItem("token");
+        // await axios.post(
+        //     `${API_URL}presentation/create`,
+        //     { name: newPresentName, created_at: currentDate, group_id: group_id },
+        //     {
+        //       headers: {
+        //         Authorization: `Bearer ${token}`
+        //       }
+        //     }
+        //   );
+      
+        // window.location.reload();
 
     }
 

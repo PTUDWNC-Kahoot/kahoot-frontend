@@ -6,6 +6,7 @@ import PresentationButtonBar from '../PresentationHeader/PresentationButtonBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 const presents = [
     
     {
@@ -48,6 +49,19 @@ function PresentationList ()
 {
     const [presentList, setPresentList] = useState([]);
 
+    //Load and show presentation
+    // useEffect(() => {
+    //     const token = localStorage.getItem("token");
+    //     async function loadGroups () {
+    //         const res = await axios.get(`${API_URL}presentation`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`
+    //             }
+    //         });
+    //     setPresentList(res.data.Presentations);
+    //     }
+    //     loadGroups();
+    // }, []);
 
     useEffect(() => {
 
@@ -68,7 +82,7 @@ function PresentationList ()
                 <div className='no-presentation'>
                     <h3>No presentations!</h3>
                 </div>) 
-                : (<PresentationElement list={presentList}/>)
+                : (<PresentationElement list={presentList} setList = {setPresentList}/>)
             }
       </div>
     )
