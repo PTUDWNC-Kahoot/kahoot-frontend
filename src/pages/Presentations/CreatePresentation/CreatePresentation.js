@@ -21,8 +21,6 @@ export default function CreatePresentation ({state, setState, setNewPresent}) {
 
     useEffect (()=> {
         if (newPresentName.length == 0 && errorMess) {
-            // setErrorMess("No!");
-            console.log("NO");
           }
     },[newPresentName,errorMess]);
 

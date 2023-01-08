@@ -39,20 +39,19 @@ function PresentationButtonBar ({list, setPresentList})
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                     <div> New Presentation</div> 
                 </button>
-                <CreateFolder state={createFolderClick} setState = {setCreateFolderClick} createFolder = {setNewFolder}/>
+                {/* <CreateFolder state={createFolderClick} setState = {setCreateFolderClick} createFolder = {setNewFolder}/>
                 <button className='present__btn btn__newFolder' onClick={handleCreateFolder}> 
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                    <div> New Folder </div>
-                </button>
+                </button> */}
             </div>
-            <div className='present__buttonWrapper'>
+            {/* <div className='present__buttonWrapper'>
                 <div className="search__wrapper ">
                     <div className="searchBar__icon searchBar__icon--search"> <FontAwesomeIcon icon={faSearch} size="lg"  /> </div>  
                     <input className="search__input " placeholder="Type to search" />
                     <div className="searchBar__icon searchBar__icon--x"> <FontAwesomeIcon icon={faX} size="lg"  /> </div>                           
                 </div>
-                {/* <input className=' present__sort'></input> */}
-            </div>
+            </div> */}
         </div>
     )
   

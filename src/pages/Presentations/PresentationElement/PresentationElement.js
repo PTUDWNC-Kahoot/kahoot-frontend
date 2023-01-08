@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import './PresentationElement.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsis, faFolder, faRecycle, faPencil, faTrash, faPlay, faPlayCircle} from '@fortawesome/free-solid-svg-icons'
-import EmptyListNotify from '../../../../components/EmptyListNotify'
+import EmptyListNotify from '../../../components/EmptyListNotify'
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import Popover from '@mui/material/Popover';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
-import ViewPresentationHost from "../../../ViewPresentationHost/ViewPresentationHost";
+import ViewPresentationHost from "../../ViewPresentationHost/ViewPresentationHost";
 import { Button } from 'semantic-ui-react';
 
 
@@ -39,9 +39,9 @@ export default function PresentationElement ({list})
                 : list?.map((present) => {
                 return (
                     <div className="PresentationElement">
-                    <div className="element__checkbox">
+                    {/* <div className="element__checkbox">
                         <input className="input__checkbox"  type="checkbox"></input>
-                    </div>
+                    </div> */}
                     <div className="element__Wrapper element__nameWrapper" >
                             <Button className="startPresent__Btn" onClick={() => handleStartPresent(present)}>
                                   <FontAwesomeIcon className='icon__play' icon={faPlayCircle} size="lg"  /> 

@@ -1,7 +1,7 @@
 
 import './PresentationList.css'
-import PresentationListBar from './PresentationListBar/PresentationListBar'
-import PresentationElement from './PresentationElement/PresentationElement'
+import PresentationListBar from '../PresentationListBar/PresentationListBar'
+import PresentationElement from '../PresentationElement/PresentationElement'
 import PresentationButtonBar from '../PresentationHeader/PresentationButtonBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
@@ -54,7 +54,6 @@ function PresentationList ()
         //create a list presentations by Iterate through elements in an Array with map()
         var listofPresents = [];
         listofPresents = presents.map(present => present);
-
         //update this list presentations by useSate
         setPresentList(listofPresents);        
     }, []);
@@ -64,7 +63,13 @@ function PresentationList ()
         <div>
              <PresentationButtonBar list={presentList} setPresentList={setPresentList}/> 
             <PresentationListBar />
-            <PresentationElement list={presentList}/>
+           
+            {presentList.length === 0 ? (
+                <div className='no-presentation'>
+                    <h3>No presentations!</h3>
+                </div>) 
+                : (<PresentationElement list={presentList}/>)
+            }
       </div>
     )
 }

@@ -9,9 +9,9 @@ function PresentationListBar ()
     return (
         <div className="PresentationListBar">
             <div className="list__nav">
-                <div className="nav__checkboxAll">
+                {/* <div className="nav__checkboxAll">
                     <input className="input__checkboxAll"  type="checkbox"></input>
-                </div>
+                </div> */}
                <div className="nav__Wrapper nav__nameWrapper">
                         <div className="nav__title">Name</div>
                         <FontAwesomeIcon className='icon__arrow' icon={faArrowDown} size="lg"  /> 
