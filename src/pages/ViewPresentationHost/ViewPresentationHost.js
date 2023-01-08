@@ -6,30 +6,20 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import {useLocation} from 'react-router-dom';
 import { CanvasJSChart } from "canvasjs-react-charts";
 import { useNavigate } from "react-router-dom";
+import {Bar, Cell, BarChart, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { color } from "@mui/system";
+import { colors } from "@mui/material";
+
 export default function ViewPresentationHost () 
 {
     const location = useLocation();
     const present = location.state;
     const navigate = useNavigate()   
-    const options = {
-        data: [
-        {
-            // Change type to "doughnut", "line", "splineArea", etc.
-            type: "column",
-            dataPoints: [
-                { label: "Apple",  y: 10  },
-                { label: "Orange", y: 15  },
-                { label: "Banana", y: 25  },
-                { label: "Mango",  y: 30  },
-                { label: "Grape",  y: 28  }
-            ]
-        }
-        ]
-    }
+  
     function handleExitSlideShow () {
         navigate('/slides', {state:present});
     }
-
+   const data = [];
    const slidecode ="123324";
 
     return(  
@@ -47,30 +37,14 @@ export default function ViewPresentationHost ()
                     </div>
 
                   <div className="slideshow__graph">
-                        <CanvasJSChart options = {options}
-                        // onRef = {ref => this.chart = ref}
-                        />
-
-                        {/* <svg className="chart" width="100%" height="100%" aria-labelledby="title desc" role="img">
-                            <g id="chart__lineWrapper" >
-                                <g className="chart__axis">
-                                    <path className="chart__domain"></path>
-                                    <g className="chart__tick">
-                                        <text>Option 1</text>
-                                    </g>
-                                    <g className="chart__nodes">
-                                        <g className="bar-group" fill="#196cff" transform="">
-                                            <rect className="bar-item"  height="150" width="100" fill="#196cff" stroke="#196cff" strokeWidth="3" strokeOpacity="0" opacity="1"></rect>
-                                            <text x="121" y="0">Option 1</text>
-                                        </g> 
-                                        <g class="bar">
-                                            <rect width="40" height="19"></rect>
-                                            <text x="45" y="9.5" dy=".35em">4 apples</text>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg> */}
+                  <BarChart width={730} height={250} data={data}>
+                    <XAxis dataKey="name" />
+                    <Bar dataKey="count" fill="#8884d8" >
+                      {data.map((entry,index) => (
+                        <Cell key={`cell-${index}`} fill={colors[index%20]}></Cell>
+                      ))}
+                     </Bar>
+                </BarChart>
                     </div>
                 </div>
                

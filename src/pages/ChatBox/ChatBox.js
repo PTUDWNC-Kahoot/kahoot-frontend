@@ -4,7 +4,7 @@ import './ChatBox.css'
 //This is a hook I created to reduce some of the bloat we get with watching inputs for changes.
 import useInput from './useInput.js';
 //Lets us import PubNub for our chat infrastructure capabailites.
-import PubNub from 'pubnub';
+// import PubNub from 'pubnub';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from "@fortawesome/free-solid-svg-icons";
 //Material UI Components
