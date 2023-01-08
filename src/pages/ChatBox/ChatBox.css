@@ -1,0 +1,48 @@
+/* * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    width: 500px;
+    margin: 30px auto;
+    background-color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+   */
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+
+
+  .chatBoxView{
+    width: 30vw;
+  }
+
+  .chatBox__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FB2576;
+    padding: 8px;
+    border-radius: 10px;
+}
+.chatBox_name{
+  font-family: inherit;
+  font-size: 24px;
+}
+.exitbutton {
+    left: 0;
+    top: 0;
+    background-color:  rgba(10, 10, 10, 0.6);
+    border-radius: 50%;
+    margin: 4px;
+    width: max-content;
+    height: max-content;
+    padding: 8px;
+    cursor: pointer;
+}

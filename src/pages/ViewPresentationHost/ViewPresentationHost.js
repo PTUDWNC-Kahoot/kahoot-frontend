@@ -1,13 +1,16 @@
 import { useState } from "react"
 import './ViewPresentationHost.css'
 import { useEffect, useRef} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import {useLocation} from 'react-router-dom';
 import { CanvasJSChart } from "canvasjs-react-charts";
-import { set } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 export default function ViewPresentationHost () 
 {
     const location = useLocation();
     const present = location.state;
+    const navigate = useNavigate()   
     const options = {
         data: [
         {
@@ -23,22 +26,20 @@ export default function ViewPresentationHost ()
         }
         ]
     }
-    // const [isOpen, setIsOpen] = useState (state);
-    // const didMount = useRef(false);
-    // useEffect (() => {
-    //     if(didMount.current)
-    //         setIsOpen(state);
-    //     else 
-    //         didMount.current = true;
-    // }, [state]);
+    function handleExitSlideShow () {
+        navigate('/slides', {state:present});
+    }
+
    const slidecode ="123324";
 
     return(  
         <div className="slideshow__page" >
              <div className="slideshow__content">
+                <button className="exitbutton" onClick={handleExitSlideShow}>
+                    <FontAwesomeIcon className='icon__exit' icon={faX} size="lg"  /> 
+                </button>
                 <div className="slideshow__header">
-                    <p> Go to www.menti.com and use the code {slidecode}  </p> 
-                    
+                    <p className="slideshow__text"> Go to www.menti.com and use the code {slidecode}  </p> 
                 </div>
                 <div className="slideshow__wrapper">
                     <div className="slideshow__title">

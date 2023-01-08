@@ -11,7 +11,14 @@
     justify-content: center
 }
 
-
+.kahootViewWrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    /* margin-top: 50px; */
+    justify-content: space-around;
+}
 .kahootViewQA{
     width: 40%;
     display: flex;
