@@ -12,16 +12,9 @@ function Slides() {
             <SlideSettingBar />
          
             <div className='slideContent'>
-                <div className='slideListFrame'>
                     <SlideListBar />
-                </div>
-                <div className='slideContentFrame'>
                     <SlideContent />
-                </div>
-
-                <div className='slideEditFrame'>
                     <SlideEdit></SlideEdit>
-                </div>
             </div>
         </div>
 
