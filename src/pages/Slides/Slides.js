@@ -10,11 +10,11 @@ function Slides() {
         <div className='main'>
             <SlideHeader />
             <SlideSettingBar />
-         
+
             <div className='slideContent'>
-                    <SlideListBar />
-                    <SlideContent />
-                    <SlideEdit></SlideEdit>
+                <SlideListBar />
+                <SlideContent />
+                <SlideEdit></SlideEdit>
             </div>
         </div>
 
