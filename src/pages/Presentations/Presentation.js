@@ -7,7 +7,7 @@ function Presentation ( )
 {
     return(
         <div>
-         <Header page={'HomePage'}  /> 
+         <Header page={'Presentation'}  /> 
              <div className="present__content">
               <header className="present__header">My presentation</header>
               <PresentationList/>

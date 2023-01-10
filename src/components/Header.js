@@ -9,7 +9,7 @@ import {
     Toolbar,
     Typography,
     useMediaQuery,
-    useTheme,
+    useTheme
 } from "@mui/material";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -24,8 +24,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import Home from "../pages/Home/Home"
+// "./pages/Home/Home";
 
-const Header = ({ page, group, add }) => {
+export default function Header  ({ page, group, add }) {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [copyState, setCopyState] = useState(false);
@@ -57,6 +59,7 @@ const Header = ({ page, group, add }) => {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
 
+    
     return (
         <AppBar sx={{ background: '#fff' }}>
             <Toolbar>
@@ -75,11 +78,14 @@ const Header = ({ page, group, add }) => {
                             value={value}
                             onChange={(e, value) => setValue(value)}
                         >
-                            <Tab icon={<HomeIcon />} iconPosition="start" label="Home" className='tab' style={{ fontWeight: "bold", color: value === 0 ? '#FB2576' : '' }} />
-                            <Tab icon={<HomeIcon />} iconPosition="start" label="Discover" className='tab' style={{ fontWeight: "bold", color: value === 1 ? '#FB2576' : '' }} />
+                            <Tab icon={<HomeIcon />} href="/home" iconPosition="start" label="Home" className='tab' style={{ fontWeight: "bold", color: value === 0 ? '#FB2576' : '' }} />
+                            <Tab icon={<HomeIcon />} href="/presentation" iconPosition="start" label="Presentation" className='tab' style={{ fontWeight: "bold", color: value === 1 ? '#FB2576' : '' }} />
                             <Tab icon={<HomeIcon />} iconPosition="start" label="Library" className='tab' style={{ fontWeight: "bold", color: value === 2 ? '#FB2576' : '' }} />
                             <Tab icon={<HomeIcon />} iconPosition="start" label="Reports" className='tab' style={{ fontWeight: "bold", color: value === 3 ? '#FB2576' : '' }} />
                         </Tabs>
+                       
+                      
+                    
 
                     </>
                 )}
@@ -161,4 +167,3 @@ const Header = ({ page, group, add }) => {
     );
 };
 
-export default Header;

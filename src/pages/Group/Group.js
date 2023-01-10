@@ -1,6 +1,6 @@
 import '../../style/Group.css'
 import Header from '../../components/Header'
-
+import GroupPresentation from './GroupPresentation/GroupPresentation'
 import GroupInforCard from './GroupInforCard'
 import OwnerCard from './OwnerCard'
 import CoOwnerCard from './CoOwnerCard'
@@ -56,6 +56,7 @@ function Group() {
                 <div className='col1'>
                     <GroupInforCard group={group} />
                     <OwnerCard list={ownerList} changeRoleHandle={changeRoleHandle}/>
+                    <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle}></CoOwnerCard>
 
                 </div>
 
@@ -71,8 +72,7 @@ function Group() {
                 </div>
                 <div className='shortMode'>
                     <MemberCard list={memberList} changeRoleHandle={changeRoleHandle}/>
-                    <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle}></CoOwnerCard>
-
+                    <GroupPresentation></GroupPresentation>
 
                 </div>
 

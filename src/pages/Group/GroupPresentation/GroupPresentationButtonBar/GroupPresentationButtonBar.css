@@ -1,0 +1,130 @@
+.present__buttonBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px 0px;
+}
+.present__buttonWrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+/* .present__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    text-align: center;  
+    border-radius: 4px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: inherit;  
+    min-height: 36px;
+    width: fit-content;
+    padding: 8px;
+    font-size: 0.875rem;
+    box-shadow: rgb(0 0 0 / 25%) 0px -4px inset;
+    margin: 8px;
+} */
+.present__btn{
+
+    display: flex;
+    flex-direction: row;
+
+    padding: 0px 16px;
+    width: auto;
+    height: 40px;
+
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    font-family: inherit; 
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+
+    cursor: pointer;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    white-space: nowrap;
+    opacity: 1;
+   
+    transition: all 0.3s ease 0s; 
+    
+}
+.btn__newPresent{
+    margin:  0px 8px 0px 0px;
+    background-color: rgb(25, 108, 255);
+    border-color: rgb(25, 108, 255);
+    color: #FFF;
+}
+.btn__newPresent:hover{
+    background-color: rgb(20, 86, 204);
+    border-color: transparent;
+}
+.icon__add{
+    margin-right: 4px;
+}
+.btn__newFolder{
+
+    background-color: rgb(219, 220, 225);
+    border-color: rgb(219, 220, 225);
+    color: rgb(16, 24, 52);
+}
+
+.search__wrapper{
+    display: flex;
+    flex-direction: row;
+    margin-right: 80px;
+   
+
+    height: 40px;
+    width: 100%;
+   
+    
+    border-width: 2px;
+    border-color: rgb(183, 186, 194);
+    border-style: solid;
+    border-radius: 3px;
+
+    cursor: auto;
+
+    color: rgb(16, 24, 52);
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+
+    font-size: 16px;
+    font-family: inherit; 
+    line-height: 1;
+    align-items: center;
+}
+.searchBar__icon{
+    width: 35px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4px;
+    padding-right: 4px;
+    
+}
+.search__input{
+    width: 100%;
+    justify-content: center;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: baseline;
+    border: 0px solid;
+    outline:none;
+    font-size: 16px;
+}
+
+::-webkit-input-placeholder {
+   font-size: 14px;
+   padding: 4px;
+  
+}
