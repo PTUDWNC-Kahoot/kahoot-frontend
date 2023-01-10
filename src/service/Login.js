@@ -5,8 +5,8 @@ export default async function Login() {
         method: 'POST',
         url: 'http://54.179.150.210:8000/auth/login',
         data: {
-            "email":"19120580@student.hcmus.edu.vn",
-            "password":"User12345678#"
+            "email":"HelloKahoot@gmail.com",
+            "password":"25c27e4effb54da89ab7b3330abe39ec"
         }
 
     },).then(function (response) {
