@@ -46,7 +46,7 @@ function KahootView() {
                         </FormControl>
                         
                     </div> 
-                    <ChatBox></ChatBox>
+                    {/* <ChatBox></ChatBox> */}
                 </div>
                 : <KahootOuttro></KahootOuttro>}
 

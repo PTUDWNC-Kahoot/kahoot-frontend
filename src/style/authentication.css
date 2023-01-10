@@ -186,6 +186,8 @@
     padding: 24px 0px;
     box-sizing: border-box;
     justify-content: center;
+    align-items: center;
+    display: flex;
 }
 .form__SignOnBtn {
     display: flex;    /* Để icon và text theo chiều ngang, ở đây btn là 1 container */
@@ -207,6 +209,8 @@
     text-decoration: none;
     
 }
+
+
 .form__SignOnBtn:focus{
     cursor: pointer;
     border: 2px solid rgb(19, 104, 206);

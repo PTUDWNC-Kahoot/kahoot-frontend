@@ -9,7 +9,8 @@ import { useNavigate } from "react-router-dom";
 import {useFormik, validateYupSchema} from "formik"
 import * as Yup from "yup"
 import Navbar from "../../components/Navbar";
-import SignOnGoogle from '../../service/SignOnGoogle'
+// import SignOnGoogle from '../../service/SignOnGoogle'
+import GoogleButton from "../SignOn/SignOn";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
@@ -66,6 +67,10 @@ function Login() {
         }
     });
    
+    const [isErrorAuth, setIsErrorAuth] = useState({
+        isError: false,
+        message: ""
+      });
     const handleSignOn = () => {
        navigate("/signOn");
     }
@@ -132,12 +137,15 @@ function Login() {
                             <p className="text--b form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper display--col">
-                             <button className="form__SignOnBtn" onClick={handleSignOn} >
+                             {/* <a className="form__SignOnBtn" href="http://localhost:8000/google/login" >
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
-                            </button>
-                           
+                            </a> */}                          
+                            <div className="login__google mt-2 ">
+                                 <GoogleButton setIsErrorAuth={setIsErrorAuth} />
+                            </div>
+                            
                             {/* <button className="form__SignOnBtn" >
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>

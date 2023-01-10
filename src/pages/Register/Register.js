@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
 import axios from 'axios';
+import qs from 'qs'
 import '../../style/styles.css'
 import './Register.css'
 
@@ -33,10 +34,14 @@ const statePass = [
 function Register() {
    
     let user = {};
-    let _user = {};
+    // let _user = {};
     const [code, setCode] = useState();
     //const [user, setUser] = useState("");
-    const [showPass, setShowPass] = useState(statePass[0])
+    const [showPass, setShowPass] = useState(statePass[0]);
+    const [isErrorAuth, setIsErrorAuth] = useState({
+        isError: false,
+        message: ""
+      });
     const navigate = useNavigate();  
     const handleShowPass = () => {
             const isShow = showPass.state;
@@ -97,13 +102,14 @@ function Register() {
         postData, 
         {
             onSuccess: (res) => {
+                
             },
             onError: (err) => {                   
             },
         }
     );
     async function postData() {
-        return await axios.post("http://localhost:8000/auth/register", user);  
+        return await axios.post("http://localhost:8000/auth/register", user)
     }
  
    
@@ -157,19 +163,22 @@ function Register() {
                             <hr className="form__CardLine"></hr>
                             <p className="text--b  form__or">or</p>
                     </div>
-                    <div className="form__SocialLoginWrapper display--col">
+                    {/* <div className="form__SocialLoginWrapper display--col">
                             <button  className="form__SignOnBtn" onClick={handleSignOn} >
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
                             </button>
+                             <div className="login__google mt-2">
+                                <SignOn setIsErrorAuth={setIsErrorAuth} />
+                            </div>
                            
-                            {/* <button className="form__SignOnBtn">
+                            <button className="form__SignOnBtn">
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>
-                            </button> */}
-                    </div>
-                    <p className="text--center text--14 text--grey">Already have an account?  <a href="/login">Log in</a></p>                
+                            </button>
+                    </div> */}
+                    <p className="redirect__login">Already have an account?  <a href="/login">Log in</a></p>                
             </section>
             </div>
             <div className="page__policy">
