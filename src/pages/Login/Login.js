@@ -14,6 +14,7 @@ import GoogleButton from "../SignOn/SignOn";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
+import useToken from '../../service/UseToken'
 
 // show/hide password
 const statePass = [
@@ -34,7 +35,8 @@ function Login() {
     let user = {};
     const [showPass, setShowPass] = useState(statePass[0]);
     const navigate = useNavigate();
-    
+    const { setToken } = useToken();
+
     let _err = false;
     
     const handleShowPass = () => {
@@ -81,6 +83,7 @@ function Login() {
         onSuccess: (res) => {      // 6
             console.log(res);
             if (res.status === 200) {
+                setToken(res.data.token)
                 // localStorage.setItem("authenticated", true);    
                 // localStorage.setItem("token", res.data.User.token);    
                 // localStorage.setItem("provider", res.data.User.provider); 
@@ -96,7 +99,7 @@ function Login() {
     );
 
     async function postDataLogin() {
-        return await axios.post("http://54.179.150.210:8000/auth/login", user);   
+        return await axios.post("http://54.179.150.210:8000/auth/login", user)
     }
     if (isError) {
         _err = true;

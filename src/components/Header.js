@@ -44,9 +44,9 @@ export default function Header  ({ page, group, add }) {
         setAnchorEl(null);
     };
 
-    const handleClickCopy = () => {
+    const handleClickCopy = (link) => {
         setCopyState(true);
-        navigator.clipboard.writeText('InviteLink');
+        navigator.clipboard.writeText(link);
     };
     const handleClickViewProfile = () => {
         navigate("/editprofile");  
@@ -130,7 +130,7 @@ export default function Header  ({ page, group, add }) {
                                     {group.invitationLink}
                                 </div>
                                 <ContentCopyIcon sx={{ padding: '2px', "&:hover": { borderRadius: '100px', backgroundColor: "#7F7F7F" } }}
-                                    onClick={handleClickCopy}
+                                    onClick={()=>handleClickCopy(group.invitationLink)}
                                 ></ContentCopyIcon>
 
                             </div>
