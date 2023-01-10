@@ -8,7 +8,7 @@ export default async function CreateNewGroup(newNameGroup, setCreateState, creat
 
     await axios({
         method: 'POST',
-        url: 'http://localhost:8000/groups',
+        url: 'http://54.179.150.210:8000/groups',
         headers: {
             'Authorization': 'Bearer ' + token
         },

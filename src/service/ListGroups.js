@@ -7,7 +7,7 @@ export default async function ListGroups(setListKahoot) {
     const token  = user.token
     // await axios({
     //     method: 'POST',
-    //     url: 'http://localhost:8000/auth/login',
+    //     url: 'http://54.179.150.210:8000/auth/login',
     //     data: {
     //         "email":"19120580@student.hcmus.edu.vn",
     //         "password":"User12345678#"
@@ -28,7 +28,7 @@ export default async function ListGroups(setListKahoot) {
 
     await axios({
         method: 'GET',
-        url: 'http://localhost:8000/groups',
+        url: 'http://54.179.150.210:8000/groups',
         headers: {
             'Authorization': 'Bearer ' + token
         },

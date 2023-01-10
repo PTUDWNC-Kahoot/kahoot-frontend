@@ -109,7 +109,7 @@ function Register() {
         }
     );
     async function postData() {
-        return await axios.post("http://localhost:8000/auth/register", user)
+        return await axios.post("http://54.179.150.210:8000/auth/register", user)
     }
  
    

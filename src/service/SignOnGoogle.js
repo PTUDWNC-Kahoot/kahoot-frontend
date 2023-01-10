@@ -10,7 +10,7 @@ export default async function SignOnGoogle() {
     //    // Handle the post for this route
     //   });
 
-    // axios.get('http://localhost:8000/google/login')
+    // axios.get('http://54.179.150.210:8000/google/login')
     // .then(response => {
     //     // Handle response
     //     console.log("HEHE1");
@@ -22,14 +22,14 @@ export default async function SignOnGoogle() {
     // });
     
     // try {
-    //     const res = await axios.get('http://localhost:8000/google/login');
+    //     const res = await axios.get('http://54.179.150.210:8000/google/login');
     // } catch (error) {
     //     // Handle errors
     // }
     const navigate = useNavigate();   
     await axios({
         method: 'GET',
-        url: 'http://localhost:8000/google/login',
+        url: 'http://54.179.150.210:8000/google/login',
         headers: {"Access-Control-Allow-Origin": "*"}
     }).then(function (response) {
         //handle success
@@ -55,7 +55,7 @@ export default async function SignOnGoogle() {
     //     }
     // );
     // async function getSignOn() {
-    //     return await axios.get("http://localhost:8000/google/login");
+    //     return await axios.get("http://54.179.150.210:8000/google/login");
     // }
     // if (isError)
     // {

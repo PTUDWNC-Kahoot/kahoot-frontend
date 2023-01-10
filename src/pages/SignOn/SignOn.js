@@ -22,7 +22,7 @@ function GoogleButton({ setIsErrorAuth }) {
 
   const onSuccess = async (res) => {
     const { data } = await axios.post(
-      'http://localhost:8000/google/login',
+      'http://54.179.150.210:8000/google/login',
       res.profileObj
     );
     if (res.status === 200) {

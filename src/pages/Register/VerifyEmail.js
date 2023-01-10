@@ -88,7 +88,7 @@ export default function VerifyEmail ({user})
         }
     );
     async function postData() {
-        return await axios.post("http://localhost:8000/auth/emailVerification", user);  
+        return await axios.post("http://54.179.150.210:8000/auth/emailVerification", user);  
     }
     if (isLoading) {
         return <div>Loading...</div>

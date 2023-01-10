@@ -50,6 +50,9 @@ const Header = ({ page, group, add }) => {
         navigate("/editprofile");  
     }
 
+    const handleSignOut = () =>  {
+        navigate("/");
+    }
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
@@ -144,7 +147,7 @@ const Header = ({ page, group, add }) => {
                             <Menu {...bindMenu(popupState)}>
                                 <MenuItem  onClick={handleClickViewProfile}>View profile</MenuItem>
                                 <MenuItem onClick={popupState.close}>Profile settings</MenuItem>
-                                <MenuItem onClick={popupState.close}>
+                                <MenuItem onClick={handleSignOut}>
                                     <LogoutIcon sx={{ marginRight: '10px' }} />
                                     Sign out
                                 </MenuItem>
