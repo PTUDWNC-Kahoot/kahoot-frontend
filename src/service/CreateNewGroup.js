@@ -6,9 +6,11 @@ export default async function CreateNewGroup(newNameGroup, setCreateState, creat
     var user = await Login();
     const token = user.token;
 
+    console.log(newNameGroup, user.id)
+
     await axios({
         method: 'POST',
-        url: 'http://54.179.150.210:8000/groups',
+        url: 'http://54.179.150.210:8000/v1/groups',
         headers: {
             'Authorization': 'Bearer ' + token
         },

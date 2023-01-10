@@ -28,7 +28,7 @@ export default async function ListGroups(setListKahoot) {
 
     await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/groups',
+        url: 'http://54.179.150.210:8000/v1/groups',
         headers: {
             'Authorization': 'Bearer ' + token
         },

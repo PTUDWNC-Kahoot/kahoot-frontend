@@ -5,13 +5,12 @@ export default async function Login() {
         method: 'POST',
         url: 'http://54.179.150.210:8000/auth/login',
         data: {
-            "email":"HelloKahoot@gmail.com",
-            "password":"25c27e4effb54da89ab7b3330abe39ec"
+            "email": "HelloKahoot@gmail.com",
+            "password": "User12345678!"
         }
-
     },).then(function (response) {
         // handle success
-        return(response.data)
+        return (response.data)
 
     })
         .catch(function (error) {
