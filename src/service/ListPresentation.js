@@ -1,12 +1,8 @@
 import axios from 'axios';
-import Login from './Login';
 
-export default async function ListPresentation(setListPresentation) {
+export default async function ListPresentation(token, setListPresentation) {
 
     
-    var user = await Login();
-    const token  = user.token
-
     await axios({
         method: 'GET',
         url: 'http://54.179.150.210:8000/v1/presentations',

@@ -1,10 +1,6 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function DeletePresentation(presentation, setDeleteState) {
-
-    var user = await Login();
-    const token = user.token;
+export default async function DeletePresentation(token, presentation, setDeleteState) {
 
     await axios({
         method: 'DELETE',

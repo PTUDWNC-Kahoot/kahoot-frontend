@@ -1,14 +1,18 @@
 
-import { useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Dialog, DialogActions, DialogContent, TextField } from "@mui/material";
 import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from 'semantic-ui-react';
 import ServiceCreateNewPresentation from '../../../service/ServiceCreateNewPresentation';
 import '../../../style/DialogCustom.css'
 import { Snackbar } from '@mui/material';
-export default function CreatePresentation ({state, setState, CreatePresentation}) {
-  
-    const [isOpen, setIsOpen] = useState (state);
+
+import { useAuth } from '../../../context/AuthProvider'
+
+export default function CreatePresentation({ state, setState, CreatePresentation }) {
+    const { token } = useAuth();
+
+    const [isOpen, setIsOpen] = useState(state);
     const [newPresentName, setNewPresentName] = useState("");
     const [createState, setCreateState] = useState(false);
     // const [myPresentID, setMyPresentID] = useState("");
@@ -33,58 +37,58 @@ export default function CreatePresentation ({state, setState, CreatePresentation
     const [errorMess, setErrorMess] = useState("");
 
 
-    useEffect (()=> {
+    useEffect(() => {
         if (newPresentName.length == 0 && errorMess) {
-          }
-    },[newPresentName,errorMess]);
+        }
+    }, [newPresentName, errorMess]);
 
-    useEffect (() => {
-        if(didMount.current)
+    useEffect(() => {
+        if (didMount.current)
             setIsOpen(state);
-        else 
+        else
             didMount.current = true;
     }, [state]);
 
- 
+
     const handleCancel = () => {
         setIsOpen(false);
         setState(false);
     };
 
     const handleSubmit = () => {
-    
+
         setIsOpen(false);
         setState(false);
-        ServiceCreateNewPresentation(newPresentName, setCreateState, CreatePresentation);    
+        ServiceCreateNewPresentation(token, newPresentName, setCreateState, CreatePresentation);
 
     }
 
     return (
-       
+
         <div>
-           
+
             <Dialog open={isOpen} onClose={handleCancel}>
-                  <DialogTitle className='dialog__tilte'>Create new presentation</DialogTitle>
-                  <DialogContent>
-                        <TextField className='dialog__textField'
-                            
-                            autoFocus
-                            margin='dense'
-                            id="myname"
-                            label="Presentation's name"
-                            fullWidth
-                            variant='standard'
-                            helperText={errorMess} 
-                            onChange={(value) => setNewPresentName(value.target.value)}
-                        />
-                        
+                <DialogTitle className='dialog__tilte'>Create new presentation</DialogTitle>
+                <DialogContent>
+                    <TextField className='dialog__textField'
+
+                        autoFocus
+                        margin='dense'
+                        id="myname"
+                        label="Presentation's name"
+                        fullWidth
+                        variant='standard'
+                        helperText={errorMess}
+                        onChange={(value) => setNewPresentName(value.target.value)}
+                    />
+
                     <DialogActions>
-                        <Button className='dialog__Btn dialog__cancleBtn' onClick={handleCancel}>Cancel </Button> 
-                        <Button  className='dialog__Btn dialog__SubmitBtn' onClick={handleSubmit}> Create Presentation</Button>
-                    </DialogActions>                        
-                  </DialogContent>
+                        <Button className='dialog__Btn dialog__cancleBtn' onClick={handleCancel}>Cancel </Button>
+                        <Button className='dialog__Btn dialog__SubmitBtn' onClick={handleSubmit}> Create Presentation</Button>
+                    </DialogActions>
+                </DialogContent>
             </Dialog>
-                <Snackbar
+            <Snackbar
                 message="Create cresentation successfully"
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 autoHideDuration={2000}
@@ -92,8 +96,8 @@ export default function CreatePresentation ({state, setState, CreatePresentation
                 onClose={() => setCreateState(false)}
             />
 
-           
-          
+
+
 
         </div>
     )

@@ -1,12 +1,20 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function ServiceCreateNewPresentation(newPresentName, setCreateState, createPresentation) {
+export default async function ServiceCreateNewPresentation(token, newPresentName, setCreateState, createPresentation) {
 
-    var user = await Login();
-    const token = user.token;
+    const userId =
+        await axios({
+            method: 'GET',
+            url: 'http://54.179.150.210:8000/v1/user/me',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
 
-    console.log(newPresentName, user.id)
+        }).then(function (response) {
+            return response.data.id
+        })
+
+    console.log(newPresentName, userId)
 
     await axios({
         method: 'POST',
@@ -14,9 +22,9 @@ export default async function ServiceCreateNewPresentation(newPresentName, setCr
         headers: {
             'Authorization': 'Bearer ' + token
         },
-        data:{
+        data: {
             "name": newPresentName,
-            "adminId": user.id
+            "adminId": userId
         }
 
     }).then(function (response) {

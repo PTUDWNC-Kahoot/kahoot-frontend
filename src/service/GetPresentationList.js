@@ -1,10 +1,6 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function GetPresentationList(setPresentationList) {
-
-    var user = await Login();
-    const token = user.token;
+export default async function GetPresentationList(token, setPresentationList) {
 
     return await axios({
         method: 'GET',

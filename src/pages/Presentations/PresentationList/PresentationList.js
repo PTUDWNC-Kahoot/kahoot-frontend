@@ -11,6 +11,7 @@ import DeletePresentation from '../../../service/DeletePresentation'
 import ListPresentation from '../../../service/ListPresentation'
 import DeletePresentationAlertDialog from '../../Group/GroupPresentation/DeletePresentationForm'
 import axios from 'axios'
+import { useAuth } from '../../../context/AuthProvider'
 
 const presents = [
     
@@ -52,6 +53,8 @@ const presents = [
 ]
 function PresentationList ()
 {
+    const { token } = useAuth();
+
     const [presentList, setPresentList] = useState([]);
     const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
     const [deletePresentationState, setDeletePresentationState]  = useState();
@@ -65,7 +68,7 @@ function PresentationList ()
     }
     useEffect(() => {
         if (confirmDelete === true)
-            DeletePresentation(presentDlt, setDeletePresentationState);
+            DeletePresentation(token, presentDlt, setDeletePresentationState);
     }, [confirmDelete]);
 
 
