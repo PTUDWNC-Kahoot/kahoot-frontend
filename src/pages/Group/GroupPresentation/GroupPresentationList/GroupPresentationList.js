@@ -48,7 +48,7 @@ function GroupPresentationList ({group})
     return (
         <div>
                {/* <DeletePresentationAlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></DeletePresentationAlertDialog> */}
-             <GroupPresentationButtonBar group={group} token={token} list={presentList} setPresentList={setPresentList}/> 
+             <GroupPresentationButtonBar group={group} token={token} list={presentList} setPresentList={setPresentList} setNewPresent = {setNewPresent}/> 
             <GroupPresentationListBar />
             {presentList.length === 0 ? (
                 <div className='no-presentation'>

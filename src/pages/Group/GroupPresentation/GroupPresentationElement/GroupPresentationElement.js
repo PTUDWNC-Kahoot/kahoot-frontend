@@ -46,6 +46,7 @@ export default function GroupPresentationElement ({list, setList})
             // console.log(id);
             
         }
+        
         // function arrayRemove(list, id) {
         //     return list.filter(function(ele) {
         //         return ele == id; 
@@ -68,7 +69,7 @@ export default function GroupPresentationElement ({list, setList})
                             <Button className="startPresent__Btn" onClick={() => handleStartPresent(present)}>
                                   <FontAwesomeIcon className='icon__play' icon={faPlayCircle} size="lg"  /> 
                             </Button>
-                            <Button className="present__name element__text"onClick={() => handleEditPresent(present)}>{present.name}</Button>
+                            <Button className="present__name element__text"onClick={() => handleEditPresent(present)}>{present.title}</Button>
                    </div>
                    <div className="element__Wrapper element__OwnerWrapper">
                         <div className="element__text">{present.owner}</div>
