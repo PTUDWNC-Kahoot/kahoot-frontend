@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { color } from '@mui/system';
 import Snackbar from '@mui/material/Snackbar';
 import RenameGroup from '../../service/RenameGroup'
+import { useAuth } from '../../context/AuthProvider'
 
 export default function GroupInforCard({ group }) {
   const [name, setName] = useState(group.name);
@@ -13,12 +14,13 @@ export default function GroupInforCard({ group }) {
 
   const [editState, setEditState] = useState(false);
   const [doneEditState, setDoneEditState] = useState(false);
+  const { token } = useAuth();
 
   const doneEdit = async () => {
     setEditState(false);
     setOlderName(name)
 
-    await RenameGroup(group, name, setDoneEditState);
+    await RenameGroup(token, group, name, setDoneEditState);
     if (name === '') setName('UnNamed')
   
   }

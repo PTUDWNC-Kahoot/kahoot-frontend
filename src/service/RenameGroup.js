@@ -1,12 +1,8 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function RenameGroup(group, newName, setRenameState) {
+export default async function RenameGroup(token, group, newName, setRenameState) {
 
-    var user = await Login();
-    const token = user.token;
-
-    await axios({
+     await axios({
         method: 'PUT',
         url: 'http://54.179.150.210:8000/v1/groups/' + group.id,
         headers: {

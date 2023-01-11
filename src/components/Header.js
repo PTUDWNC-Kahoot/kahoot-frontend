@@ -14,7 +14,7 @@ import {
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Popover from '@mui/material/Popover';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
@@ -26,12 +26,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Home from "../pages/Home/Home"
 // "./pages/Home/Home";
+import { useAuth } from '../context/AuthProvider';
 
-export default function Header  ({ page, group, add }) {
+export default function Header({ page, group, add }) {
     const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [copyState, setCopyState] = useState(false);
-    const navigate = useNavigate();  
+    const navigate = useNavigate();
+    const { signOut } = useAuth();
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -49,24 +51,26 @@ export default function Header  ({ page, group, add }) {
         navigator.clipboard.writeText(link);
     };
     const handleClickViewProfile = () => {
-        navigate("/editprofile");  
+        navigate("/editprofile");
     }
 
-    const handleSignOut = () =>  {
-        navigate("/");
+    const handleSignOut = () => {
+        signOut()
     }
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
 
-    
+
     return (
         <AppBar sx={{ background: '#fff' }}>
             <Toolbar>
-                <img src={require('../assets/img/logo.png')} className='logo' alt='logo'></img>
+                <Button onClick={() => navigate('/home')} >
+                    <img src={require('../assets/img/logo.png')} className='logo' alt='logo' ></img>
+                </Button>
                 {isMatch ? (
                     <>
-                       
+
                     </>
                 ) : (
                     <>
@@ -83,9 +87,9 @@ export default function Header  ({ page, group, add }) {
                             <Tab icon={<HomeIcon />} iconPosition="start" label="Library" className='tab' style={{ fontWeight: "bold", color: value === 2 ? '#FB2576' : '' }} />
                             <Tab icon={<HomeIcon />} iconPosition="start" label="Reports" className='tab' style={{ fontWeight: "bold", color: value === 3 ? '#FB2576' : '' }} />
                         </Tabs>
-                       
-                      
-                    
+
+
+
 
                     </>
                 )}
@@ -130,7 +134,7 @@ export default function Header  ({ page, group, add }) {
                                     {group.invitationLink}
                                 </div>
                                 <ContentCopyIcon sx={{ padding: '2px', "&:hover": { borderRadius: '100px', backgroundColor: "#7F7F7F" } }}
-                                    onClick={()=>handleClickCopy(group.invitationLink)}
+                                    onClick={() => handleClickCopy(group.invitationLink)}
                                 ></ContentCopyIcon>
 
                             </div>
@@ -151,7 +155,7 @@ export default function Header  ({ page, group, add }) {
                                 <AccountCircleIcon sx={{ marginLeft: "10px", color: '#000' }} color="action" fontSize="large" />
                             </div>
                             <Menu {...bindMenu(popupState)}>
-                                <MenuItem  onClick={handleClickViewProfile}>View profile</MenuItem>
+                                <MenuItem onClick={handleClickViewProfile}>View profile</MenuItem>
                                 <MenuItem onClick={popupState.close}>Profile settings</MenuItem>
                                 <MenuItem onClick={handleSignOut}>
                                     <LogoutIcon sx={{ marginRight: '10px' }} />

@@ -9,12 +9,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useEffect, useRef, useState} from 'react';
 import CreateNewGroup from '../../service/CreateNewGroup';
 import { Snackbar } from '@mui/material';
+import { useAuth } from '../../context/AuthProvider';
 
 export default function FormDialog({ state, setState, createGroup }) {
   const [open, setOpen] = useState(state);
   const [newGroupName, setNewGroupName] = useState('');
   const didMount = useRef(false);
   const [createState, setCreateState] = useState(false);
+  const {token} = useAuth()
 
   useEffect(() => {
     if (didMount.current) setOpen(state);
@@ -31,7 +33,7 @@ export default function FormDialog({ state, setState, createGroup }) {
   const handleSubmit = () => {
     setOpen(false);
     setState(false);
-    CreateNewGroup(newGroupName, setCreateState, createGroup);
+    CreateNewGroup(token,newGroupName, setCreateState, createGroup);
   };
 
   return (

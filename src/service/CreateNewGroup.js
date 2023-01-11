@@ -1,12 +1,18 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function CreateNewGroup(newNameGroup, setCreateState, createGroup) {
+export default async function CreateNewGroup(token, newNameGroup, setCreateState, createGroup) {
 
-    var user = await Login();
-    const token = user.token;
-
-    console.log(newNameGroup, user.id)
+    const userId =
+        await axios({
+            method: 'GET',
+            url: 'http://54.179.150.210:8000/v1/user/me',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+         
+        }).then(function (response) {
+           return response.data.id
+        })
 
     await axios({
         method: 'POST',
@@ -14,15 +20,16 @@ export default async function CreateNewGroup(newNameGroup, setCreateState, creat
         headers: {
             'Authorization': 'Bearer ' + token
         },
-        data:{
+        data: {
             "name": newNameGroup,
-            "adminId": user.id
+            "adminId": userId
         }
 
     }).then(function (response) {
         // handle success
         setCreateState(true);
         createGroup(response.data)
+        console.log(response)
     })
         .catch(function (error) {
             // handle error

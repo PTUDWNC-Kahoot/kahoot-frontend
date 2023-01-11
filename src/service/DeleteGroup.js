@@ -1,10 +1,6 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function DeleteGroup(group, setDeleteState) {
-
-    var user = await Login();
-    const token = user.token;
+export default async function DeleteGroup(token, group, setDeleteState) {
 
     await axios({
         method: 'DELETE',

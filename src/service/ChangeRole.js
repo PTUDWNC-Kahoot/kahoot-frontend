@@ -1,10 +1,7 @@
 import axios from 'axios';
-import Login from './Login'
 
-export default async function RenameGroup(group, userId, newRole, setAssignRole) {
+export default async function RenameGroup(token, group, userId, newRole, setAssignRole) {
 
-    var user = await Login();
-    const token = user.token;
 
     return await axios({
         method: 'PUT',
