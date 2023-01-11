@@ -3,10 +3,15 @@ import './PresentationList.css'
 import PresentationListBar from '../PresentationListBar/PresentationListBar'
 import PresentationElement from '../PresentationElement/PresentationElement'
 import PresentationButtonBar from '../PresentationHeader/PresentationButtonBar'
+import GetPresentationList from '../../../service/GetPresentationList'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+import DeletePresentation from '../../../service/DeletePresentation'
+import ListPresentation from '../../../service/ListPresentation'
+import DeletePresentationAlertDialog from '../../Group/GroupPresentation/DeletePresentationForm'
 import axios from 'axios'
+
 const presents = [
     
     {
@@ -48,7 +53,27 @@ const presents = [
 function PresentationList ()
 {
     const [presentList, setPresentList] = useState([]);
+    const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
+    const [deletePresentationState, setDeletePresentationState]  = useState();
+    const [confirmDelete, setConfirmDelete] = useState(false);
+    const [presentDlt,setPresentDlt] = useState();
+    // const [newPresent, setNewPresent] = useState();
+  
+    function deletePresent(present) {
+        setOpenDeleteConfirm(true);
+        setPresentDlt(present);
+    }
+    useEffect(() => {
+        if (confirmDelete === true)
+            DeletePresentation(presentDlt, setDeletePresentationState);
+    }, [confirmDelete]);
 
+
+    // set list data
+    // useEffect(() => {
+    //     ListPresentation(setPresentList);
+    //     setConfirmDelete(false);
+    // }, [newPresent,deletePresentationState]);
     //Load and show presentation
     // useEffect(() => {
     //     const token = localStorage.getItem("token");
@@ -65,16 +90,20 @@ function PresentationList ()
 
     useEffect(() => {
 
+        ListPresentation(setPresentList);
+        // GetPresentationList(setPresentList);
+
         //create a list presentations by Iterate through elements in an Array with map()
-        var listofPresents = [];
-        listofPresents = presents.map(present => present);
-        //update this list presentations by useSate
-        setPresentList(listofPresents);        
+        // var listofPresents = [];
+        // listofPresents = presents.map(present => present);
+        // //update this list presentations by useSate
+        // setPresentList(listofPresents);        
     }, []);
    
     return (
         
         <div>
+               <DeletePresentationAlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></DeletePresentationAlertDialog>
              <PresentationButtonBar list={presentList} setPresentList={setPresentList}/> 
             <PresentationListBar />
            
@@ -82,7 +111,7 @@ function PresentationList ()
                 <div className='no-presentation'>
                     <h3>No presentations!</h3>
                 </div>) 
-                : (<PresentationElement list={presentList} setList = {setPresentList}/>)
+                : (<PresentationElement list={presentList} dltFunc={deletePresent}/>)
             }
       </div>
     )

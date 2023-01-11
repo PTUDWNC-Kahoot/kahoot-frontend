@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import './GroupPresentation.css'
 import GroupPresentationList from "./GroupPresentationList/GroupPresentationList";
-function GroupPresentation ( )
+function GroupPresentation ( {group})
 {
     return(
         <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
@@ -12,7 +12,7 @@ function GroupPresentation ( )
              <div className="gpresent__content">
               <header className="gpresent__header">My presentation</header>
               <div className='contentBox'>             
-                  <GroupPresentationList/>
+                  <GroupPresentationList group={group}/>
               </div>
             </div>
         </Card>

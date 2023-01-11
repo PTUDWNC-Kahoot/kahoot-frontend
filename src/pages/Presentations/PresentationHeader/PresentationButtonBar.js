@@ -8,12 +8,11 @@ function PresentationButtonBar ({list, setPresentList})
 {
     const [createPresentClick, setCreatePresentClick] = useState(false);
     const [createFolderClick, setCreateFolderClick] = useState(false);
-    const [newPresent, setNewPresent] = useState(null);
+    const [newPresent, setNewPresent] = useState();
     const [newFoder, setNewFolder] = useState();
   
     useEffect(() => {
-        console.log("NOW");
-        
+    
         console.log(newPresent);
     },[newPresent]);
 
@@ -34,7 +33,7 @@ function PresentationButtonBar ({list, setPresentList})
     return (
         <div className="present__buttonBar">
             <div className='present__buttonWrapper'>
-                <CreatePresentation state = {createPresentClick} setState = {setCreatePresentClick} setNewPresent = {setNewPresent}/>
+                <CreatePresentation state = {createPresentClick} setState = {setCreatePresentClick} createNewPresentation = {setNewPresent}/>
                 <button className="present__btn btn__newPresent" onClick={handleCreatePresent} >
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                     <div> New Presentation</div> 

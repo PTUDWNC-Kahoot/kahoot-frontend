@@ -26,7 +26,7 @@ export default function GroupCreatePresentation ({state, setState, setNewPresent
     const currentDate =    `${currentYear}/${currentMonth}/${currentDay} ${currentHour}:${currentMinute}:${currentSecond}`
 
 
-    console.log(currentDate);
+    //console.log(currentDate);
     const didMount = useRef(false);
     const isCreated = useRef(false);
 

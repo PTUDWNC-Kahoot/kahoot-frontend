@@ -28,6 +28,7 @@ function Group() {
     const [ownerList, setOwnerList] = useState([]);
     const [coOwnerList, setCoOwnerList] = useState([]);
     const [memberList, setMemberList] = useState([]);
+
     const [changeRoleState, setChangeRoleState] = useState();
     const [group, setGroup] = useState(state?.group);
 
@@ -88,6 +89,10 @@ function Group() {
                         <GroupPresentation></GroupPresentation>
 
                     </div>
+                </div>
+                <div className='shortMode'>
+                    <MemberCard list={memberList} changeRoleHandle={changeRoleHandle}/>
+                    <GroupPresentation group={group} > </GroupPresentation>
 
                 </div>
                 <Snackbar
