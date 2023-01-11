@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import GetGroupPresentationList from '../../../../service/GetGroupPresentationList'
 const presents = [
     
     {
@@ -44,7 +45,7 @@ const presents = [
         createdDay: "22/11/2022",
     },
 ]
-function GroupPresentationList ()
+function GroupPresentationList ({group})
 {
     const [presentList, setPresentList] = useState([]);
 
@@ -64,11 +65,12 @@ function GroupPresentationList ()
 
     useEffect(() => {
 
+        // GetGroupPresentationList(group, setPresentList);
         //create a list presentations by Iterate through elements in an Array with map()
-        var listofPresents = [];
-        listofPresents = presents.map(present => present);
+        // var listofPresents = [];
+        // listofPresents = presents.map(present => present);
         //update this list presentations by useSate
-        setPresentList(listofPresents);        
+        //setPresentList(listofPresents);        
     }, []);
    
     return (
@@ -81,7 +83,7 @@ function GroupPresentationList ()
                 <div className='no-presentation'>
                     <h3>No presentations!</h3>
                 </div>) 
-                : (<GroupPresentationElement list={presentList} setList = {setPresentList}/>)
+                : (<GroupPresentationElement list={presentList} />)
             }
       </div>
     )

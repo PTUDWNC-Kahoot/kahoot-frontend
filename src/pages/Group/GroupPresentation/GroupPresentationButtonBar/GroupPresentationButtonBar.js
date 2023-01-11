@@ -12,9 +12,9 @@ function GroupPresentationButtonBar ({list, setPresentList})
     const [newFoder, setNewFolder] = useState();
   
     useEffect(() => {
-        console.log("NOW");
+       // console.log("NOW");
         
-        console.log(newPresent);
+       // console.log(newPresent);
     },[newPresent]);
 
  

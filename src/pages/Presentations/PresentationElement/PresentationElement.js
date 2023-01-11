@@ -8,6 +8,7 @@ import Popover from '@mui/material/Popover';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
+import DeletePresentationAlertDialog from "../../Group/GroupPresentation/DeletePresentationForm";
 import ViewPresentationHost from "../../ViewPresentationHost/ViewPresentationHost";
 import { Button } from 'semantic-ui-react';
 import { array } from "yup";
@@ -15,7 +16,7 @@ import { array } from "yup";
 
 
 
-export default function PresentationElement ({list, setList})
+export default function PresentationElement ({list, dltFunc})
 {
     // const [name, setName] = useState(_name);
     // const [owner, setOwner] = useState(_owner);
@@ -29,23 +30,29 @@ export default function PresentationElement ({list, setList})
         function handleStartPresent (present) {
         navigate('/viewpresentationhost', {state: present});
         }
-        function handleEditPresent (present){
-          navigate('/slides', {state:present})
+        function handleEditPresent (id){
+          navigate('/slides', {id: id});
         }
-        function handleDeletePresentation (id) {
+        function handleDeletePresentation (present) {
+            dltFunc(present);
             // console.log("ee");
             // var filtered = array.filter(function(value, index, arr){
             //     return value !== present;
             // // });
             // arrayRemove(list, id);
-            list = list.filter(function(value) {
-                return value.id !== id;
-            });
-            setList(list);
+            // list = list.filter(function(value) {
+            //     return value.id !== id;
+            // });
+            // setList(list);
             // console.log(list);
             // console.log(id);
             
+            // setPresentDlt(present);
         }
+        // useEffect(() => {
+        //     if (confirmDelete === true)
+        //         DeleteGroup(groupDlt, setDeleteGroupState);
+        // }, [confirmDelete]);
         // function arrayRemove(list, id) {
         //     return list.filter(function(ele) {
         //         return ele == id; 
@@ -58,7 +65,7 @@ export default function PresentationElement ({list, setList})
             <div className='contentBox'>
               {list?.length === 0 ?
                 <EmptyListNotify></EmptyListNotify>
-                : list?.map((present) => {
+                : list.map((present) => {
                 return (
                     <div className="PresentationElement">
                     {/* <div className="element__checkbox">
@@ -68,7 +75,7 @@ export default function PresentationElement ({list, setList})
                             <Button className="startPresent__Btn" onClick={() => handleStartPresent(present)}>
                                   <FontAwesomeIcon className='icon__play' icon={faPlayCircle} size="lg"  /> 
                             </Button>
-                            <Button className="present__name element__text"onClick={() => handleEditPresent(present)}>{present.name}</Button>
+                            <Button className="present__name element__text"onClick={() => handleEditPresent(present.id)}>{present.name}</Button>
                    </div>
                    <div className="element__Wrapper element__OwnerWrapper">
                         <div className="element__text">{present.owner}</div>
@@ -79,10 +86,10 @@ export default function PresentationElement ({list, setList})
                    <div className="element__Wrapper element__createdWrapper">
                         <div className="element__text">{present.createdDay}</div>
                    </div>
-                   <button className="deleteBtn" onClick={()=> handleDeletePresentation(present.id)}>
+                   <button className="deleteBtn" onClick={()=> handleDeletePresentation(present)}>
                    <FontAwesomeIcon className='popup__icon icon__delete' icon={faTrash} size="lg" color="red"  /> 
                    </button>
-                 
+
                    {/* <PopupState variant="popover" popupId="demo-popup-menu">
                         {(popupState) => (
                             <React.Fragment>

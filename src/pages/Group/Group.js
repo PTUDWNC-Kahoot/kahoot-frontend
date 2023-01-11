@@ -18,10 +18,12 @@ function Group() {
     const [ownerList, setOwnerList] = useState([]);
     const [coOwnerList, setCoOwnerList] = useState([]);
     const [memberList, setMemberList] = useState([]);
+
     const [changeRoleState, setChangeRoleState] = useState();
 
     useEffect(() => {
         GetGroupMemberList(group, setGroupListMember);
+        
     }, []);
 
 
@@ -72,7 +74,7 @@ function Group() {
                 </div>
                 <div className='shortMode'>
                     <MemberCard list={memberList} changeRoleHandle={changeRoleHandle}/>
-                    <GroupPresentation></GroupPresentation>
+                    <GroupPresentation group={group} > </GroupPresentation>
 
                 </div>
 

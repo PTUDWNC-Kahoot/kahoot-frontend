@@ -2,18 +2,17 @@ import React, { useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import axios from "axios";
-import { API_URL, GOOGLE_ID } from "../../config/index"
+import { GOOGLE_ID } from "../../config/index"
 import google from "../../assets/img/google-logo.png";
 import "./SignOn.css";
 
 function GoogleButton({ setIsErrorAuth }) {
-
   const clientId = GOOGLE_ID;
 
   useEffect(() => {
     const initClient = () => {
       gapi.client.init({
-        clientId: clientId.toString,
+        clientId: clientId.toString(),
         scope: "profile email"
       });
     };
@@ -21,11 +20,11 @@ function GoogleButton({ setIsErrorAuth }) {
   });
 
   const onSuccess = async (res) => {
-    const { data } = await axios.post(
-      'http://54.179.150.210:8000/google/login',
+    const { data } = await axios.get(
+      `http://54.179.150.210:8000/google/login`,
       res.profileObj
     );
-    if (res.status === 200) {
+    if (data.ReturnCode === 1) {
       localStorage.setItem("token", data.User.token);
       localStorage.setItem("provider", data.User.provider);
       window.location.reload();
