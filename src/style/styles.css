@@ -38,9 +38,9 @@ html {
 .page {    
     background-color: rgb(215, 205, 205);
     align-items: center;
-    padding: 1.5rem;
     width: 100vw;
     height: 100vh;
+    justify-content: center;
 }
 
 /* remove Arrows (spinner) from Number Input */

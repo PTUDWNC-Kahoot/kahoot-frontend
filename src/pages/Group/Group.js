@@ -70,31 +70,30 @@ function Group() {
                     <div className='col1'>
                         <GroupInforCard group={group} />
                         <OwnerCard list={ownerList} changeRoleHandle={changeRoleHandle} />
-                        <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle}></CoOwnerCard>
+                        <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle} />
 
                     </div>
 
                     <div className='widthMode'>
                         <div className='col2'>
-                            <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} />
-
+                            <GroupPresentation group={group} ></GroupPresentation>
                         </div>
                         <div className='col3'>
-                            <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle} />
-
+                            <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} />
                         </div>
                     </div>
                     <div className='shortMode'>
+                        <GroupPresentation group={group} ></GroupPresentation>
+
                         <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} />
-                        <GroupPresentation></GroupPresentation>
 
                     </div>
                 </div>
-                <div className='shortMode'>
+                {/* <div className='shortMode'>
                     <MemberCard list={memberList} changeRoleHandle={changeRoleHandle}/>
                     <GroupPresentation group={group} > </GroupPresentation>
 
-                </div>
+                </div> */}
                 <Snackbar
                     message="You don't have permission"
                     anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
