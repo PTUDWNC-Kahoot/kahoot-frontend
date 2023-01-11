@@ -11,6 +11,7 @@ export default async function ListGroups(token, setListKahoot) {
     }).then(function (response) {
         // handle success
         console.log('succ')
+        console.log(response.data);
         setListKahoot(response.data)
     })
         .catch(function (error) {
