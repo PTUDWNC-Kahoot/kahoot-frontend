@@ -4,7 +4,7 @@ import GroupCreatePresentation from '../GroupCreatePresentation/GroupCreatePrese
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAdd, faSearch, faX} from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
-function GroupPresentationButtonBar ({list, setPresentList})
+function GroupPresentationButtonBar ({group, token, list, setPresentList})
 {
     const [createPresentClick, setCreatePresentClick] = useState(false);
     const [createFolderClick, setCreateFolderClick] = useState(false);
@@ -34,7 +34,7 @@ function GroupPresentationButtonBar ({list, setPresentList})
     return (
         <div className="present__buttonBar">
             <div className='present__buttonWrapper'>
-                <GroupCreatePresentation state = {createPresentClick} setState = {setCreatePresentClick} setNewPresent = {setNewPresent}/>
+                <GroupCreatePresentation group={group} token={token} state = {createPresentClick} setState = {setCreatePresentClick} createNewPresentation = {setNewPresent}/>
                 <button className="present__btn btn__newPresent" onClick={handleCreatePresent} >
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                     <div> New Presentation</div> 

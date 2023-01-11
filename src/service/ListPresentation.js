@@ -15,7 +15,7 @@ export default async function ListPresentation(token, setListPresentation) {
         // console.log('succ')
         // console.log(response.data)
         
-        console.log(response.data);
+        console.log(response.data.data.result);
         setListPresentation(response.data);
     })
         .catch(function (error) {

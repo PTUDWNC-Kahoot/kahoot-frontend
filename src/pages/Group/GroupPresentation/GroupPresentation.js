@@ -1,4 +1,3 @@
-import Header from "../../../components/Header";
 import '../../../style/styles.css'
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';

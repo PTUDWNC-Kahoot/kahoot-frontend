@@ -4,8 +4,10 @@ import { Dialog, DialogActions, DialogContent, TextField } from "@mui/material";
 import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from 'semantic-ui-react';
 import "../../../../style/DialogCustom.css"
-export default function GroupCreatePresentation ({state, setState, setNewPresent}) {
+import ServiceGroupCreateNewPresentation from '../../../../service/ServiceGroupCreateNewPresentation';
+export default function GroupCreatePresentation ({group, token, state, setState, createNewPresentation}) {
   
+ 
     const [isOpen, setIsOpen] = useState (state);
     const [newPresentName, setNewPresentName] = useState("");
     const [createState, setCreateState] = useState(false);
@@ -16,14 +18,14 @@ export default function GroupCreatePresentation ({state, setState, setNewPresent
     // const [myPresentModifiedDay, setMyPresentModifiedDay] = useState("");
     // const [myPresentCreatedDay, setMyPresentCreatedDay] = useState("");
 
-    const date = new Date();
-    const currentYear  = `${date.getFullYear()}`; 
-    const currentMonth= `${date.getMonth() + 1 }`;
-    const currentDay = `${date.getDate()}`;
-    const currentHour = `${date.getHours()}`;
-    const currentMinute = `${date.getMinutes()}`;
-    const currentSecond = `${date.getSeconds()}`;
-    const currentDate =    `${currentYear}/${currentMonth}/${currentDay} ${currentHour}:${currentMinute}:${currentSecond}`
+    // const date = new Date();
+    // const currentYear  = `${date.getFullYear()}`; 
+    // const currentMonth= `${date.getMonth() + 1 }`;
+    // const currentDay = `${date.getDate()}`;
+    // const currentHour = `${date.getHours()}`;
+    // const currentMinute = `${date.getMinutes()}`;
+    // const currentSecond = `${date.getSeconds()}`;
+    // const currentDate =    `${currentYear}/${currentMonth}/${currentDay} ${currentHour}:${currentMinute}:${currentSecond}`
 
 
     //console.log(currentDate);
@@ -50,13 +52,11 @@ export default function GroupCreatePresentation ({state, setState, setNewPresent
 
     const handleSubmit = () => {
      
-       
-        setMyPresentID("12");
-        setMyPresentName(newPresentName);
+        //ServiceGroupCreateNewPresentation(group, token,newPresentName, setCreateState, createNewPresentation);
         // setMyPresentOwner("asc");
         // setMyPresentModifiedDay("12/12/2002");
         // setMyPresentCreatedDay(currentDate);
-        setNewPresent({myPresentID,myPresentName,myPresentOwner, currentDate});
+       // setNewPresent({myPresentID,myPresentName,myPresentOwner, currentDate});
         
         setIsOpen(false);
         setState(false);

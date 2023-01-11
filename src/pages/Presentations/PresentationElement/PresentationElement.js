@@ -16,7 +16,7 @@ import { array } from "yup";
 
 
 
-export default function PresentationElement ({list, dltFunc})
+export default function PresentationElement ({group, list, dltFunc})
 {
     // const [name, setName] = useState(_name);
     // const [owner, setOwner] = useState(_owner);

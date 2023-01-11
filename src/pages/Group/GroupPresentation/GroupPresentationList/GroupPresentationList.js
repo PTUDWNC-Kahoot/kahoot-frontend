@@ -7,83 +7,54 @@ import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-i
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import GetGroupPresentationList from '../../../../service/GetGroupPresentationList'
-const presents = [
-    
-    {
-        id: 1,
-        name: "My presentation",
-        owner: "dtn2001",
-        modifiedDay: "12/12/2022",
-        createdDay: "09/12/2022",
-    },
-    {
-        id: 2,
-        name: "WebNC presentation",
-        owner: "thuytrinh01",
-        modifiedDay: "02/12/2022",
-        createdDay: "04/11/2022",
-    },
-    {
-        id: 3,
-        name: "KCPM's presentation",
-        owner: "ducminh02",
-        modifiedDay: "14/12/2022",
-        createdDay: "01/12/2022",
-    },
-    {
-        id: 4,
-        name: "Mobile",
-        owner: "tuyetnhu03",
-        modifiedDay: "2/12/2022",
-        createdDay: "10/11/2022",
-    },
-    {
-        id: 5,
-        name: "GB07",
-        owner: "anhminh2001",
-        modifiedDay: "03/12/2022",
-        createdDay: "22/11/2022",
-    },
-]
+import { useAuth } from '../../../../context/AuthProvider'
+
 function GroupPresentationList ({group})
 {
+    const { token } = useAuth();
+
     const [presentList, setPresentList] = useState([]);
+    const [newPresent, setNewPresent] = useState();
+    const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
+    const [deletePresentationState, setDeletePresentationState]  = useState();
+    const [confirmDelete, setConfirmDelete] = useState(false);
+    const [presentDlt,setPresentDlt] = useState();
 
-    //Load and show presentation
+    
+    function deletePresent(present) {
+        setOpenDeleteConfirm(true);
+        setPresentDlt(present);
+    }
     // useEffect(() => {
-    //     const token = localStorage.getItem("token");
-    //     async function loadGroups () {
-    //         const res = await axios.get(`${API_URL}presentation`, {
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`
-    //             }
-    //         });
-    //     setPresentList(res.data.Presentations);
+    //     if (confirmDelete === true)
+    //         DeletePresentation(token, presentDlt, setDeletePresentationState);
+    // }, [confirmDelete]);
+
+    // useEffect(() => {
+    //     if (token) {
+    //         GetGroupPresentationList(token, group, setPresentList);
+    //       //  console.log(presentList);
     //     }
-    //     loadGroups();
-    // }, []);
-
-    useEffect(() => {
-
-        // GetGroupPresentationList(group, setPresentList);
-        //create a list presentations by Iterate through elements in an Array with map()
-        // var listofPresents = [];
-        // listofPresents = presents.map(present => present);
-        //update this list presentations by useSate
-        //setPresentList(listofPresents);        
-    }, []);
+    // }, [token]);
    
-    return (
-        
-        <div>
-             <GroupPresentationButtonBar list={presentList} setPresentList={setPresentList}/> 
-            <GroupPresentationListBar />
+    useEffect(() => {
+        if (token) {
+            GetGroupPresentationList(token, group, setPresentList);
+            setConfirmDelete(false);
            
+        }
+    }, [token, newPresent, deletePresentationState]);
+    if (token)
+    return (
+        <div>
+               {/* <DeletePresentationAlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></DeletePresentationAlertDialog> */}
+             <GroupPresentationButtonBar group={group} token={token} list={presentList} setPresentList={setPresentList}/> 
+            <GroupPresentationListBar />
             {presentList.length === 0 ? (
                 <div className='no-presentation'>
                     <h3>No presentations!</h3>
                 </div>) 
-                : (<GroupPresentationElement list={presentList} />)
+                : (<GroupPresentationElement list={presentList} dltFunc={deletePresent}/>)
             }
       </div>
     )
