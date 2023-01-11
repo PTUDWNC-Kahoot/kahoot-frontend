@@ -13,23 +13,24 @@ import KahootLogin from './pages/MemberView/KahootLogin/KahootLogin';
 import KahootView from './pages/MemberView/Kahoot/KahootView';
 import SignOn from './pages/SignOn/SignOn';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import GroupInvitation from "./pages/Group/GoupInvitation";
 
 import { AuthProvider, useAuth } from './context/AuthProvider';
 import { useEffect } from 'react';
 
 function App() {
- 
+
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<Login />} />
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/home" element={<Home />} />
           <Route path="/group" element={<Group />} />
-          <Route path="*" element={<Home />} />
           <Route path='/presentation' element={<Presentation />} />
           <Route path='/viewpresentationhost' element={<ViewPresentationHost />} />
           <Route path='/slides' element={<Slides />} />
@@ -37,6 +38,7 @@ function App() {
           <Route path='/kahoot' element={<KahootView />} />
           <Route path='/signOn' element={<SignOn />} />
           <Route path='/forgotpassword' element={<ForgotPassword />} />
+          <Route path='/join-group/*' element={<GroupInvitation />} />
 
         </Routes>
       </BrowserRouter>

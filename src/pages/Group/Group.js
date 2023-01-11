@@ -19,7 +19,9 @@ function Group() {
     const { state } = useLocation()
     useEffect(() => {
         if (!token || state === null)
-            navigate('/login')
+            setTimeout(() => {
+                navigate('/login')
+            }, 3000);
         console.log('state', state)
     }, [token, state]);
 
@@ -36,7 +38,7 @@ function Group() {
     useEffect(() => {
 
         GetGroupMemberList(token, group, setGroupListMember);
-    }, []);
+    }, [changeRoleState]);
 
 
 

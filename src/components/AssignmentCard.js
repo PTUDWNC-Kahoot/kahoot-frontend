@@ -10,9 +10,9 @@ const card = (
     </div>
     <hr/>
     <div className='contentBox'>
-        <ElementBox info={'Create at Thu May 4 2021'}></ElementBox>
-        <ElementBox info={'Create at Wed April 5 2022'}></ElementBox>
-        <ElementBox info={'Create at Mon Nov 10 2022'}></ElementBox>
+        <ElementBox avatar={require('../assets/img/assignment.png')} info={'Create at Thu May 4 2021'}></ElementBox>
+        <ElementBox avatar={require('../assets/img/assignment.png')} info={'Create at Wed April 5 2022'}></ElementBox>
+        <ElementBox avatar={require('../assets/img/assignment.png')} info={'Create at Mon Nov 10 2022'}></ElementBox>
 
     </div>
   </div>

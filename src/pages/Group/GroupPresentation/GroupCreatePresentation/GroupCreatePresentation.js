@@ -52,7 +52,7 @@ export default function GroupCreatePresentation ({group, token, state, setState,
 
     const handleSubmit = () => {
      
-        //ServiceGroupCreateNewPresentation(group, token,newPresentName, setCreateState, createNewPresentation);
+        ServiceGroupCreateNewPresentation(group, token,newPresentName, setCreateState, createNewPresentation);
         // setMyPresentOwner("asc");
         // setMyPresentModifiedDay("12/12/2002");
         // setMyPresentCreatedDay(currentDate);

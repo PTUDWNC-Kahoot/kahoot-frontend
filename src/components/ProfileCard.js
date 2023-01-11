@@ -5,14 +5,15 @@ import '../style/ProfileCard.css'
 
 
 
-export default function ProfileCard() {
+export default function ProfileCard({userInfo}) {
+  const user = userInfo;
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
       <Card variant="outlined">
         <div className='cardContent'>
           <div className='profileText'>
-            <div className='nameText'>Minh</div>
-            <div className='accountText'>ldminh</div>
+            <div className='nameText'>{user.name}</div>
+            <div className='accountText'>{user.email}</div>
           </div>
           <div className='box'>
             <div></div>

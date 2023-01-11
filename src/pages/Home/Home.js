@@ -15,14 +15,28 @@ import DeleteGroup from '../../service/DeleteGroup'
 import { Snackbar } from '@mui/material'
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../context/AuthProvider'
-
+import axios from 'axios'
 function Home() {
     const navigate = useNavigate();
     const { token } = useAuth();
     useEffect(() => {
         if (!token)
             navigate('/login')
+      
     }, [token]);
+    useEffect(() => {
+        axios({
+            method: 'GET',
+            url: 'http://54.179.150.210:8000/v1/user/me',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+
+        }).then(function (response) {
+            setUser(response.data.data.result)
+        })
+    }, []);
+
     const [listGroups, setListGroups] = useState([]);
     const [createButtonClick, setCreateButtonClick] = useState(false);
     const [newGroup, setNewGroup] = useState();
@@ -30,6 +44,8 @@ function Home() {
     const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [groupDlt, setGroupDlt] = useState();
+    const [user, setUser] = useState();
+
     function deleteGroup(group) {
         setOpenDeleteConfirm(true);
         setGroupDlt(group)
@@ -55,7 +71,7 @@ function Home() {
                 <Header page={'HomePage'} add={setCreateButtonClick} />
                 <div className='content'>
                     <div className='col1'>
-                        <ProfileCard />
+                       {user && <ProfileCard userInfo={user} />}
                         <AssignmentCard />
                     </div>
                     <div className='widthMode'>
