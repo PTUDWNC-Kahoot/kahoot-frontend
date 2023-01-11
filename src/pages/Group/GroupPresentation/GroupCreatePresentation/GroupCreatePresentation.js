@@ -4,6 +4,7 @@ import { Dialog, DialogActions, DialogContent, TextField } from "@mui/material";
 import DialogTitle from '@mui/material/DialogTitle';
 import { Button } from 'semantic-ui-react';
 import "../../../../style/DialogCustom.css"
+import GetUserId from '../../../../service/GetUserId';
 import ServiceGroupCreateNewPresentation from '../../../../service/ServiceGroupCreateNewPresentation';
 export default function GroupCreatePresentation ({group, token, state, setState, createNewPresentation}) {
   
@@ -51,29 +52,10 @@ export default function GroupCreatePresentation ({group, token, state, setState,
     };
 
     const handleSubmit = () => {
-     
-        ServiceGroupCreateNewPresentation(group, token,newPresentName, setCreateState, createNewPresentation);
-        // setMyPresentOwner("asc");
-        // setMyPresentModifiedDay("12/12/2002");
-        // setMyPresentCreatedDay(currentDate);
-       // setNewPresent({myPresentID,myPresentName,myPresentOwner, currentDate});
-        
+
+        ServiceGroupCreateNewPresentation(group, token,newPresentName, setCreateState, createNewPresentation); 
         setIsOpen(false);
         setState(false);
-
-        // const token = localStorage.getItem("token");
-        // await axios.post(
-        //     `${API_URL}presentation/create`,
-        //     { name: newPresentName, created_at: currentDate, group_id: group_id },
-        //     {
-        //       headers: {
-        //         Authorization: `Bearer ${token}`
-        //       }
-        //     }
-        //   );
-      
-        // window.location.reload();
-
     }
 
     return (
