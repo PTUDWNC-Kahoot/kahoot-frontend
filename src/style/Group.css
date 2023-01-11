@@ -4,10 +4,19 @@
     display: flex;
     padding: 7em 5em;
     height: max-content;
-
+    max-width: lg;
 }
 
+.shortMode{
+    flex: 2
+}
+.widthMode {
+    display: flex;
+    flex: 3;
+    flex-direction: row;
+    height: max-content;
 
+}
 .col1{
     flex: 1
 }
@@ -18,4 +27,28 @@
 
 .col3{
     flex: 1;
+}
+
+@media (min-width: 1400px) {
+   
+
+    .shortMode {
+        display: none;
+
+    }
+    .widthMode {
+        display:flex   ;
+
+    }
+}
+
+@media (max-width: 1400px) {
+    .widthMode {
+        display: none;
+
+    }
+
+    .shortMode{
+        display: block;
+    }
 }

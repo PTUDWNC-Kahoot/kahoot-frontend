@@ -22,7 +22,6 @@ function PresentationList ()
     const [deletePresentationState, setDeletePresentationState]  = useState();
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [presentDlt,setPresentDlt] = useState();
-    // const [newPresent, setNewPresent] = useState();
   
     function deletePresent(present) {
         setOpenDeleteConfirm(true);
@@ -50,6 +49,18 @@ function PresentationList ()
 
     // useEffect(() => {
     //     ListPresentation(token,setPresentList);
+    //     // GetPresentationList(setPresentList);
+
+    //     //create a list presentations by Iterate through elements in an Array with map()
+    //     // var listofPresents = [];
+    //     // listofPresents = presents.map(present => present);
+    //     // //update this list presentations by useSate
+    //     // setPresentList(listofPresents);        
+    // }, []);
+
+    // useEffect(() => {
+
+    //     ListPresentation(setPresentList);
     //     // GetPresentationList(setPresentList);
 
     //     //create a list presentations by Iterate through elements in an Array with map()
