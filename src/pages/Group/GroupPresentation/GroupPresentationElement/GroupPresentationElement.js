@@ -9,13 +9,14 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
 import ViewPresentationHost from "../../../ViewPresentationHost/ViewPresentationHost";
+import DeletePresentationAlertDialog from "../DeletePresentationAlertDialog";
 import { Button } from 'semantic-ui-react';
 import { array } from "yup";
 
 
 
 
-export default function GroupPresentationElement ({list, setList})
+export default function GroupPresentationElement ({list, setList, dltFunc})
 {
     // const [name, setName] = useState(_name);
     // const [owner, setOwner] = useState(_owner);
@@ -32,20 +33,20 @@ export default function GroupPresentationElement ({list, setList})
         function handleEditPresent (present){
           navigate('/slides', {state:present})
         }
-        function handleDeletePresentation (id) {
-            // console.log("ee");
-            // var filtered = array.filter(function(value, index, arr){
-            //     return value !== present;
-            // // });
-            // arrayRemove(list, id);
-            list = list.filter(function(value) {
-                return value.id !== id;
-            });
-            setList(list);
-            // console.log(list);
-            // console.log(id);
+        // function handleDeletePresentation (id) {
+        //     // console.log("ee");
+        //     // var filtered = array.filter(function(value, index, arr){
+        //     //     return value !== present;
+        //     // // });
+        //     // arrayRemove(list, id);
+        //     list = list.filter(function(value) {
+        //         return value.id !== id;
+        //     });
+        //     setList(list);
+        //     // console.log(list);
+        //     // console.log(id);
             
-        }
+        // }
         
         // function arrayRemove(list, id) {
         //     return list.filter(function(ele) {
@@ -80,7 +81,7 @@ export default function GroupPresentationElement ({list, setList})
                    <div className="element__Wrapper element__createdWrapper">
                         <div className="element__text">{present.createdDay}</div>
                    </div>
-                   <button className="deleteBtn" onClick={()=> handleDeletePresentation(present.id)}>
+                   <button className="deleteBtn" dltFunc={dltFunc}>
                    <FontAwesomeIcon className='popup__icon icon__delete' icon={faTrash} size="lg" color="red"  /> 
                    </button>
                  

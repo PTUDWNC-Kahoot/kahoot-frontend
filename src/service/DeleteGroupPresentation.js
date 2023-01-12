@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-export default async function GetGroupPresentationList(token, group,setGroupPresentationList) {
+export default async function DeleteGroupPresentation(token, presentation, setDeleteState) {
 
-    console.log(group);
-    return await axios({
-        method: 'GET',
+    await axios({
+        method: 'DELETE',
         url: 'http://54.179.150.210:8000/v1/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
@@ -13,12 +12,13 @@ export default async function GetGroupPresentationList(token, group,setGroupPres
 
     }).then(function (response) {
         // handle success
-        console.log(response.data.data.result);
-        setGroupPresentationList(response.data.data.result);
+        setDeleteState(true);
     })
         .catch(function (error) {
             // handle error
             console.log(error);
+            setDeleteState(false);
+
         })
         .finally(function () {
             // always executed

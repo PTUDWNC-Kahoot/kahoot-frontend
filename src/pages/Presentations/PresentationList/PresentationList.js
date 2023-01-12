@@ -9,7 +9,7 @@ import {  faAdd, faArrowDown, faSearch, faX} from '@fortawesome/free-solid-svg-i
 import { useEffect, useState } from 'react'
 import DeletePresentation from '../../../service/DeletePresentation'
 import ListPresentation from '../../../service/ListPresentation'
-import DeletePresentationAlertDialog from '../../Group/GroupPresentation/DeletePresentationForm'
+import DeletePresentationAlertDialog from '../../Group/GroupPresentation/DeletePresentationAlertDialog'
 import axios from 'axios'
 import { useAuth } from '../../../context/AuthProvider'
 
