@@ -34,55 +34,26 @@ function PresentationList ()
 
     useEffect(() => {
         if (token) {
-            ListPresentation(token,setPresentList);
-          //  console.log(presentList);
+            GetPresentationList(token, setPresentList);
+            setConfirmDelete(false);
+           
         }
-    }, [token]);
-    // useEffect(() => {
-    //     if (token) {
-    //         ListPresentation(token,setPresentList);
-    //         console.log(presentList);
-    //         setConfirmDelete(false)
-    //     }
-    // }, [token, newPresent, deletePresentationState]);
+    }, [token, newPresent, deletePresentationState]);
+    if (token)
 
-
-    // useEffect(() => {
-    //     ListPresentation(token,setPresentList);
-    //     // GetPresentationList(setPresentList);
-
-    //     //create a list presentations by Iterate through elements in an Array with map()
-    //     // var listofPresents = [];
-    //     // listofPresents = presents.map(present => present);
-    //     // //update this list presentations by useSate
-    //     // setPresentList(listofPresents);        
-    // }, []);
-
-    // useEffect(() => {
-
-    //     ListPresentation(setPresentList);
-    //     // GetPresentationList(setPresentList);
-
-    //     //create a list presentations by Iterate through elements in an Array with map()
-    //     // var listofPresents = [];
-    //     // listofPresents = presents.map(present => present);
-    //     // //update this list presentations by useSate
-    //     // setPresentList(listofPresents);        
-    // }, []);
-   
     return (
         
         <div>
                <DeletePresentationAlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></DeletePresentationAlertDialog>
-             <PresentationButtonBar list={presentList} setPresentList={setPresentList}/> 
+             <PresentationButtonBar token={token} list={presentList} setPresentList={setPresentList} setNewPresent = {setNewPresent}/> 
             <PresentationListBar />
            
-            {/* {presentList.length === 0 ? (
+             {presentList.length === 0 ? (
                 <div className='no-presentation'>
                     <h3>No presentations!</h3>
                 </div>) 
                 : (<PresentationElement list={presentList} dltFunc={deletePresent}/>)
-            } */}
+            } 
       </div>
     )
 }

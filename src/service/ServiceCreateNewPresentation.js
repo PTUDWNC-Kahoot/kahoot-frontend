@@ -11,7 +11,7 @@ export default async function ServiceCreateNewPresentation(token, newPresentName
             },
 
         }).then(function (response) {
-            return response.data.id
+            return response.data.data.result.id;
         })
 
     console.log(newPresentName, userId)
@@ -23,8 +23,9 @@ export default async function ServiceCreateNewPresentation(token, newPresentName
             'Authorization': 'Bearer ' + token
         },
         data: {
-            "name": newPresentName,
-            "adminId": userId
+            
+            "owner": userId,
+            "title": newPresentName
         }
 
     }).then(function (response) {

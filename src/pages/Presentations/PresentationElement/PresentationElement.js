@@ -30,9 +30,9 @@ export default function PresentationElement ({group, list, dltFunc})
         function handleStartPresent (present) {
         navigate('/viewpresentationhost', {state: present});
         }
-        function handleEditPresent (id){
-          navigate('/slides', {id: id});
-        }
+        function handleEditPresent (present){
+            navigate('/slides', {state:present})
+          }
         function handleDeletePresentation (present) {
             dltFunc(present);
             // console.log("ee");
@@ -75,18 +75,18 @@ export default function PresentationElement ({group, list, dltFunc})
                             <Button className="startPresent__Btn" onClick={() => handleStartPresent(present)}>
                                   <FontAwesomeIcon className='icon__play' icon={faPlayCircle} size="lg"  /> 
                             </Button>
-                            <Button className="present__name element__text"onClick={() => handleEditPresent(present.id)}>{present.name}</Button>
+                            <Button className="present__name element__text"onClick={() => handleEditPresent(present.id)}>{present.title}</Button>
                    </div>
-                   <div className="element__Wrapper element__OwnerWrapper">
+                   {/* <div className="element__Wrapper element__OwnerWrapper">
                         <div className="element__text">{present.owner}</div>
-                   </div>
+                   </div> */}
                    {/* <div className="element__Wrapper element__modifiedWrapper">
                         <div className="element__text">{present.modifiedDay}</div>
                    </div> */}
                    <div className="element__Wrapper element__createdWrapper">
                         <div className="element__text">{present.createdDay}</div>
                    </div>
-                   <button className="deleteBtn" onClick={()=> handleDeletePresentation(present)}>
+                   <button className="deleteBtn" dltFunc={dltFunc}>
                    <FontAwesomeIcon className='popup__icon icon__delete' icon={faTrash} size="lg" color="red"  /> 
                    </button>
 

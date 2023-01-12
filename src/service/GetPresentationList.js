@@ -12,8 +12,8 @@ export default async function GetPresentationList(token, setPresentationList) {
 
     }).then(function (response) {
         // handle success
-        setPresentationList(response.data.users)
-        return(response.data.users)
+        setPresentationList(response.data.data.result)
+        return(response.data.data.result)
     })
         .catch(function (error) {
             // handle error
