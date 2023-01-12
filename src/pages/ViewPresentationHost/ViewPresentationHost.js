@@ -19,9 +19,22 @@ export default function ViewPresentationHost ()
     function handleExitSlideShow () {
         navigate('/slides', {state:present});
     }
-   const data = [];
+  
    const slidecode ="123324";
-
+   const data = [
+    {
+      "name": "Page A",
+      "count": 4000,
+    },
+    {
+      "name": "Page B",
+      "count": 3000,
+    },
+    {
+      "name": "Page C",
+      "count": 2000,
+    }
+  ]
     return(  
         <div className="slideshow__page" >
              <div className="slideshow__content">
@@ -33,7 +46,7 @@ export default function ViewPresentationHost ()
                 </div>
                 <div className="slideshow__wrapper">
                     <div className="slideshow__title">
-                           {present.name}
+                           My kahhoot
                     </div>
 
                   <div className="slideshow__graph">
