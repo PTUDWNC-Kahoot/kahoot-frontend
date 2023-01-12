@@ -6,7 +6,7 @@ import ElementBox from '../../components/ElementBox'
 import EmptyListNotify from '../../components/EmptyListNotify'
 
 
-export default function CoOwnerCard({list, changeRoleHandle}) {
+export default function CoOwnerCard({list, changeRoleHandle,deleteMember}) {
   return (
     <Box sx={{ minWidth: 275, margin: 2, boxShadow: 2 }}>
       <Card variant="outlined">
@@ -28,6 +28,8 @@ export default function CoOwnerCard({list, changeRoleHandle}) {
                     userRole={member.role}
                     changeRoleHandle={changeRoleHandle}
                     id={member.userId}
+                    deleteFunc={() => deleteMember(member.userId,4)}
+
                   ></ElementBox>
                 )
               })}
