@@ -16,13 +16,13 @@ import { useAuth } from '../../../context/AuthProvider'
 function PresentationList ()
 {
     const { token } = useAuth();
-    const [newPresent, setNewPresent] = useState();
     const [presentList, setPresentList] = useState([]);
+    const [newPresent, setNewPresent] = useState();
     const [openDeleteConfirm, setOpenDeleteConfirm] = useState(false);
     const [deletePresentationState, setDeletePresentationState]  = useState();
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [presentDlt,setPresentDlt] = useState();
-  
+
     function deletePresent(present) {
         setOpenDeleteConfirm(true);
         setPresentDlt(present);
