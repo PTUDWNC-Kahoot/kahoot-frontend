@@ -16,8 +16,7 @@ export default function GroupCreatePresentation ({group, token, state, setState,
     const [myPresentID, setMyPresentID] = useState("");
     const [myPresentName, setMyPresentName] = useState ("");
     const [myPresentOwner, setMyPresentOwner] = useState("");
-    // const [myPresentModifiedDay, setMyPresentModifiedDay] = useState("");
-    // const [myPresentCreatedDay, setMyPresentCreatedDay] = useState("");
+
 
     // const date = new Date();
     // const currentYear  = `${date.getFullYear()}`; 
@@ -28,8 +27,6 @@ export default function GroupCreatePresentation ({group, token, state, setState,
     // const currentSecond = `${date.getSeconds()}`;
     // const currentDate =    `${currentYear}/${currentMonth}/${currentDay} ${currentHour}:${currentMinute}:${currentSecond}`
 
-
-    //console.log(currentDate);
     const didMount = useRef(false);
     const isCreated = useRef(false);
 

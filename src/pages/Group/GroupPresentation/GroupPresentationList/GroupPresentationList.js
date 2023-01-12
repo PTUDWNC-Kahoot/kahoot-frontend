@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import GetGroupPresentationList from '../../../../service/GetGroupPresentationList'
 import { useAuth } from '../../../../context/AuthProvider'
+import DeleteGroupPresentation from '../../../../service/DeleteGroupPresentation'
+import DeletePresentationAlertDialog from '../DeletePresentationAlertDialog'
 
 function GroupPresentationList ({group})
 {
@@ -25,18 +27,12 @@ function GroupPresentationList ({group})
         setOpenDeleteConfirm(true);
         setPresentDlt(present);
     }
-    // useEffect(() => {
-    //     if (confirmDelete === true)
-    //         DeletePresentation(token, presentDlt, setDeletePresentationState);
-    // }, [confirmDelete]);
+    useEffect(() => {
+        if (confirmDelete === true)
+        DeleteGroupPresentation(token, presentDlt, setDeletePresentationState);
+    }, [confirmDelete]);
 
-    // useEffect(() => {
-    //     if (token) {
-    //         GetGroupPresentationList(token, group, setPresentList);
-    //       //  console.log(presentList);
-    //     }
-    // }, [token]);
-   
+
     useEffect(() => {
         if (token) {
             GetGroupPresentationList(token, group, setPresentList);
@@ -47,14 +43,14 @@ function GroupPresentationList ({group})
     if (token)
     return (
         <div>
-               {/* <DeletePresentationAlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></DeletePresentationAlertDialog> */}
+               <DeletePresentationAlertDialog state={openDeleteConfirm} setState={setOpenDeleteConfirm} confirmDelete={setConfirmDelete}></DeletePresentationAlertDialog>
              <GroupPresentationButtonBar group={group} token={token} list={presentList} setPresentList={setPresentList} setNewPresent = {setNewPresent}/> 
             <GroupPresentationListBar />
             {presentList.length === 0 ? (
                 <div className='no-presentation'>
                     <h3>No presentations!</h3>
                 </div>) 
-                : (<GroupPresentationElement list={presentList} dltFunc={deletePresent}/>)
+                : (<GroupPresentationElement group={group} list={presentList} dltFunc={deletePresent}/>)
             }
       </div>
     )
