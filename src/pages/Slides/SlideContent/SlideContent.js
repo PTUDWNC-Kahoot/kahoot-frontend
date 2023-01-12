@@ -59,7 +59,7 @@ function SlideContent({ slides, currentSlide, editState }) {
         datasets: [
             {
                 label: 'Num of anwers',
-                data: [10, 5],
+                data: [10, 5,30,22],
                 backgroundColor: 'rgba(102, 175, 255, 0.5)',
             },
 

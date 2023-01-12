@@ -10,7 +10,7 @@ import Option from '../../models/Option';
 import { useEffect } from 'react';
 
 const Options = [new Option(0, 'c1', true), new Option(1, 'c2', true)]
-const Options2 = [new Option(0, '456', true), new Option(1, 'thanks', true)]
+const Options2 = [new Option(0, '456', true), new Option(1, 'thanks', true), new Option(2, 'oke', true), new Option(3, '123456', true)]
 
 function Slides() {
     const [slides, setSlides] = useState([new Slide(0, 'aa', 'who are you', Options), new Slide(1, 'aa', 'nice to meet you', Options2)]);

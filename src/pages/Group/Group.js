@@ -64,6 +64,10 @@ function Group() {
         ChangeRole(token, group, userId, newRole, setChangeRoleState)
     }
 
+    const deleteMember = (userId, newRole) => {
+        ChangeRole(token, group, userId, newRole, setChangeRoleState)
+    }
+
     if (token && state)
         return (
             <div >
@@ -71,8 +75,8 @@ function Group() {
                 <div className='content'>
                     <div className='col1'>
                         <GroupInforCard group={group} />
-                        <OwnerCard list={ownerList} changeRoleHandle={changeRoleHandle} />
-                        <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle} />
+                        <OwnerCard list={ownerList} changeRoleHandle={changeRoleHandle} deleteMember={deleteMember}/>
+                        <CoOwnerCard list={coOwnerList} changeRoleHandle={changeRoleHandle} deleteMember={deleteMember} />
 
                     </div>
 
@@ -81,13 +85,13 @@ function Group() {
                             <GroupPresentation group={group} ></GroupPresentation>
                         </div>
                         <div className='col3'>
-                            <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} />
+                            <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} deleteMember={deleteMember}/>
                         </div>
                     </div>
                     <div className='shortMode'>
                         <GroupPresentation group={group} ></GroupPresentation>
 
-                        <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} />
+                        <MemberCard list={memberList} changeRoleHandle={changeRoleHandle} deleteMember={deleteMember}/>
 
                     </div>
                 </div>
