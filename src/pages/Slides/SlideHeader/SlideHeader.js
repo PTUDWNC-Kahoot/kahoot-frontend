@@ -56,7 +56,7 @@ function SlideHeader() {
     return (
             <div className="headerContent" >
                 <div className="leftFunc">
-                    <IconButton  className="backButton" onClick={() => navigate('/presentation')}>
+                    <IconButton  className="backButton" onClick={() => navigate('-1')}>
                         <ArrowBackIcon>
                         </ArrowBackIcon>
                     </IconButton>

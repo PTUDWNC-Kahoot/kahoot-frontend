@@ -13,16 +13,41 @@ import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
-
-
-function SlideEdit() {
-    const [type, setType] = useState('');
+import Option from '../../../models/Option';
+import Slide from '../../../models/Slide';
+import { useEffect } from 'react';
+function SlideEdit({ slides, setSlides, currentSlide, setCurrentSlide, setEditState }) {
+    const [type, setType] = useState(10);
     const [value, setValue] = useState(0);
-    const [questionLength, setQuestionLength] = useState(150);
+    const [question, setQuestion] = useState(currentSlide.question);
+    const [options, setOptions] = useState(currentSlide.options);
+
+    const [questionLength, setQuestionLength] = useState(150 - currentSlide.question.length);
     const [resultLayoutChoice, setResultLayoutChoice] = useState(0);
+
+    useEffect(() => {
+      setQuestion(currentSlide.question)
+      setOptions(currentSlide.options)
+    }, [currentSlide]);
 
     const handleChange = (event) => {
         setType(event.target.value);
+    };
+
+    const changeSlideName = (value) => {
+        var slideTemp = new Slide(currentSlide.id, currentSlide.type, value, currentSlide.options);
+       setCurrentSlide(slideTemp);
+        setEditState(true);
+    };
+
+    const changeOptionContent = (value, option) => {
+        var optionTemp = new Option(option.id, value, option.isCorrect);
+        var optionListTemp = options.slice();
+        optionListTemp[option.id] = optionTemp;
+        setOptions(optionListTemp)
+        var slideTemp = new Slide(currentSlide.id, currentSlide.type, currentSlide.question, optionListTemp);
+        setCurrentSlide(slideTemp);
+        setEditState(true);
     };
     return (
         <div className='slideEdit'>
@@ -83,8 +108,10 @@ function SlideEdit() {
                         <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
                     </Tooltip>
                 </div>
-                <TextField id="outlined-basic" label="Question  " variant="outlined" inputProps={{ maxLength: 150 }}
-                    fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))} InputProps={{
+                <TextField
+                    value={question}
+                    id="outlined-basic" label="Question  " variant="outlined" inputProps={{ maxLength: 150 }}
+                    fullWidth onChange={(value) => { changeSlideName(value.target.value); setQuestion(value.target.value); setQuestionLength(150 - (value.target.value.length)) }} InputProps={{
                         endAdornment: <div className='questionLen'>{questionLength}</div>
                     }}>
                 </TextField>
@@ -96,24 +123,19 @@ function SlideEdit() {
                         <HelpOutlineIcon sx={{ marginLeft: '10px' }}></HelpOutlineIcon>
                     </Tooltip>
                 </div>
-                <div className='optionQuestion'>
-                    <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 1" variant="outlined" inputProps={{ maxLength: 150 }}
-                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
-                    </TextField>
-                    <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
-                </div>
-                <div className='optionQuestion'>
-                    <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 2" variant="outlined" inputProps={{ maxLength: 150 }}
-                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
-                    </TextField>
-                    <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
-                </div>
-                <div className='optionQuestion'>
-                    <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label="Option 3" variant="outlined" inputProps={{ maxLength: 150 }}
-                        fullWidth onChange={(value) => setQuestionLength(150 - (value.target.value.length))}>
-                    </TextField>
-                    <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
-                </div>
+                {options.map((option, index) => {
+                    return (
+                        <div key={index} className='optionQuestion'>
+                            <TextField sx={{ margin: '10px 0px', marginRight: '10px  ' }} id="outlined-basic" label={"Option "+ (index+1) } variant="outlined" inputProps={{ maxLength: 150 }}
+                                value={option.content} fullWidth onChange={(value) => { console.log(value.target.value); changeOptionContent(value.target.value, option) }}>
+                            </TextField>
+                            <DeleteForeverIcon fontSize='large'></DeleteForeverIcon>
+                        </div>
+                    )
+                })
+
+                }
+
                 <Button variant="contained" disableElevation fullWidth sx={{ marginTop: '10px' }}>
                     <AddIcon></AddIcon>
                     <div className='addOptionText'>
@@ -169,7 +191,7 @@ function SlideEdit() {
                 </div>
             </div>
 
-            
+
             <SlideExtras />
 
         </div>

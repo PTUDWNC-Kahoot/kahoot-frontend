@@ -16,7 +16,7 @@ export default async function AcceptInvitation(token, setAcceptState, groupCode 
     })
         .catch(function (error) {
             // handle error
-            setAcceptState(true);
+            setAcceptState(false);
             console.log('Join fail')
 
             console.log(error);

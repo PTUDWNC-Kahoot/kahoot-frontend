@@ -9,17 +9,24 @@ import './SlideSettingBar.css'
 import AddIcon from '@mui/icons-material/Add';
 import InvertColorsIcon from '@mui/icons-material/InvertColors';
 import SettingsIcon from '@mui/icons-material/Settings';
+import Slide from '../../../models/Slide';
 
-function SlideHeader() {
-    const navigate = useNavigate();
-    const handleClickPreview = () => {
-        navigate("/editprofile");
-    }
+const OptionsTemp =[new Option (0,'', false), new Option (1,'', false)]
+
+function SlideSettingBar({slides, setSlides, currentSlide}) {
+   function createNewSlide(){
+        const newSlide = new Slide(slides[slides.length-1].id +1,'MultiChoice','',OptionsTemp)
+        console.log(newSlide)
+        var slideList = slides.slice();
+        slideList.push(newSlide);
+        setSlides(slideList);
+        currentSlide(newSlide)
+   }
 
     return (
         <div className="settingBar">
             <div className="settingBarLeftFunc">
-                <Button sx={{ marginLeft: "0", whiteSpace: 'nowrap', height: '3em' }} variant="contained" >
+                <Button sx={{ marginLeft: "0", whiteSpace: 'nowrap', height: '3em' }} variant="contained" onClick={createNewSlide}>
                     <AddIcon sx={{ marginRight: "10px" }} />
                     New slide
                 </Button>
@@ -45,4 +52,4 @@ function SlideHeader() {
     )
 }
 
-export default SlideHeader;
+export default SlideSettingBar;
