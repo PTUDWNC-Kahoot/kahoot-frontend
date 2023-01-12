@@ -9,8 +9,8 @@ import { Snackbar } from '@mui/material';
 
 import { useAuth } from '../../../context/AuthProvider'
 
-export default function CreatePresentation({ state, setState, CreatePresentation }) {
-    const { token } = useAuth();
+export default function CreatePresentation({ state, token, setState, CreatePresentation }) {
+   
 
     const [isOpen, setIsOpen] = useState(state);
     const [newPresentName, setNewPresentName] = useState("");
