@@ -27,7 +27,7 @@ function SlideHeader() {
     const navigate = useNavigate();
     const [videoHelper, setvideoHelper] = useState(false);
     const handleClickPreview = () => {
-        navigate("/editprofile");
+        navigate("/kahootLogin");
     }
     const options = [
         {

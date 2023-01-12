@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default async function AcceptInvitation(token, setAcceptState, groupCode ) {
-
+    console.log('http://54.179.150.210:8000/v1/groups/join-group/' + groupCode,)
     await axios({
         method: 'POST',
         url: 'http://54.179.150.210:8000/v1/groups/join-group/' + groupCode,

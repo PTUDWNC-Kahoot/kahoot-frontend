@@ -13,6 +13,8 @@ export default async function GetGroupPresentationList(token, group,setGroupPres
 
     }).then(function (response) {
         // handle success
+        console.log(response.data);
+
         console.log(response.data.data.result);
         setGroupPresentationList(response.data.data.result);
     })
