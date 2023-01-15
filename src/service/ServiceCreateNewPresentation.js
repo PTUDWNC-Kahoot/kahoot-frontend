@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default async function ServiceCreateNewPresentation(token, newPresentName, setCreateState, createPresentation) {
+export default async function ServiceCreateNewPresentation(token, newPresentName, setCreateState, createNewPresentation) {
 
     const userId =
         await axios({
@@ -14,16 +14,14 @@ export default async function ServiceCreateNewPresentation(token, newPresentName
             return response.data.data.result.id;
         })
 
-    console.log(newPresentName, userId)
-
+   
     await axios({
         method: 'POST',
-        url: 'http://54.179.150.210:8000/v1/presentation',
+        url: 'http://54.179.150.210:8000/v1/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },
         data: {
-            
             "owner": userId,
             "title": newPresentName
         }
@@ -31,7 +29,8 @@ export default async function ServiceCreateNewPresentation(token, newPresentName
     }).then(function (response) {
         // handle success
         setCreateState(true);
-        createPresentation(response.data)
+        console.log(response.data);
+        createNewPresentation(response.data)
     })
         .catch(function (error) {
             // handle error

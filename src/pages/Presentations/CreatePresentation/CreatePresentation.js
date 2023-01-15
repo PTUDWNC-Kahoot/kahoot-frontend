@@ -9,7 +9,7 @@ import { Snackbar } from '@mui/material';
 
 import { useAuth } from '../../../context/AuthProvider'
 
-export default function CreatePresentation({ state, token, setState, CreatePresentation }) {
+export default function CreatePresentation({  token, state, setState, createNewPresentation }) {
    
 
     const [isOpen, setIsOpen] = useState(state);
@@ -59,7 +59,7 @@ export default function CreatePresentation({ state, token, setState, CreatePrese
 
         setIsOpen(false);
         setState(false);
-        ServiceCreateNewPresentation(token, newPresentName, setCreateState, CreatePresentation);
+        ServiceCreateNewPresentation(token, newPresentName, setCreateState, createNewPresentation);
 
     }
 

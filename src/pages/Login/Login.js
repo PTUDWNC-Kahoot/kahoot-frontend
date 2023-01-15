@@ -153,10 +153,10 @@ function Login() {
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
                             </a> */}
-                        {/* <div className="login__google mt-2 ">
+                        <div className="login__google mt-2 ">
                                  <GoogleButton setIsErrorAuth={setIsErrorAuth} />
                             </div>
-                             */}
+                            
                         {/* <button className="form__SignOnBtn" >
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>
                                 <p className="form__socialText">Continue with Facebook</p>

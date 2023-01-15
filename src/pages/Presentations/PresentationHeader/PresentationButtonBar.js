@@ -28,7 +28,7 @@ function PresentationButtonBar ({ token, list, setPresentList, setNewPresent})
     return (
         <div className="present__buttonBar">
             <div className='present__buttonWrapper'>
-                <CreatePresentation state = {createPresentClick} token={token} setState = {setCreatePresentClick} createNewPresentation = {setNewPresent}/>
+                <CreatePresentation token={token} state = {createPresentClick}  setState = {setCreatePresentClick} createNewPresentation = {setNewPresent}/>
                 <button className="present__btn btn__newPresent" onClick={handleCreatePresent} >
                    <FontAwesomeIcon className='icon__add' icon={faAdd} size="lg"  /> 
                     <div> New Presentation</div> 
