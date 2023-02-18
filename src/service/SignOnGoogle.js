@@ -3,7 +3,7 @@ import axios from 'axios';
 export default async function SignOnGoogle() {
     return await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/google/login',
+        url: 'http://localhost:8000/google/login',
        
     },).then(function (response) {
         // handle success

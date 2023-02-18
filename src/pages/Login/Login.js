@@ -106,7 +106,7 @@ function Login() {
     );
 
     async function postDataLogin() {
-        return await axios.post("http://54.179.150.210:8000/auth/login", user)
+        return await axios.post("http://localhost:8000/auth/login", user)
     }
     if (isError) {
         _err = true;
@@ -148,14 +148,14 @@ function Login() {
                         <p className="text--b form__or">or</p>
                     </div>
                     <div className="form__SocialLoginWrapper display--col">
-                        {/* <a className="form__SignOnBtn" href="http://54.179.150.210:8000/google/login" >
+                        {/* <a className="form__SignOnBtn" href="http://localhost:8000/google/login" >
                                 <input type="button" />
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/google-logo.png" alt="Google Icon"></img>
                                 <div className="form__socialText">Continue with Google</div> 
                             </a> */}
-                        <div className="login__google mt-2 ">
+                        {/* <div className="login__google mt-2 ">
                                  <GoogleButton setIsErrorAuth={setIsErrorAuth} />
-                            </div>
+                            </div> */}
                             
                         {/* <button className="form__SignOnBtn" >
                                 <img className="form__socialIcon" src="https://img.icons8.com/color/512/facebook-circled.png" alt="Facebook Icon"></img>

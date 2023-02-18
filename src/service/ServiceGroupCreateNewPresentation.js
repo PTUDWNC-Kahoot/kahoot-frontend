@@ -5,7 +5,7 @@ export default async function ServiceGroupCreateNewPresentation(group, token, ne
     const userId =
     await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/v1/user/me',
+        url: 'http://localhost:8000/v1/user/me',
         headers: {
             'Authorization': 'Bearer ' + token
         },
@@ -15,7 +15,7 @@ export default async function ServiceGroupCreateNewPresentation(group, token, ne
     })  
     await axios({
         method: 'POST',
-        url: 'http://54.179.150.210:8000/v1/groups/' + group.id + '/presentations',
+        url: 'http://localhost:8000/v1/groups/' + group.id + '/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },

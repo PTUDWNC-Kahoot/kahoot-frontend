@@ -4,7 +4,7 @@ export default async function DeleteGroup(token, group, setDeleteState) {
 
     await axios({
         method: 'DELETE',
-        url: 'http://54.179.150.210:8000/v1/groups/' + group.id,
+        url: 'http://localhost:8000/v1/groups/' + group.id,
         headers: {
             'Authorization': 'Bearer ' + token
         },

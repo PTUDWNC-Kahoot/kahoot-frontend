@@ -5,7 +5,7 @@ export default async function CreateNewGroup(token, newNameGroup, setCreateState
     const userId =
         await axios({
             method: 'GET',
-            url: 'http://54.179.150.210:8000/v1/user/me',
+            url: 'http://localhost:8000/v1/user/me',
             headers: {
                 'Authorization': 'Bearer ' + token
             },
@@ -16,7 +16,7 @@ export default async function CreateNewGroup(token, newNameGroup, setCreateState
 
     await axios({
         method: 'POST',
-        url: 'http://54.179.150.210:8000/v1/groups',
+        url: 'http://localhost:8000/v1/groups',
         headers: {
             'Authorization': 'Bearer ' + token
         },

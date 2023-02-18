@@ -5,7 +5,7 @@ export default async function  RenameGroup(token, group, userId, newRole, setAss
     console.log(userId, newRole)
     return await axios({
         method: 'PUT',
-        url: 'http://54.179.150.210:8000/v1/groups/' + group.id + '/assign-role',
+        url: 'http://localhost:8000/v1/groups/' + group.id + '/assign-role',
         headers: {
             'Authorization': 'Bearer ' + token
         },

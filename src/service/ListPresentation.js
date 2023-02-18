@@ -5,7 +5,7 @@ export default async function ListPresentation(token, setListPresentation) {
     
     await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/v1/groups/1/presentations',
+        url: 'http://localhost:8000/v1/groups/1/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },

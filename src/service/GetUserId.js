@@ -6,7 +6,7 @@ export default async function GetUserId(token) {
     const userId =
         await axios({
             method: 'GET',
-            url: 'http://54.179.150.210:8000/v1/user/me',
+            url: 'http://localhost:8000/v1/user/me',
             headers: {
                 'Authorization': 'Bearer ' + token
             },

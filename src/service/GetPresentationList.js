@@ -4,7 +4,7 @@ export default async function GetPresentationList(token, setPresentationList) {
 
     return await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/v1/presentations',
+        url: 'http://localhost:8000/v1/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },

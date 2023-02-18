@@ -5,7 +5,7 @@ export default async function GetGroupPresentationList(token, group,setGroupPres
     console.log(group);
     return await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/v1/groups/' + group.id + '/presentations',
+        url: 'http://localhost:8000/v1/groups/' + group.id + '/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },

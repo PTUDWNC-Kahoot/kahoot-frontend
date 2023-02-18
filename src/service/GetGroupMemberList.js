@@ -5,7 +5,7 @@ export default async function GetGroupMemberList(token, group,setGroupListMember
  
     return await axios({
         method: 'GET',
-        url: 'http://54.179.150.210:8000/v1/groups/' + group.id,
+        url: 'http://localhost:8000/v1/groups/' + group.id,
         headers: {
             'Authorization': 'Bearer ' + token
         },

@@ -4,7 +4,7 @@ export default async function DeleteGroupPresentation(token, presentation, setDe
 
     await axios({
         method: 'DELETE',
-        url: 'http://54.179.150.210:8000/v1/presentations',
+        url: 'http://localhost:8000/v1/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },

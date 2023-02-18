@@ -5,7 +5,7 @@ export default async function ServiceCreateNewPresentation(token, newPresentName
     const userId =
         await axios({
             method: 'GET',
-            url: 'http://54.179.150.210:8000/v1/user/me',
+            url: 'http://localhost:8000/v1/user/me',
             headers: {
                 'Authorization': 'Bearer ' + token
             },
@@ -17,7 +17,7 @@ export default async function ServiceCreateNewPresentation(token, newPresentName
    
     await axios({
         method: 'POST',
-        url: 'http://54.179.150.210:8000/v1/presentations',
+        url: 'http://localhost:8000/v1/presentations',
         headers: {
             'Authorization': 'Bearer ' + token
         },
